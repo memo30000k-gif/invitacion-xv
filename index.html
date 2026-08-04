@@ -2,23 +2,918 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis XV Años</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Mis XV Años | Lizzeth</title>
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        :root {
+            --rosa-claro: #fff3f3;
+            --rosa: #f5d7d8;
+            --rosa-medio: #e7bfc1;
+            --rosa-oscuro: #a86668;
+            --vino-suave: #8f5559;
+            --dorado: #c79a52;
+            --dorado-claro: #ead3a4;
+            --crema: #fffaf2;
+            --texto: #6f4548;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-family: "Montserrat", sans-serif;
+            color: var(--texto);
+            background:
+                radial-gradient(
+                    circle at 20% 15%,
+                    rgba(255,255,255,.95),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 85% 25%,
+                    rgba(255,215,220,.65),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 50% 90%,
+                    rgba(255,255,255,.9),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    145deg,
+                    #fff9f8 0%,
+                    #f9dcde 48%,
+                    #fff5f2 100%
+                );
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .pantalla-sobre {
+            position: relative;
+            min-height: 100svh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            overflow: hidden;
+        }
+
+        /* Líneas decorativas de fondo */
+        .pantalla-sobre::before,
+        .pantalla-sobre::after {
+            content: "";
+            position: absolute;
+            width: 65vw;
+            height: 65vw;
+            border: 1px solid rgba(199,154,82,.25);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .pantalla-sobre::before {
+            top: -40vw;
+            left: -30vw;
+        }
+
+        .pantalla-sobre::after {
+            right: -38vw;
+            bottom: -42vw;
+        }
+
+        .marco {
+            position: absolute;
+            inset: 14px;
+            border: 1px solid rgba(199,154,82,.55);
+            pointer-events: none;
+        }
+
+        .marco::before,
+        .marco::after {
+            content: "✦";
+            position: absolute;
+            color: var(--dorado);
+            font-size: 20px;
+            background: rgba(255,245,245,.9);
+            padding: 2px 9px;
+        }
+
+        .marco::before {
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .marco::after {
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Partículas */
+        .particulas {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particula {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--dorado);
+            box-shadow: 0 0 10px rgba(199,154,82,.9);
+            opacity: 0;
+            animation: flotar 7s linear infinite;
+        }
+
+        .particula:nth-child(1) {
+            left: 8%;
+            animation-delay: 0s;
+        }
+
+        .particula:nth-child(2) {
+            left: 20%;
+            animation-delay: 1.5s;
+        }
+
+        .particula:nth-child(3) {
+            left: 38%;
+            animation-delay: 3s;
+        }
+
+        .particula:nth-child(4) {
+            left: 58%;
+            animation-delay: .8s;
+        }
+
+        .particula:nth-child(5) {
+            left: 76%;
+            animation-delay: 2.2s;
+        }
+
+        .particula:nth-child(6) {
+            left: 92%;
+            animation-delay: 4s;
+        }
+
+        @keyframes flotar {
+            0% {
+                transform: translateY(110vh) scale(.7);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: .75;
+            }
+
+            85% {
+                opacity: .45;
+            }
+
+            100% {
+                transform: translateY(-20vh) scale(1.3);
+                opacity: 0;
+            }
+        }
+
+        .contenido {
+            position: relative;
+            z-index: 5;
+            width: min(100%, 980px);
+            text-align: center;
+        }
+
+        .corona {
+            color: var(--dorado);
+            font-size: clamp(42px, 7vw, 72px);
+            line-height: 1;
+            margin-bottom: 2px;
+            filter: drop-shadow(0 5px 8px rgba(130,84,80,.15));
+        }
+
+        .subtitulo {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(18px, 3vw, 27px);
+            letter-spacing: .28em;
+            text-transform: uppercase;
+            color: var(--vino-suave);
+        }
+
+        .nombre {
+            margin-top: -4px;
+            font-family: "Great Vibes", cursive;
+            font-weight: 400;
+            font-size: clamp(72px, 13vw, 145px);
+            line-height: 1;
+            color: var(--rosa-oscuro);
+            text-shadow:
+                0 3px 0 rgba(255,255,255,.8),
+                0 12px 28px rgba(139,80,84,.14);
+        }
+
+        .mensaje-superior {
+            margin: 2px 0 28px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(21px, 3vw, 31px);
+            font-style: italic;
+            color: #6f4a4d;
+        }
+
+        /* Escena del sobre */
+        .escena-sobre {
+            position: relative;
+            width: min(760px, 94vw);
+            height: clamp(330px, 52vw, 470px);
+            margin: 0 auto;
+            perspective: 1300px;
+        }
+
+        .sobre {
+            position: absolute;
+            left: 50%;
+            bottom: 18px;
+            width: 100%;
+            height: 72%;
+            transform: translateX(-50%);
+            cursor: pointer;
+            filter: drop-shadow(0 25px 25px rgba(104,64,65,.22));
+            transition: transform .35s ease;
+        }
+
+        .sobre:hover {
+            transform: translateX(-50%) translateY(-5px);
+        }
+
+        .cuerpo-sobre {
+            position: absolute;
+            inset: 0;
+            border-radius: 6px;
+            background:
+                linear-gradient(
+                    140deg,
+                    rgba(255,255,255,.65),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    160deg,
+                    #f7dddd,
+                    #e8bfc2
+                );
+            border: 1px solid rgba(181,125,128,.6);
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .cuerpo-sobre::before,
+        .cuerpo-sobre::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            width: 58%;
+            height: 100%;
+            background:
+                linear-gradient(
+                    150deg,
+                    #f4d5d7 10%,
+                    #e5b8bb 100%
+                );
+        }
+
+        .cuerpo-sobre::before {
+            left: -8%;
+            clip-path: polygon(0 0, 100% 52%, 0 100%);
+        }
+
+        .cuerpo-sobre::after {
+            right: -8%;
+            clip-path: polygon(100% 0, 0 52%, 100% 100%);
+        }
+
+        .frente-sobre {
+            position: absolute;
+            inset: 0;
+            z-index: 6;
+            overflow: hidden;
+            border-radius: 5px;
+            pointer-events: none;
+        }
+
+        .frente-sobre::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(
+                    145deg,
+                    transparent 49.5%,
+                    rgba(199,154,82,.55) 50%,
+                    transparent 50.7%
+                ),
+                linear-gradient(
+                    215deg,
+                    transparent 49.5%,
+                    rgba(199,154,82,.55) 50%,
+                    transparent 50.7%
+                );
+        }
+
+        .frente-sobre::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 82%;
+            background:
+                linear-gradient(
+                    145deg,
+                    transparent 49.5%,
+                    rgba(199,154,82,.35) 50%,
+                    transparent 50.5%
+                ),
+                linear-gradient(
+                    215deg,
+                    transparent 49.5%,
+                    rgba(199,154,82,.35) 50%,
+                    transparent 50.5%
+                ),
+                linear-gradient(
+                    160deg,
+                    rgba(247,221,222,.95),
+                    rgba(230,185,188,.96)
+                );
+            clip-path: polygon(0 0, 50% 67%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        /* Solapa */
+        .solapa {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 64%;
+            z-index: 8;
+            transform-origin: top center;
+            transform-style: preserve-3d;
+            transition:
+                transform 1s cubic-bezier(.22,.8,.25,1),
+                z-index .15s linear .42s;
+        }
+
+        .solapa::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.75),
+                    transparent 38%
+                ),
+                linear-gradient(
+                    160deg,
+                    #f8e3e3,
+                    #e9c0c2
+                );
+            border-top: 1px solid rgba(199,154,82,.65);
+        }
+
+        .solapa::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            border-left: 1px solid rgba(199,154,82,.75);
+            border-right: 1px solid rgba(199,154,82,.75);
+        }
+
+        /* Tarjeta interior */
+        .tarjeta {
+            position: absolute;
+            left: 50%;
+            bottom: 26px;
+            z-index: 4;
+            width: 82%;
+            height: 86%;
+            padding: clamp(25px, 5vw, 48px) clamp(20px, 5vw, 55px);
+            transform: translateX(-50%) translateY(36%);
+            border: 1px solid var(--dorado);
+            border-radius: 14px;
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(240,210,177,.25),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    145deg,
+                    #fffefa,
+                    #fff5eb
+                );
+            box-shadow:
+                0 12px 30px rgba(100,58,58,.18),
+                inset 0 0 0 7px rgba(255,255,255,.7);
+            transition:
+                transform 1.15s cubic-bezier(.16,.85,.25,1) .45s,
+                z-index .1s linear .55s;
+            overflow: hidden;
+        }
+
+        .tarjeta::before,
+        .tarjeta::after {
+            content: "✦";
+            position: absolute;
+            color: var(--dorado);
+            font-size: 18px;
+        }
+
+        .tarjeta::before {
+            top: 14px;
+            left: 18px;
+        }
+
+        .tarjeta::after {
+            right: 18px;
+            bottom: 14px;
+        }
+
+        .tarjeta-corona {
+            font-size: clamp(34px, 5vw, 55px);
+            color: var(--dorado);
+            line-height: 1;
+        }
+
+        .tarjeta-titulo {
+            margin-top: 5px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(16px, 2.5vw, 25px);
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--vino-suave);
+        }
+
+        .numero-xv {
+            margin: 5px 0 2px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(82px, 13vw, 132px);
+            line-height: .85;
+            font-weight: 500;
+            color: var(--rosa-oscuro);
+        }
+
+        .anios {
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(17px, 2.5vw, 25px);
+            letter-spacing: .18em;
+            text-transform: uppercase;
+        }
+
+        .texto-tarjeta {
+            max-width: 460px;
+            margin: 14px auto 0;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(17px, 2.2vw, 23px);
+            line-height: 1.35;
+        }
+
+        .firma {
+            margin-top: 8px;
+            font-family: "Great Vibes", cursive;
+            font-size: clamp(38px, 6vw, 62px);
+            color: var(--rosa-oscuro);
+        }
+
+        /* Sello */
+        .sello {
+            position: absolute;
+            left: 50%;
+            top: 47%;
+            z-index: 12;
+            width: clamp(76px, 12vw, 105px);
+            aspect-ratio: 1;
+            transform: translate(-50%, -50%);
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background:
+                radial-gradient(
+                    circle at 35% 28%,
+                    #ffe4ad,
+                    #ce9049 55%,
+                    #9d6532 100%
+                );
+            border: 6px double rgba(255,228,177,.8);
+            box-shadow:
+                0 8px 15px rgba(92,54,37,.3),
+                inset 0 0 12px rgba(255,242,203,.7);
+            color: #74462f;
+            transition:
+                transform .45s ease,
+                opacity .35s ease;
+        }
+
+        .sello span {
+            font-family: "Great Vibes", cursive;
+            font-size: clamp(42px, 7vw, 60px);
+            transform: translateY(3px);
+        }
+
+        .instruccion {
+            position: absolute;
+            z-index: 15;
+            left: 50%;
+            bottom: 42px;
+            transform: translateX(-50%);
+            width: 100%;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(18px, 2.6vw, 25px);
+            font-style: italic;
+            pointer-events: none;
+            transition: opacity .3s ease;
+        }
+
+        .instruccion span {
+            display: inline-block;
+            margin-left: 5px;
+            animation: latido 1.4s ease-in-out infinite;
+        }
+
+        @keyframes latido {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.22);
+            }
+        }
+
+        /* Estado abierto */
+        .escena-sobre.abierto .solapa {
+            transform: rotateX(180deg);
+            z-index: 1;
+        }
+
+        .escena-sobre.abierto .tarjeta {
+            z-index: 10;
+            transform: translateX(-50%) translateY(-30%);
+        }
+
+        .escena-sobre.abierto .sello {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(.2) rotate(-25deg);
+        }
+
+        .escena-sobre.abierto .instruccion {
+            opacity: 0;
+        }
+
+        .escena-sobre.abierto .sobre:hover {
+            transform: translateX(-50%);
+        }
+
+        /* Botón continuar */
+        .continuar {
+            position: relative;
+            z-index: 20;
+            margin-top: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(18px);
+            transition:
+                opacity .6s ease 1.25s,
+                transform .6s ease 1.25s,
+                visibility 0s linear 1.25s;
+        }
+
+        .escena-sobre.abierto + .continuar {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .boton-continuar {
+            border: 1px solid var(--dorado);
+            border-radius: 999px;
+            padding: 13px 28px;
+            color: var(--vino-suave);
+            background: rgba(255,250,246,.78);
+            backdrop-filter: blur(8px);
+            cursor: pointer;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            font-size: 13px;
+            transition:
+                background .3s ease,
+                color .3s ease,
+                transform .3s ease;
+        }
+
+        .boton-continuar:hover {
+            background: var(--dorado);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Siguiente sección de prueba */
+        .invitacion {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 70px 20px;
+            text-align: center;
+            background:
+                linear-gradient(
+                    rgba(255,255,255,.58),
+                    rgba(255,255,255,.58)
+                ),
+                linear-gradient(
+                    145deg,
+                    #f9dddd,
+                    #fff9f5
+                );
+        }
+
+        .invitacion-contenido {
+            width: min(800px, 100%);
+            padding: clamp(35px, 7vw, 75px);
+            border: 1px solid rgba(199,154,82,.65);
+            background: rgba(255,250,247,.72);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 25px 60px rgba(123,77,80,.12);
+        }
+
+        .invitacion-contenido h2 {
+            font-family: "Great Vibes", cursive;
+            font-size: clamp(60px, 10vw, 100px);
+            font-weight: 400;
+            color: var(--rosa-oscuro);
+        }
+
+        .invitacion-contenido p {
+            margin-top: 18px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(21px, 3vw, 30px);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 620px) {
+            .pantalla-sobre {
+                align-items: flex-start;
+                padding-top: 38px;
+            }
+
+            .mensaje-superior {
+                margin-bottom: 12px;
+            }
+
+            .escena-sobre {
+                height: 410px;
+            }
+
+            .sobre {
+                height: 58%;
+                bottom: 60px;
+            }
+
+            .tarjeta {
+                width: 86%;
+                height: 105%;
+                padding: 20px 16px;
+            }
+
+            .escena-sobre.abierto .tarjeta {
+                transform: translateX(-50%) translateY(-35%);
+            }
+
+            .texto-tarjeta {
+                font-size: 16px;
+                line-height: 1.2;
+            }
+
+            .numero-xv {
+                font-size: 76px;
+            }
+
+            .firma {
+                font-size: 42px;
+            }
+
+            .sello {
+                top: 43%;
+            }
+
+            .instruccion {
+                bottom: 80px;
+                font-size: 18px;
+            }
+
+            .continuar {
+                margin-top: -15px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: .01ms !important;
+            }
+        }
+    </style>
 </head>
 
-<body style="background:#FBECEF;text-align:center;font-family:Arial;padding-top:100px;">
+<body>
 
-<h1 style="color:#B97D74;">
-✨ Bienvenidos a mis XV años ✨
-</h1>
+    <main>
+        <section class="pantalla-sobre" id="inicio">
 
-<button onclick="document.getElementById('musica').play()">
-🎵 Reproducir música
-</button>
+            <div class="marco"></div>
 
-<audio id="musica" loop>
-    <source src="https://raw.githubusercontent.com/memo30000k-gif/invitacion-xv/main/Canon%20in%20D.mp3" type="audio/mpeg">
-</audio>
+            <div class="particulas" aria-hidden="true">
+                <span class="particula"></span>
+                <span class="particula"></span>
+                <span class="particula"></span>
+                <span class="particula"></span>
+                <span class="particula"></span>
+                <span class="particula"></span>
+            </div>
+
+            <div class="contenido">
+
+                <div class="corona" aria-hidden="true">♕</div>
+
+                <p class="subtitulo">
+                    Mis XV años
+                </p>
+
+                <h1 class="nombre">
+                    Lizzeth
+                </h1>
+
+                <p class="mensaje-superior">
+                    Tienes una invitación especial
+                </p>
+
+                <div
+                    class="escena-sobre"
+                    id="escenaSobre"
+                >
+                    <div
+                        class="sobre"
+                        id="sobre"
+                        role="button"
+                        tabindex="0"
+                        aria-label="Abrir invitación"
+                        aria-expanded="false"
+                    >
+
+                        <div class="cuerpo-sobre"></div>
+
+                        <article class="tarjeta">
+                            <div class="tarjeta-corona">♕</div>
+
+                            <p class="tarjeta-titulo">
+                                Te invito a celebrar
+                            </p>
+
+                            <div class="numero-xv">
+                                15
+                            </div>
+
+                            <p class="anios">
+                                Mis años
+                            </p>
+
+                            <p class="texto-tarjeta">
+                                Una noche mágica, llena de amor,
+                                alegría y momentos inolvidables.
+                                Me encantará que seas parte
+                                de este sueño hecho realidad.
+                            </p>
+
+                            <p class="firma">
+                                Lizzeth
+                            </p>
+                        </article>
+
+                        <div class="solapa"></div>
+
+                        <div class="frente-sobre"></div>
+
+                        <div class="sello">
+                            <span>L</span>
+                        </div>
+
+                        <p class="instruccion">
+                            Presiona el sobre para abrir
+                            <span>♥</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="continuar">
+                    <button
+                        class="boton-continuar"
+                        id="botonContinuar"
+                        type="button"
+                    >
+                        Continuar con la invitación ↓
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Aquí comenzará el resto de la invitación -->
+        <section class="invitacion" id="invitacion">
+            <div class="invitacion-contenido">
+
+                <div class="corona">♕</div>
+
+                <h2>Lizzeth</h2>
+
+                <p>
+                    Te invito a compartir conmigo una noche
+                    llena de magia, alegría y recuerdos
+                    inolvidables.
+                </p>
+
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const escenaSobre = document.getElementById("escenaSobre");
+        const sobre = document.getElementById("sobre");
+        const botonContinuar = document.getElementById("botonContinuar");
+        const seccionInvitacion = document.getElementById("invitacion");
+
+        let abierto = false;
+
+        function abrirSobre() {
+            if (abierto) {
+                return;
+            }
+
+            abierto = true;
+
+            escenaSobre.classList.add("abierto");
+            sobre.setAttribute("aria-expanded", "true");
+        }
+
+        sobre.addEventListener("click", abrirSobre);
+
+        sobre.addEventListener("keydown", function (evento) {
+            if (
+                evento.key === "Enter" ||
+                evento.key === " "
+            ) {
+                evento.preventDefault();
+                abrirSobre();
+            }
+        });
+
+        botonContinuar.addEventListener("click", function () {
+            seccionInvitacion.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        });
+    </script>
 
 </body>
 </html>
