@@ -222,7 +222,7 @@
         .escena {
             position: relative;
             width: min(720px, 92vw);
-            height: clamp(330px, 48vw, 430px);
+            height: clamp(440px, 58vw, 560px);
             margin: 0 auto;
             perspective: 1400px;
         }
@@ -576,14 +576,15 @@
         Esta clase se agrega después de abrir la solapa.
         */
 
-        .escena.tarjeta-visible .tarjeta {
-            z-index: 6;
-            opacity: 1;
-            visibility: visible;
+       .escena.tarjeta-visible .tarjeta {
+             z-index: 10;
+             opacity: 1;
+             visibility: visible;
 
-            transform:
-                translateX(-50%)
-                translateY(-34%);
+          transform:
+                      translateX(-50%)
+                      translateY(-68%);
+        }
 
             transition:
                 transform 1.05s cubic-bezier(0.2, 0.8, 0.2, 1),
@@ -698,7 +699,7 @@
             }
 
             .escena {
-                height: 410px;
+                height: 490px;
             }
 
             .sobre {
@@ -715,7 +716,7 @@
             .escena.tarjeta-visible .tarjeta {
                 transform:
                     translateX(-50%)
-                    translateY(-38%);
+                    translateY(-72%);
             }
 
             .numero {
