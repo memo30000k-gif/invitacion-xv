@@ -10,7 +10,6 @@
 
     <title>Mis XV Años | Lizzeth</title>
 
-    <!-- Tipografías -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -21,21 +20,20 @@
 
     <style>
         :root {
-            --rosa-claro: #fff3f3;
-            --rosa: #f5d7d8;
-            --rosa-medio: #e7bfc1;
-            --rosa-oscuro: #a86668;
-            --vino-suave: #8f5559;
-            --dorado: #c79a52;
-            --dorado-claro: #ead3a4;
+            --rosa-fondo: #fde5e6;
+            --rosa-claro: #f9dfe0;
+            --rosa-medio: #edc5c7;
+            --rosa-profundo: #b16f74;
+            --vino: #845054;
+            --dorado: #d2a550;
+            --dorado-claro: #f0d99e;
             --crema: #fffaf2;
-            --texto: #6f4548;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         html {
@@ -45,28 +43,23 @@
         body {
             min-height: 100vh;
             overflow-x: hidden;
+            color: var(--vino);
             font-family: "Montserrat", sans-serif;
-            color: var(--texto);
             background:
                 radial-gradient(
-                    circle at 20% 15%,
-                    rgba(255,255,255,.95),
-                    transparent 28%
+                    circle at 12% 15%,
+                    rgba(255, 255, 255, 0.95),
+                    transparent 27%
                 ),
                 radial-gradient(
-                    circle at 85% 25%,
-                    rgba(255,215,220,.65),
+                    circle at 86% 25%,
+                    rgba(255, 210, 217, 0.72),
                     transparent 30%
-                ),
-                radial-gradient(
-                    circle at 50% 90%,
-                    rgba(255,255,255,.9),
-                    transparent 35%
                 ),
                 linear-gradient(
                     145deg,
                     #fff9f8 0%,
-                    #f9dcde 48%,
+                    #fbdfe1 52%,
                     #fff5f2 100%
                 );
         }
@@ -75,132 +68,106 @@
             font: inherit;
         }
 
-        .pantalla-sobre {
+        .portada {
             position: relative;
             min-height: 100svh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 30px 20px;
+            padding: 35px 20px;
             overflow: hidden;
-        }
-
-        /* Líneas decorativas de fondo */
-        .pantalla-sobre::before,
-        .pantalla-sobre::after {
-            content: "";
-            position: absolute;
-            width: 65vw;
-            height: 65vw;
-            border: 1px solid rgba(199,154,82,.25);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-
-        .pantalla-sobre::before {
-            top: -40vw;
-            left: -30vw;
-        }
-
-        .pantalla-sobre::after {
-            right: -38vw;
-            bottom: -42vw;
         }
 
         .marco {
             position: absolute;
-            inset: 14px;
-            border: 1px solid rgba(199,154,82,.55);
+            inset: 15px;
+            border: 1px solid rgba(210, 165, 80, 0.52);
             pointer-events: none;
         }
 
-        .marco::before,
-        .marco::after {
-            content: "✦";
+        .circulo {
             position: absolute;
-            color: var(--dorado);
-            font-size: 20px;
-            background: rgba(255,245,245,.9);
-            padding: 2px 9px;
+            width: 720px;
+            height: 720px;
+            border: 1px solid rgba(210, 165, 80, 0.28);
+            border-radius: 50%;
+            pointer-events: none;
         }
 
-        .marco::before {
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
+        .circulo-izquierdo {
+            top: -490px;
+            left: -300px;
         }
 
-        .marco::after {
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
+        .circulo-derecho {
+            right: -390px;
+            bottom: -420px;
         }
 
-        /* Partículas */
         .particulas {
             position: absolute;
             inset: 0;
-            overflow: hidden;
             pointer-events: none;
         }
 
         .particula {
             position: absolute;
+            bottom: -20px;
             width: 4px;
             height: 4px;
             border-radius: 50%;
             background: var(--dorado);
-            box-shadow: 0 0 10px rgba(199,154,82,.9);
+            box-shadow: 0 0 10px rgba(210, 165, 80, 0.9);
+            animation: flotar 8s linear infinite;
             opacity: 0;
-            animation: flotar 7s linear infinite;
         }
 
         .particula:nth-child(1) {
-            left: 8%;
+            left: 7%;
             animation-delay: 0s;
         }
 
         .particula:nth-child(2) {
-            left: 20%;
+            left: 23%;
             animation-delay: 1.5s;
         }
 
         .particula:nth-child(3) {
-            left: 38%;
-            animation-delay: 3s;
+            left: 41%;
+            animation-delay: 3.5s;
         }
 
         .particula:nth-child(4) {
-            left: 58%;
-            animation-delay: .8s;
+            left: 62%;
+            animation-delay: 0.8s;
         }
 
         .particula:nth-child(5) {
-            left: 76%;
-            animation-delay: 2.2s;
+            left: 79%;
+            animation-delay: 2.4s;
         }
 
         .particula:nth-child(6) {
-            left: 92%;
-            animation-delay: 4s;
+            left: 93%;
+            animation-delay: 4.5s;
         }
 
         @keyframes flotar {
             0% {
-                transform: translateY(110vh) scale(.7);
+                transform: translateY(0) scale(0.7);
                 opacity: 0;
             }
 
             15% {
-                opacity: .75;
+                opacity: 0.8;
             }
 
             85% {
-                opacity: .45;
+                opacity: 0.45;
             }
 
             100% {
-                transform: translateY(-20vh) scale(1.3);
+                transform: translateY(-110vh) scale(1.25);
                 opacity: 0;
             }
         }
@@ -208,364 +175,355 @@
         .contenido {
             position: relative;
             z-index: 5;
-            width: min(100%, 980px);
+            width: min(100%, 950px);
             text-align: center;
         }
 
         .corona {
+            margin-bottom: 4px;
             color: var(--dorado);
-            font-size: clamp(42px, 7vw, 72px);
+            font-size: clamp(40px, 6vw, 65px);
             line-height: 1;
-            margin-bottom: 2px;
-            filter: drop-shadow(0 5px 8px rgba(130,84,80,.15));
         }
 
-        .subtitulo {
+        .mis-xv {
             font-family: "Cormorant Garamond", serif;
-            font-size: clamp(18px, 3vw, 27px);
-            letter-spacing: .28em;
+            font-size: clamp(17px, 2.5vw, 26px);
+            letter-spacing: 0.35em;
             text-transform: uppercase;
-            color: var(--vino-suave);
         }
 
         .nombre {
-            margin-top: -4px;
+            margin-top: -6px;
+            color: var(--rosa-profundo);
             font-family: "Great Vibes", cursive;
+            font-size: clamp(76px, 12vw, 140px);
             font-weight: 400;
-            font-size: clamp(72px, 13vw, 145px);
-            line-height: 1;
-            color: var(--rosa-oscuro);
+            line-height: 0.95;
             text-shadow:
-                0 3px 0 rgba(255,255,255,.8),
-                0 12px 28px rgba(139,80,84,.14);
+                0 3px 0 rgba(255, 255, 255, 0.8),
+                0 13px 25px rgba(121, 71, 75, 0.12);
         }
 
-        .mensaje-superior {
-            margin: 2px 0 28px;
+        .mensaje {
+            margin-top: 10px;
+            margin-bottom: 34px;
             font-family: "Cormorant Garamond", serif;
-            font-size: clamp(21px, 3vw, 31px);
+            font-size: clamp(20px, 3vw, 29px);
             font-style: italic;
-            color: #6f4a4d;
         }
 
-        /* Escena del sobre */
-        .escena-sobre {
+        /*
+        ==================================================
+        ESCENA DEL SOBRE
+        ==================================================
+        */
+
+        .escena {
             position: relative;
-            width: min(760px, 94vw);
-            height: clamp(330px, 52vw, 470px);
+            width: min(720px, 92vw);
+            height: clamp(330px, 48vw, 430px);
             margin: 0 auto;
-            perspective: 1300px;
+            perspective: 1400px;
         }
 
         .sobre {
             position: absolute;
             left: 50%;
-            bottom: 18px;
+            bottom: 35px;
             width: 100%;
-            height: 72%;
+            height: 270px;
             transform: translateX(-50%);
             cursor: pointer;
-            filter: drop-shadow(0 25px 25px rgba(104,64,65,.22));
-            transition: transform .35s ease;
+            filter: drop-shadow(0 24px 24px rgba(100, 61, 64, 0.22));
         }
 
-        .sobre:hover {
-            transform: translateX(-50%) translateY(-5px);
-        }
+        /*
+        La tarjeta comienza invisible y totalmente dentro del sobre.
+        No aparecerá hasta que termine de abrirse la solapa.
+        */
 
-        .cuerpo-sobre {
+        .tarjeta {
             position: absolute;
-            inset: 0;
-            border-radius: 6px;
+            left: 50%;
+            bottom: 15px;
+            z-index: 2;
+            width: 82%;
+            height: 310px;
+            padding: 34px 30px;
+            border: 1px solid var(--dorado);
+            border-radius: 14px;
             background:
-                linear-gradient(
-                    140deg,
-                    rgba(255,255,255,.65),
-                    transparent 35%
+                radial-gradient(
+                    circle at top left,
+                    rgba(237, 211, 170, 0.22),
+                    transparent 30%
                 ),
                 linear-gradient(
-                    160deg,
-                    #f7dddd,
-                    #e8bfc2
+                    145deg,
+                    #fffefa,
+                    #fff6eb
                 );
-            border: 1px solid rgba(181,125,128,.6);
-            overflow: hidden;
-            z-index: 2;
+            box-shadow:
+                0 14px 35px rgba(103, 58, 61, 0.2),
+                inset 0 0 0 7px rgba(255, 255, 255, 0.72);
+
+            opacity: 0;
+            visibility: hidden;
+
+            transform:
+                translateX(-50%)
+                translateY(62%)
+                scale(0.98);
+
+            transition:
+                transform 1.05s cubic-bezier(0.2, 0.8, 0.2, 1),
+                opacity 0.4s ease,
+                visibility 0s linear 0.4s;
         }
 
-        .cuerpo-sobre::before,
-        .cuerpo-sobre::after {
-            content: "";
+        .tarjeta-corona {
+            color: var(--dorado);
+            font-size: 42px;
+            line-height: 1;
+        }
+
+        .tarjeta-titulo {
+            margin-top: 4px;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(16px, 2.4vw, 23px);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .numero {
+            margin-top: 2px;
+            color: var(--rosa-profundo);
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(78px, 12vw, 120px);
+            line-height: 0.82;
+        }
+
+        .anios {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 21px;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+        }
+
+        .texto-tarjeta {
+            max-width: 430px;
+            margin: 13px auto 0;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(16px, 2.1vw, 21px);
+            line-height: 1.25;
+        }
+
+        .firma {
+            margin-top: 6px;
+            color: var(--rosa-profundo);
+            font-family: "Great Vibes", cursive;
+            font-size: clamp(38px, 5vw, 55px);
+        }
+
+        /*
+        Parte trasera del sobre
+        */
+
+        .fondo-sobre {
             position: absolute;
-            bottom: 0;
-            width: 58%;
-            height: 100%;
+            inset: 0;
+            z-index: 1;
+            border: 1px solid rgba(179, 119, 124, 0.55);
+            border-radius: 7px;
             background:
                 linear-gradient(
                     150deg,
-                    #f4d5d7 10%,
-                    #e5b8bb 100%
+                    rgba(255, 255, 255, 0.6),
+                    transparent 38%
+                ),
+                linear-gradient(
+                    150deg,
+                    #f7dddd,
+                    #e9bec1
                 );
         }
 
-        .cuerpo-sobre::before {
-            left: -8%;
-            clip-path: polygon(0 0, 100% 52%, 0 100%);
-        }
+        /*
+        Frente del sobre.
+        Siempre queda delante de la tarjeta.
+        */
 
-        .cuerpo-sobre::after {
-            right: -8%;
-            clip-path: polygon(100% 0, 0 52%, 100% 100%);
-        }
-
-        .frente-sobre {
+        .frente {
             position: absolute;
             inset: 0;
-            z-index: 6;
+            z-index: 8;
             overflow: hidden;
-            border-radius: 5px;
+            border-radius: 7px;
             pointer-events: none;
         }
 
-        .frente-sobre::before {
+        .frente::before {
             content: "";
             position: absolute;
             inset: 0;
             background:
                 linear-gradient(
                     145deg,
-                    transparent 49.5%,
-                    rgba(199,154,82,.55) 50%,
-                    transparent 50.7%
+                    transparent 49.6%,
+                    rgba(210, 165, 80, 0.6) 50%,
+                    transparent 50.5%
                 ),
                 linear-gradient(
                     215deg,
-                    transparent 49.5%,
-                    rgba(199,154,82,.55) 50%,
-                    transparent 50.7%
+                    transparent 49.6%,
+                    rgba(210, 165, 80, 0.6) 50%,
+                    transparent 50.5%
+                ),
+                linear-gradient(
+                    160deg,
+                    #f5d5d7,
+                    #e7b9bc
+                );
+
+            clip-path:
+                polygon(
+                    0 0,
+                    50% 65%,
+                    100% 0,
+                    100% 100%,
+                    0 100%
                 );
         }
 
-        .frente-sobre::after {
+        .frente::after {
             content: "";
             position: absolute;
             left: 0;
             right: 0;
             bottom: 0;
-            height: 82%;
+            height: 76%;
             background:
                 linear-gradient(
-                    145deg,
-                    transparent 49.5%,
-                    rgba(199,154,82,.35) 50%,
-                    transparent 50.5%
-                ),
-                linear-gradient(
-                    215deg,
-                    transparent 49.5%,
-                    rgba(199,154,82,.35) 50%,
-                    transparent 50.5%
-                ),
-                linear-gradient(
-                    160deg,
-                    rgba(247,221,222,.95),
-                    rgba(230,185,188,.96)
+                    165deg,
+                    rgba(255, 255, 255, 0.24),
+                    transparent
                 );
-            clip-path: polygon(0 0, 50% 67%, 100% 0, 100% 100%, 0 100%);
+            clip-path:
+                polygon(
+                    0 0,
+                    50% 72%,
+                    100% 0,
+                    100% 100%,
+                    0 100%
+                );
         }
 
-        /* Solapa */
+        /*
+        Solapa cerrada
+        */
+
         .solapa {
             position: absolute;
             top: 0;
             left: 0;
+            z-index: 12;
             width: 100%;
             height: 64%;
-            z-index: 8;
             transform-origin: top center;
             transform-style: preserve-3d;
+
             transition:
-                transform 1s cubic-bezier(.22,.8,.25,1),
-                z-index .15s linear .42s;
+                transform 0.9s cubic-bezier(0.22, 0.75, 0.25, 1),
+                z-index 0s linear 0.45s;
         }
 
         .solapa::before {
             content: "";
             position: absolute;
             inset: 0;
-            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            border-top: 1px solid rgba(210, 165, 80, 0.8);
             background:
                 linear-gradient(
                     145deg,
-                    rgba(255,255,255,.75),
+                    rgba(255, 255, 255, 0.72),
                     transparent 38%
                 ),
                 linear-gradient(
                     160deg,
-                    #f8e3e3,
-                    #e9c0c2
+                    #f9e3e4,
+                    #e9bec1
                 );
-            border-top: 1px solid rgba(199,154,82,.65);
-        }
 
-        .solapa::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            clip-path: polygon(0 0, 100% 0, 50% 100%);
-            border-left: 1px solid rgba(199,154,82,.75);
-            border-right: 1px solid rgba(199,154,82,.75);
-        }
-
-        /* Tarjeta interior */
-        .tarjeta {
-            position: absolute;
-            left: 50%;
-            bottom: 26px;
-            z-index: 4;
-            width: 82%;
-            height: 86%;
-            padding: clamp(25px, 5vw, 48px) clamp(20px, 5vw, 55px);
-            transform: translateX(-50%) translateY(36%);
-            border: 1px solid var(--dorado);
-            border-radius: 14px;
-            background:
-                radial-gradient(
-                    circle at top left,
-                    rgba(240,210,177,.25),
-                    transparent 30%
-                ),
-                linear-gradient(
-                    145deg,
-                    #fffefa,
-                    #fff5eb
+            clip-path:
+                polygon(
+                    0 0,
+                    100% 0,
+                    50% 100%
                 );
-            box-shadow:
-                0 12px 30px rgba(100,58,58,.18),
-                inset 0 0 0 7px rgba(255,255,255,.7);
-            transition:
-                transform 1.15s cubic-bezier(.16,.85,.25,1) .45s,
-                z-index .1s linear .55s;
-            overflow: hidden;
         }
 
-        .tarjeta::before,
-        .tarjeta::after {
-            content: "✦";
-            position: absolute;
-            color: var(--dorado);
-            font-size: 18px;
-        }
+        /*
+        Sello
+        */
 
-        .tarjeta::before {
-            top: 14px;
-            left: 18px;
-        }
-
-        .tarjeta::after {
-            right: 18px;
-            bottom: 14px;
-        }
-
-        .tarjeta-corona {
-            font-size: clamp(34px, 5vw, 55px);
-            color: var(--dorado);
-            line-height: 1;
-        }
-
-        .tarjeta-titulo {
-            margin-top: 5px;
-            font-family: "Cormorant Garamond", serif;
-            font-size: clamp(16px, 2.5vw, 25px);
-            letter-spacing: .15em;
-            text-transform: uppercase;
-            color: var(--vino-suave);
-        }
-
-        .numero-xv {
-            margin: 5px 0 2px;
-            font-family: "Cormorant Garamond", serif;
-            font-size: clamp(82px, 13vw, 132px);
-            line-height: .85;
-            font-weight: 500;
-            color: var(--rosa-oscuro);
-        }
-
-        .anios {
-            font-family: "Cormorant Garamond", serif;
-            font-size: clamp(17px, 2.5vw, 25px);
-            letter-spacing: .18em;
-            text-transform: uppercase;
-        }
-
-        .texto-tarjeta {
-            max-width: 460px;
-            margin: 14px auto 0;
-            font-family: "Cormorant Garamond", serif;
-            font-size: clamp(17px, 2.2vw, 23px);
-            line-height: 1.35;
-        }
-
-        .firma {
-            margin-top: 8px;
-            font-family: "Great Vibes", cursive;
-            font-size: clamp(38px, 6vw, 62px);
-            color: var(--rosa-oscuro);
-        }
-
-        /* Sello */
         .sello {
             position: absolute;
+            top: 48%;
             left: 50%;
-            top: 47%;
-            z-index: 12;
-            width: clamp(76px, 12vw, 105px);
+            z-index: 20;
+            width: clamp(78px, 11vw, 102px);
             aspect-ratio: 1;
-            transform: translate(-50%, -50%);
             display: grid;
             place-items: center;
+            border: 6px double rgba(255, 229, 175, 0.9);
             border-radius: 50%;
+            color: #70422c;
             background:
                 radial-gradient(
                     circle at 35% 28%,
-                    #ffe4ad,
-                    #ce9049 55%,
-                    #9d6532 100%
+                    #ffe7b6,
+                    #d39a4b 58%,
+                    #9e6432 100%
                 );
-            border: 6px double rgba(255,228,177,.8);
             box-shadow:
-                0 8px 15px rgba(92,54,37,.3),
-                inset 0 0 12px rgba(255,242,203,.7);
-            color: #74462f;
+                0 8px 18px rgba(92, 54, 37, 0.32),
+                inset 0 0 12px rgba(255, 241, 204, 0.65);
+
+            transform: translate(-50%, -50%);
+
             transition:
-                transform .45s ease,
-                opacity .35s ease;
+                opacity 0.35s ease,
+                transform 0.35s ease;
         }
 
         .sello span {
             font-family: "Great Vibes", cursive;
-            font-size: clamp(42px, 7vw, 60px);
-            transform: translateY(3px);
+            font-size: clamp(42px, 6vw, 60px);
+            transform: translateY(4px);
         }
 
         .instruccion {
             position: absolute;
-            z-index: 15;
             left: 50%;
-            bottom: 42px;
-            transform: translateX(-50%);
+            bottom: 28px;
+            z-index: 25;
             width: 100%;
+            transform: translateX(-50%);
             font-family: "Cormorant Garamond", serif;
-            font-size: clamp(18px, 2.6vw, 25px);
+            font-size: clamp(18px, 2.5vw, 24px);
             font-style: italic;
             pointer-events: none;
-            transition: opacity .3s ease;
+
+            transition:
+                opacity 0.3s ease,
+                transform 0.3s ease;
         }
 
-        .instruccion span {
+        .corazon {
             display: inline-block;
             margin-left: 5px;
-            animation: latido 1.4s ease-in-out infinite;
+            animation: latido 1.3s ease-in-out infinite;
         }
 
         @keyframes latido {
@@ -575,78 +533,109 @@
             }
 
             50% {
-                transform: scale(1.22);
+                transform: scale(1.25);
             }
         }
 
-        /* Estado abierto */
-        .escena-sobre.abierto .solapa {
+        /*
+        ==================================================
+        ESTADOS DE LA ANIMACIÓN
+        ==================================================
+        */
+
+        /*
+        Paso 1: desaparece el sello.
+        */
+
+        .escena.quitando-sello .sello {
+            opacity: 0;
+            transform:
+                translate(-50%, -50%)
+                scale(0.15)
+                rotate(-25deg);
+        }
+
+        .escena.quitando-sello .instruccion {
+            opacity: 0;
+            transform:
+                translateX(-50%)
+                translateY(10px);
+        }
+
+        /*
+        Paso 2: abre la solapa.
+        */
+
+        .escena.abriendo .solapa {
+            z-index: 0;
             transform: rotateX(180deg);
-            z-index: 1;
         }
 
-        .escena-sobre.abierto .tarjeta {
-            z-index: 10;
-            transform: translateX(-50%) translateY(-30%);
-        }
+        /*
+        Paso 3: aparece y sale la tarjeta.
+        Esta clase se agrega después de abrir la solapa.
+        */
 
-        .escena-sobre.abierto .sello {
-            opacity: 0;
-            transform: translate(-50%, -50%) scale(.2) rotate(-25deg);
-        }
-
-        .escena-sobre.abierto .instruccion {
-            opacity: 0;
-        }
-
-        .escena-sobre.abierto .sobre:hover {
-            transform: translateX(-50%);
-        }
-
-        /* Botón continuar */
-        .continuar {
-            position: relative;
-            z-index: 20;
-            margin-top: 8px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(18px);
-            transition:
-                opacity .6s ease 1.25s,
-                transform .6s ease 1.25s,
-                visibility 0s linear 1.25s;
-        }
-
-        .escena-sobre.abierto + .continuar {
+        .escena.tarjeta-visible .tarjeta {
+            z-index: 6;
             opacity: 1;
             visibility: visible;
-            transform: translateY(0);
-        }
 
-        .boton-continuar {
-            border: 1px solid var(--dorado);
-            border-radius: 999px;
-            padding: 13px 28px;
-            color: var(--vino-suave);
-            background: rgba(255,250,246,.78);
-            backdrop-filter: blur(8px);
-            cursor: pointer;
-            letter-spacing: .08em;
-            text-transform: uppercase;
-            font-size: 13px;
+            transform:
+                translateX(-50%)
+                translateY(-34%);
+
             transition:
-                background .3s ease,
-                color .3s ease,
-                transform .3s ease;
+                transform 1.05s cubic-bezier(0.2, 0.8, 0.2, 1),
+                opacity 0.4s ease,
+                visibility 0s;
         }
 
-        .boton-continuar:hover {
-            background: var(--dorado);
-            color: white;
-            transform: translateY(-2px);
+        /*
+        Indicador posterior.
+        */
+
+        .tocar-tarjeta {
+            position: absolute;
+            left: 50%;
+            bottom: -2px;
+            z-index: 30;
+            padding: 11px 20px;
+            border: 1px solid rgba(210, 165, 80, 0.7);
+            border-radius: 999px;
+            color: var(--vino);
+            background: rgba(255, 250, 246, 0.84);
+            backdrop-filter: blur(8px);
+            font-family: "Cormorant Garamond", serif;
+            font-size: 18px;
+            cursor: pointer;
+
+            opacity: 0;
+            visibility: hidden;
+            transform:
+                translateX(-50%)
+                translateY(15px);
+
+            transition:
+                opacity 0.5s ease,
+                transform 0.5s ease,
+                visibility 0s linear 0.5s;
         }
 
-        /* Siguiente sección de prueba */
+        .escena.tarjeta-visible .tocar-tarjeta {
+            opacity: 1;
+            visibility: visible;
+            transform:
+                translateX(-50%)
+                translateY(0);
+
+            transition-delay: 0.75s;
+        }
+
+        /*
+        Siguiente sección.
+        */
+
         .invitacion {
             min-height: 100vh;
             display: grid;
@@ -655,92 +644,102 @@
             text-align: center;
             background:
                 linear-gradient(
-                    rgba(255,255,255,.58),
-                    rgba(255,255,255,.58)
+                    rgba(255, 255, 255, 0.62),
+                    rgba(255, 255, 255, 0.62)
                 ),
                 linear-gradient(
                     145deg,
-                    #f9dddd,
-                    #fff9f5
+                    #f7d9db,
+                    #fff8f5
                 );
         }
 
         .invitacion-contenido {
-            width: min(800px, 100%);
-            padding: clamp(35px, 7vw, 75px);
-            border: 1px solid rgba(199,154,82,.65);
-            background: rgba(255,250,247,.72);
+            width: min(780px, 100%);
+            padding: clamp(38px, 7vw, 75px);
+            border: 1px solid rgba(210, 165, 80, 0.65);
+            background: rgba(255, 250, 247, 0.75);
             backdrop-filter: blur(8px);
-            box-shadow: 0 25px 60px rgba(123,77,80,.12);
+            box-shadow: 0 25px 60px rgba(123, 77, 80, 0.12);
         }
 
         .invitacion-contenido h2 {
+            color: var(--rosa-profundo);
             font-family: "Great Vibes", cursive;
-            font-size: clamp(60px, 10vw, 100px);
+            font-size: clamp(65px, 10vw, 105px);
             font-weight: 400;
-            color: var(--rosa-oscuro);
         }
 
         .invitacion-contenido p {
-            margin-top: 18px;
+            margin-top: 15px;
             font-family: "Cormorant Garamond", serif;
             font-size: clamp(21px, 3vw, 30px);
-            line-height: 1.5;
+            line-height: 1.45;
         }
 
+        /*
+        ==================================================
+        CELULAR
+        ==================================================
+        */
+
         @media (max-width: 620px) {
-            .pantalla-sobre {
+            .portada {
                 align-items: flex-start;
-                padding-top: 38px;
+                padding-top: 35px;
             }
 
-            .mensaje-superior {
-                margin-bottom: 12px;
+            .nombre {
+                font-size: 82px;
             }
 
-            .escena-sobre {
+            .mensaje {
+                margin-bottom: 16px;
+            }
+
+            .escena {
                 height: 410px;
             }
 
             .sobre {
-                height: 58%;
                 bottom: 60px;
+                height: 220px;
             }
 
             .tarjeta {
-                width: 86%;
-                height: 105%;
-                padding: 20px 16px;
+                width: 87%;
+                height: 285px;
+                padding: 24px 18px;
             }
 
-            .escena-sobre.abierto .tarjeta {
-                transform: translateX(-50%) translateY(-35%);
+            .escena.tarjeta-visible .tarjeta {
+                transform:
+                    translateX(-50%)
+                    translateY(-38%);
+            }
+
+            .numero {
+                font-size: 74px;
             }
 
             .texto-tarjeta {
-                font-size: 16px;
-                line-height: 1.2;
-            }
-
-            .numero-xv {
-                font-size: 76px;
+                font-size: 15px;
             }
 
             .firma {
-                font-size: 42px;
-            }
-
-            .sello {
-                top: 43%;
+                font-size: 40px;
             }
 
             .instruccion {
-                bottom: 80px;
+                bottom: 24px;
                 font-size: 18px;
             }
 
-            .continuar {
-                margin-top: -15px;
+            .tocar-tarjeta {
+                bottom: 4px;
+                width: max-content;
+                max-width: 90%;
+                font-size: 16px;
             }
         }
 
@@ -748,9 +747,9 @@
             *,
             *::before,
             *::after {
-                animation-duration: .01ms !important;
+                animation-duration: 0.01ms !important;
                 animation-iteration-count: 1 !important;
-                transition-duration: .01ms !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
@@ -759,9 +758,12 @@
 <body>
 
     <main>
-        <section class="pantalla-sobre" id="inicio">
+
+        <section class="portada" id="portada">
 
             <div class="marco"></div>
+            <div class="circulo circulo-izquierdo"></div>
+            <div class="circulo circulo-derecho"></div>
 
             <div class="particulas" aria-hidden="true">
                 <span class="particula"></span>
@@ -774,9 +776,11 @@
 
             <div class="contenido">
 
-                <div class="corona" aria-hidden="true">♕</div>
+                <div class="corona" aria-hidden="true">
+                    ♕
+                </div>
 
-                <p class="subtitulo">
+                <p class="mis-xv">
                     Mis XV años
                 </p>
 
@@ -784,14 +788,12 @@
                     Lizzeth
                 </h1>
 
-                <p class="mensaje-superior">
+                <p class="mensaje">
                     Tienes una invitación especial
                 </p>
 
-                <div
-                    class="escena-sobre"
-                    id="escenaSobre"
-                >
+                <div class="escena" id="escena">
+
                     <div
                         class="sobre"
                         id="sobre"
@@ -801,16 +803,21 @@
                         aria-expanded="false"
                     >
 
-                        <div class="cuerpo-sobre"></div>
+                        <div class="fondo-sobre"></div>
 
-                        <article class="tarjeta">
-                            <div class="tarjeta-corona">♕</div>
+                        <article
+                            class="tarjeta"
+                            id="tarjeta"
+                        >
+                            <div class="tarjeta-corona">
+                                ♕
+                            </div>
 
                             <p class="tarjeta-titulo">
                                 Te invito a celebrar
                             </p>
 
-                            <div class="numero-xv">
+                            <div class="numero">
                                 15
                             </div>
 
@@ -831,8 +838,7 @@
                         </article>
 
                         <div class="solapa"></div>
-
-                        <div class="frente-sobre"></div>
+                        <div class="frente"></div>
 
                         <div class="sello">
                             <span>L</span>
@@ -840,31 +846,38 @@
 
                         <p class="instruccion">
                             Presiona el sobre para abrir
-                            <span>♥</span>
+                            <span class="corazon">♥</span>
                         </p>
-                    </div>
-                </div>
 
-                <div class="continuar">
+                    </div>
+
                     <button
-                        class="boton-continuar"
-                        id="botonContinuar"
+                        class="tocar-tarjeta"
+                        id="continuar"
                         type="button"
                     >
-                        Continuar con la invitación ↓
+                        Toca la invitación para continuar
                     </button>
+
                 </div>
 
             </div>
+
         </section>
 
-        <!-- Aquí comenzará el resto de la invitación -->
-        <section class="invitacion" id="invitacion">
+        <section
+            class="invitacion"
+            id="invitacion"
+        >
             <div class="invitacion-contenido">
 
-                <div class="corona">♕</div>
+                <div class="corona">
+                    ♕
+                </div>
 
-                <h2>Lizzeth</h2>
+                <h2>
+                    Lizzeth
+                </h2>
 
                 <p>
                     Te invito a compartir conmigo una noche
@@ -874,30 +887,42 @@
 
             </div>
         </section>
+
     </main>
 
     <script>
-        const escenaSobre = document.getElementById("escenaSobre");
+        const escena = document.getElementById("escena");
         const sobre = document.getElementById("sobre");
-        const botonContinuar = document.getElementById("botonContinuar");
-        const seccionInvitacion = document.getElementById("invitacion");
+        const continuar = document.getElementById("continuar");
+        const invitacion = document.getElementById("invitacion");
 
-        let abierto = false;
+        let animacionIniciada = false;
 
         function abrirSobre() {
-            if (abierto) {
+            if (animacionIniciada) {
                 return;
             }
 
-            abierto = true;
-
-            escenaSobre.classList.add("abierto");
+            animacionIniciada = true;
             sobre.setAttribute("aria-expanded", "true");
+
+            // Paso 1: quitar el sello.
+            escena.classList.add("quitando-sello");
+
+            // Paso 2: abrir la solapa.
+            window.setTimeout(() => {
+                escena.classList.add("abriendo");
+            }, 350);
+
+            // Paso 3: sacar la tarjeta después de abrir la solapa.
+            window.setTimeout(() => {
+                escena.classList.add("tarjeta-visible");
+            }, 1150);
         }
 
         sobre.addEventListener("click", abrirSobre);
 
-        sobre.addEventListener("keydown", function (evento) {
+        sobre.addEventListener("keydown", (evento) => {
             if (
                 evento.key === "Enter" ||
                 evento.key === " "
@@ -907,8 +932,8 @@
             }
         });
 
-        botonContinuar.addEventListener("click", function () {
-            seccionInvitacion.scrollIntoView({
+        continuar.addEventListener("click", () => {
+            invitacion.scrollIntoView({
                 behavior: "smooth",
                 block: "start"
             });
