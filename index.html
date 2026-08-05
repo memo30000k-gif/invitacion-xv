@@ -1111,15 +1111,257 @@
             .halo-sobre { bottom: 74px; height: 280px; }
         }
 
+
+
+        /* ============================================
+           ACABADO PREMIUM V2 — PRELOADER Y PROFUNDIDAD
+           ============================================ */
+        body.preloading { overflow: hidden; }
+
+        .preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: grid;
+            place-items: center;
+            background:
+                radial-gradient(circle at 50% 42%, rgba(255,255,255,.98), rgba(253,235,238,.96) 48%, #f7d8de 100%);
+            transition: opacity .85s ease, visibility .85s ease;
+        }
+
+        .preloader.oculto {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .preloader-inner {
+            position: relative;
+            width: 190px;
+            height: 190px;
+            display: grid;
+            place-items: center;
+        }
+
+        .preloader-ring,
+        .preloader-ring::before,
+        .preloader-ring::after {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            content: "";
+        }
+
+        .preloader-ring {
+            border: 1px solid rgba(211,166,79,.45);
+            animation: girarLento 8s linear infinite;
+        }
+
+        .preloader-ring::before {
+            inset: 12px;
+            border: 1px dashed rgba(180,111,117,.25);
+            animation: girarLento 11s linear infinite reverse;
+        }
+
+        .preloader-ring::after {
+            inset: 27px;
+            border: 1px solid rgba(211,166,79,.22);
+        }
+
+        .preloader-monograma {
+            position: relative;
+            z-index: 2;
+            font-family: "Great Vibes", cursive;
+            font-size: 86px;
+            color: var(--rosa-oscuro);
+            text-shadow: 0 8px 28px rgba(134,82,87,.18);
+            animation: respirarMonograma 2.2s ease-in-out infinite;
+        }
+
+        .preloader-subtitulo {
+            position: absolute;
+            top: calc(50% + 58px);
+            left: 50%;
+            width: 260px;
+            transform: translateX(-50%);
+            font-family: "Cormorant Garamond", serif;
+            font-size: 13px;
+            letter-spacing: .34em;
+            text-transform: uppercase;
+            color: rgba(134,82,87,.72);
+        }
+
+        @keyframes girarLento { to { transform: rotate(360deg); } }
+        @keyframes respirarMonograma {
+            0%,100% { transform: scale(.96); opacity: .82; }
+            50% { transform: scale(1.04); opacity: 1; }
+        }
+
+        .portada::before {
+            background-image:
+                repeating-radial-gradient(circle at 30% 30%, rgba(255,255,255,.25) 0 1px, transparent 1px 4px),
+                repeating-linear-gradient(12deg, rgba(125,75,87,.018) 0 1px, transparent 1px 5px),
+                linear-gradient(118deg, transparent 0 38%, rgba(255,255,255,.23) 42%, transparent 47% 100%);
+        }
+
+        .portada-luz-central {
+            position: absolute;
+            left: 50%;
+            top: 43%;
+            width: min(900px, 90vw);
+            height: min(650px, 70vh);
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background: radial-gradient(ellipse, rgba(255,255,255,.72), rgba(255,255,255,.18) 48%, transparent 72%);
+            filter: blur(7px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .nombre {
+            position: relative;
+            display: inline-block;
+        }
+
+        .nombre::after {
+            content: "";
+            position: absolute;
+            left: 12%;
+            right: 8%;
+            bottom: 3px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(211,166,79,.75), transparent);
+            transform: scaleX(.75);
+            opacity: .75;
+        }
+
+        .mis-xv {
+            color: rgba(113,71,77,.92);
+            text-shadow: 0 1px 0 rgba(255,255,255,.85);
+        }
+
+        .mensaje-superior {
+            color: rgba(113,71,77,.88);
+            text-shadow: 0 1px 0 rgba(255,255,255,.8);
+        }
+
+        .sobre {
+            animation: respirarSobre 4.8s ease-in-out infinite;
+        }
+
+        .escena.quitando-sello .sobre,
+        .escena.abriendo .sobre,
+        .escena.tarjeta-visible .sobre {
+            animation: none;
+        }
+
+        @keyframes respirarSobre {
+            0%,100% { translate: 0 0; }
+            50% { translate: 0 -5px; }
+        }
+
+        .fondo-sobre,
+        .frente::before,
+        .solapa::before {
+            background-blend-mode: screen, normal;
+        }
+
+        .fondo-sobre::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            opacity: .38;
+            background-image:
+                repeating-linear-gradient(22deg, rgba(255,255,255,.18) 0 1px, transparent 1px 5px),
+                radial-gradient(circle at 72% 20%, rgba(255,255,255,.55), transparent 28%);
+            mix-blend-mode: soft-light;
+        }
+
+        .tarjeta {
+            border: 1px solid rgba(211,166,79,.88);
+            box-shadow:
+                0 18px 42px rgba(103,58,61,.22),
+                0 0 0 5px rgba(255,255,255,.50),
+                inset 0 0 0 1px rgba(211,166,79,.30),
+                inset 0 0 0 8px rgba(255,255,255,.72);
+        }
+
+        .tarjeta::before,
+        .tarjeta::after {
+            text-shadow: 0 0 10px rgba(211,166,79,.35);
+        }
+
+        .tarjeta-ornamento {
+            position: absolute;
+            width: 54px;
+            height: 54px;
+            opacity: .48;
+            pointer-events: none;
+        }
+
+        .tarjeta-ornamento.sup-izq { top: 12px; left: 12px; border-top: 1px solid var(--dorado); border-left: 1px solid var(--dorado); border-radius: 10px 0 0 0; }
+        .tarjeta-ornamento.inf-der { right: 12px; bottom: 12px; border-right: 1px solid var(--dorado); border-bottom: 1px solid var(--dorado); border-radius: 0 0 10px 0; }
+
+        .sello::after {
+            content: "";
+            position: absolute;
+            inset: -10px;
+            border-radius: 50%;
+            border: 1px solid rgba(211,166,79,.24);
+            animation: pulsoSello 2.6s ease-out infinite;
+        }
+
+        @keyframes pulsoSello {
+            0% { transform: scale(.92); opacity: 0; }
+            35% { opacity: .65; }
+            100% { transform: scale(1.25); opacity: 0; }
+        }
+
+        .escena.quitando-sello .sello::after { animation: none; opacity: 0; }
+
+        .cinta-dorada {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: min(1180px, 96vw);
+            height: 1px;
+            transform: translate(-50%, -50%) rotate(-8deg);
+            background: linear-gradient(90deg, transparent, rgba(211,166,79,.28), transparent);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @media (max-width: 620px) {
+            .preloader-inner { width: 155px; height: 155px; }
+            .preloader-monograma { font-size: 70px; }
+            .preloader-subtitulo { top: calc(50% + 49px); font-size: 11px; }
+            .portada-luz-central { top: 37%; height: 58vh; }
+            .cinta-dorada { width: 125vw; top: 46%; }
+        }
+
     </style>
 </head>
 
-<body>
+<body class="preloading">
+
+    <div class="preloader" id="preloader" aria-hidden="true">
+        <div class="preloader-inner">
+            <div class="preloader-ring"></div>
+            <div class="preloader-monograma">L</div>
+            <div class="preloader-subtitulo">Mis XV años</div>
+        </div>
+    </div>
+
 
     <main>
 
         <!-- Portada con sobre -->
         <section class="portada" id="portada">
+
+            <div class="portada-luz-central"></div>
+            <div class="cinta-dorada"></div>
 
             <div class="marco"></div>
 
@@ -1234,6 +1476,8 @@
                             tabindex="-1"
                             aria-label="Continuar con la invitación"
                         >
+                            <span class="tarjeta-ornamento sup-izq"></span>
+                            <span class="tarjeta-ornamento inf-der"></span>
                             <div class="tarjeta-corona">
                                 ♕
                             </div>
@@ -1314,6 +1558,15 @@
     </main>
 
     <script>
+        const preloader = document.getElementById("preloader");
+
+        window.addEventListener("load", () => {
+            window.setTimeout(() => {
+                preloader.classList.add("oculto");
+                document.body.classList.remove("preloading");
+            }, 1450);
+        });
+
         const escena = document.getElementById("escena");
         const sobre = document.getElementById("sobre");
         const tarjeta = document.getElementById("tarjeta");
