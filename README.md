@@ -1,13 +1,31 @@
-# Invitación XV — Lizzeth
+# Invitación digital XV — Lizzeth
+
+Proyecto modular para GitHub Pages.
 
 ## Estructura
 
 - `index.html`: estructura de la página.
-- `css/styles.css`: diseño, portada, sobre, animaciones y responsive.
-- `js/preloader.js`: pantalla inicial con monograma.
-- `js/envelope.js`: apertura del sobre y navegación a la invitación.
+- `css/`: estilos separados por responsabilidad.
+- `js/`: comportamiento del preloader y del sobre.
 - `assets/`: recursos visuales, audio y fotografías.
 
-## Publicación en GitHub Pages
+## Publicación
 
-Sube todas las carpetas y archivos conservando exactamente esta estructura. GitHub Pages cargará `index.html` desde la raíz.
+Sube **el contenido de esta carpeta** a la raíz del repositorio. No subas la carpeta contenedora como una carpeta adicional.
+
+Git no conserva carpetas vacías; por eso cada subcarpeta de `assets` contiene un archivo `.gitkeep`. Puedes eliminarlo cuando agregues un recurso real.
+
+## Orden de estilos
+
+No cambies el orden de los `<link>` en `index.html`, porque la cascada CSS depende de él.
+
+## Recursos premium incluidos
+
+- `assets/fondos/textura-papel.svg`
+- `assets/flores/floral-esquina.svg`
+- `assets/mariposas/mariposa-rosa.svg`
+- `assets/mariposas/mariposa-dorada.svg`
+- `assets/iconos/corona.svg`
+- `assets/iconos/destello.svg`
+
+Todos son SVG ligeros y escalables, por lo que se mantienen nítidos en celular y computadora.

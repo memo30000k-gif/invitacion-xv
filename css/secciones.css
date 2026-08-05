@@ -1,0 +1,47 @@
+/* Secciones posteriores de la invitación */
+.invitacion {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            padding: 70px 20px;
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    rgba(255, 255, 255, 0.62),
+                    rgba(255, 255, 255, 0.62)
+                ),
+                linear-gradient(
+                    145deg,
+                    #f7d9dc,
+                    #fff8f5
+                );
+        }
+
+.invitacion-contenido {
+            width: min(780px, 100%);
+            padding: clamp(38px, 7vw, 75px);
+
+            border: 1px solid rgba(211, 166, 79, 0.65);
+
+            background: rgba(255, 250, 247, 0.78);
+            backdrop-filter: blur(8px);
+
+            box-shadow:
+                0 25px 60px rgba(123, 77, 80, 0.12);
+        }
+
+.invitacion-contenido h2 {
+            color: var(--rosa-oscuro);
+            font-family: "Great Vibes", cursive;
+            font-size: clamp(65px, 10vw, 105px);
+            font-weight: 400;
+        }
+
+.invitacion-contenido p {
+            max-width: 620px;
+            margin: 16px auto 0;
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(21px, 3vw, 30px);
+            line-height: 1.45;
+        }

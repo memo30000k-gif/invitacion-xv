@@ -1,0 +1,82 @@
+/* Animaciones globales */
+@keyframes flotar {
+            0% {
+                opacity: 0;
+                transform: translateY(0) scale(0.7);
+            }
+
+            15% {
+                opacity: 0.8;
+            }
+
+            85% {
+                opacity: 0.4;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-110vh) scale(1.25);
+            }
+        }
+
+@keyframes latido {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.25);
+            }
+        }
+
+@keyframes mostrarIndicacion {
+            from {
+                opacity: 0;
+
+                transform:
+                    translateX(-50%)
+                    translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateX(-50%)
+                    translateY(0);
+            }
+        }
+
+@keyframes vueloMariposa {
+            0%, 100% { translate: 0 0; rotate: 0deg; }
+            50% { translate: 0 -13px; rotate: 4deg; }
+        }
+
+@keyframes titilar {
+            0%, 100% { opacity: .25; transform: scale(.8) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.2) rotate(22deg); }
+        }
+
+@keyframes brilloSello {
+            0%, 100% { box-shadow: 0 8px 18px rgba(92,54,37,.32), inset 0 0 12px rgba(255,241,204,.70); }
+            50% { box-shadow: 0 8px 22px rgba(92,54,37,.38), 0 0 22px rgba(211,166,79,.42), inset 0 0 16px rgba(255,241,204,.86); }
+        }
+
+@keyframes girarLento { to { transform: rotate(360deg); } }
+
+@keyframes respirarMonograma {
+            0%,100% { transform: scale(.96); opacity: .82; }
+            50% { transform: scale(1.04); opacity: 1; }
+        }
+
+@keyframes respirarSobre {
+            0%,100% { translate: 0 0; }
+            50% { translate: 0 -5px; }
+        }
+
+@keyframes pulsoSello {
+            0% { transform: scale(.92); opacity: 0; }
+            35% { opacity: .65; }
+            100% { transform: scale(1.25); opacity: 0; }
+        }

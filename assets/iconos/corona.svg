@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 150" role="img" aria-labelledby="t">
+<title id="t">Corona dorada</title>
+<defs>
+<linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0b8"/><stop offset=".35" stop-color="#d8ad58"/><stop offset=".7" stop-color="#b7792f"/><stop offset="1" stop-color="#f2d690"/></linearGradient>
+<filter id="s" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#7a4826" flood-opacity=".28"/></filter>
+</defs>
+<g fill="none" stroke="url(#g)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" filter="url(#s)">
+<path d="M34 111 22 45l51 36 47-61 47 61 51-36-12 66Z"/>
+<path d="M39 112c26 13 136 13 162 0v20H39Z"/>
+<path d="M58 96c35 11 89 11 124 0" stroke-width="4"/>
+</g>
+<g fill="#f6dda1" stroke="#b7792f" stroke-width="3">
+<circle cx="22" cy="43" r="8"/><circle cx="120" cy="19" r="8"/><circle cx="218" cy="43" r="8"/>
+<circle cx="73" cy="80" r="7"/><circle cx="167" cy="80" r="7"/><circle cx="120" cy="73" r="8"/>
+</g>
+</svg>

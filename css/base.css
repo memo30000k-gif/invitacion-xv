@@ -1,0 +1,72 @@
+/* Reset y estilos globales */
+* {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+html {
+            scroll-behavior: smooth;
+        }
+
+body {
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: var(--vino);
+            font-family: "Montserrat", sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 10% 12%,
+                    rgba(255, 255, 255, 0.96),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 87% 22%,
+                    rgba(255, 207, 215, 0.65),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 45% 95%,
+                    rgba(255, 255, 255, 0.72),
+                    transparent 38%
+                ),
+                linear-gradient(
+                    145deg,
+                    #fffaf9 0%,
+                    #fbdfe1 52%,
+                    #fff6f3 100%
+                );
+        }
+
+button {
+            font: inherit;
+        }
+
+.texto-tarjeta {
+            max-width: 470px;
+            margin: 18px auto 0;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 17px;
+            line-height: 1.25;
+        }
+
+.destello-1 { top: 14%; left: 23%; font-size: 17px; }
+
+.destello-2 { top: 28%; right: 23%; font-size: 12px; animation-delay: .9s; }
+
+.destello-3 { bottom: 28%; left: 15%; font-size: 20px; animation-delay: 1.7s; }
+
+.destello-4 { bottom: 13%; right: 32%; font-size: 11px; animation-delay: 2.2s; }
+
+.cinta-dorada {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: min(1180px, 96vw);
+            height: 1px;
+            transform: translate(-50%, -50%) rotate(-8deg);
+            background: linear-gradient(90deg, transparent, rgba(211,166,79,.28), transparent);
+            z-index: 0;
+            pointer-events: none;
+        }
