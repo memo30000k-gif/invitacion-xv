@@ -97,9 +97,28 @@ actualizarCuentaRegresiva();
 window.setInterval(actualizarCuentaRegresiva, 1000);
 
 const botonIrCuenta = document.getElementById("irCuenta");
+const botonIrMensaje = document.getElementById("irMensaje");
+const seccionMensaje = document.getElementById("mensajeEspecial");
 
 botonIrCuenta?.addEventListener("click", () => {
     seccionCuenta?.scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+botonIrMensaje?.addEventListener("click", () => {
+    if (!seccionCuenta || !seccionMensaje) return;
+
+    seccionCuenta.classList.add("tiempo-detenido");
+    botonIrMensaje.disabled = true;
+
+    window.setTimeout(() => {
+        seccionMensaje.scrollIntoView({ behavior: "smooth", block: "start" });
+        seccionMensaje.classList.add("mensaje-visible");
+    }, 760);
+
+    window.setTimeout(() => {
+        seccionCuenta.classList.remove("tiempo-detenido");
+        botonIrMensaje.disabled = false;
+    }, 1900);
 });
 
 if (seccionCuenta && "IntersectionObserver" in window) {
