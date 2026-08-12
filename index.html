@@ -24,13 +24,22 @@
     <link rel="stylesheet" href="css/base.css?v=2">
     <link rel="stylesheet" href="css/portada.css?v=2">
     <link rel="stylesheet" href="css/sobre.css?v=3">
-    <link rel="stylesheet" href="css/secciones.css?v=3">
-    <link rel="stylesheet" href="css/animaciones.css?v=2">
+    <link rel="stylesheet" href="css/secciones.css?v=4">
+    <link rel="stylesheet" href="css/animaciones.css?v=3">
     <link rel="stylesheet" href="css/responsive.css?v=4">
 
 </head>
 
 <body class="preloading">
+
+    <audio id="musicaInvitacion" preload="metadata" loop>
+        <source src="assets/audio/canon-in-d.mp3" type="audio/mpeg">
+    </audio>
+
+    <button class="control-musica" id="controlMusica" type="button" aria-label="Reproducir música" aria-pressed="false">
+        <span class="control-musica-icono" aria-hidden="true">♪</span>
+        <span class="control-musica-texto">Música</span>
+    </button>
 
     <div class="preloader" id="preloader" aria-hidden="true">
         <div class="preloader-inner">
@@ -185,27 +194,28 @@
             <img class="bienvenida-floral bienvenida-floral-dos" src="assets/flores/floral-esquina.svg" alt="">
 
             <div class="bienvenida-contenido">
-                <p class="bienvenida-etiqueta">Con la bendición de Dios</p>
-                <img class="bienvenida-corona" src="assets/iconos/corona.svg" alt="">
-                <p class="bienvenida-kicker">Mis XV años</p>
-                <h2 id="titulo-bienvenida">Lizzeth</h2>
+                <span class="bienvenida-monograma" aria-hidden="true">L</span>
+                <p class="bienvenida-etiqueta entrada-pieza pieza-1">Con la bendición de Dios</p>
+                <img class="bienvenida-corona entrada-pieza pieza-2" src="assets/iconos/corona.svg" alt="">
+                <p class="bienvenida-kicker entrada-pieza pieza-3">Mis XV años</p>
+                <h2 class="entrada-pieza pieza-3" id="titulo-bienvenida">Lizzeth</h2>
 
-                <div class="bienvenida-fecha" aria-label="Sábado 17 de octubre de 2026">
+                <div class="bienvenida-fecha entrada-pieza pieza-4" aria-label="Sábado 17 de octubre de 2026">
                     <span>Sábado</span>
                     <strong>17</strong>
                     <span>Octubre</span>
                     <small>2026</small>
                 </div>
 
-                <blockquote>
+                <blockquote class="entrada-pieza pieza-5">
                     De la mano de Dios y con el amor de mis padres,
                     hoy tengo la dicha de llegar a este momento tan especial de mi vida.
                     Deseo compartir esta alegría con ustedes y hacer de este día
                     un recuerdo inolvidable.
                 </blockquote>
 
-                <div class="bienvenida-ornamento" aria-hidden="true"><span>♡</span></div>
-                <p class="bienvenida-cierre">Será un honor contar con tu presencia</p>
+                <div class="bienvenida-ornamento entrada-pieza pieza-6" aria-hidden="true"><span>♡</span></div>
+                <p class="bienvenida-cierre entrada-pieza pieza-6">Será un honor contar con tu presencia</p>
             </div>
         </section>
 
@@ -215,7 +225,7 @@
     <!-- JavaScript del proyecto -->
     <script src="js/preloader.js" defer></script>
     <script src="js/sobre.js?v=2" defer></script>
-    <script src="js/main.js" defer></script>
+    <script src="js/main.js?v=2" defer></script>
 
 </body>
 </html>
