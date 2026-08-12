@@ -164,3 +164,71 @@
     .corona-svg { width: 76px; }
     .tarjeta-corona-svg { width: 47px; }
 }
+
+/* Portada premium: composicion vertical para WhatsApp y pantallas pequenas */
+@media (max-width: 620px) {
+    .portada {
+        min-height: 100svh;
+        align-items: flex-start;
+        padding: 28px 18px 16px;
+    }
+
+    .marco { inset: 10px; }
+    .corona-svg { width: 62px; }
+    .mis-xv { font-size: 13px; letter-spacing: .34em; }
+    .nombre { margin-top: -5px; font-size: clamp(68px, 21vw, 84px); }
+    .mensaje-superior { margin: 2px 0 2px; font-size: 18px; }
+
+    .escena {
+        width: min(92vw, 410px);
+        height: clamp(410px, 56svh, 475px);
+        margin-top: -8px;
+    }
+
+    .sobre {
+        bottom: 36px;
+        width: 100%;
+        height: clamp(205px, 27svh, 225px);
+    }
+
+    .tarjeta {
+        width: 88%;
+        height: 340px;
+        padding: 18px 16px 16px;
+    }
+
+    .escena.tarjeta-visible .tarjeta {
+        transform: translateX(-50%) translateY(-50%);
+    }
+
+    .floral-asset { width: 235px; opacity: .67; }
+    .floral-asset-superior { top: -58px; left: -96px; }
+    .floral-asset-inferior { right: -105px; bottom: -58px; }
+    .mariposa-asset-1 { top: 19%; right: 4%; }
+    .mariposa-asset-2 { top: 45%; left: 2%; }
+    .mariposa-asset-3 { right: 4%; bottom: 12%; }
+    .halo-sobre { bottom: 42px; height: 225px; }
+}
+
+@media (max-width: 390px) {
+    .portada { padding-top: 25px; }
+    .corona-svg { width: 56px; }
+    .nombre { font-size: 68px; }
+    .mensaje-superior { font-size: 17px; }
+    .escena { height: 430px; }
+    .sobre { bottom: 34px; height: 205px; }
+    .tarjeta { height: 330px; }
+    .escena.tarjeta-visible .tarjeta {
+        transform: translateX(-50%) translateY(-48%);
+    }
+}
+
+@media (max-height: 730px) and (min-width: 621px) {
+    .portada { padding-top: 18px; }
+    .corona-svg { width: 62px; }
+    .nombre { font-size: 88px; }
+    .mensaje-superior { margin-bottom: 3px; }
+    .escena { height: 350px; }
+    .sobre { bottom: 20px; height: 220px; }
+    .tarjeta { height: 350px; }
+}

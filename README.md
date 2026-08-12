@@ -29,3 +29,15 @@ No cambies el orden de los `<link>` en `index.html`, porque la cascada CSS depen
 - `assets/iconos/destello.svg`
 
 Todos son SVG ligeros y escalables, por lo que se mantienen nítidos en celular y computadora.
+
+## Sprint 1 — Portada premium refinada
+
+Esta entrega conserva la secuencia aprobada del sobre y mejora únicamente su presentación:
+
+- composición completa dentro de la primera pantalla en escritorio;
+- proporciones verticales optimizadas para enlaces abiertos desde WhatsApp;
+- tarjeta totalmente visible después de abrir el sobre en móvil;
+- profundidad adicional en papel, sobre, sello y marco dorado;
+- jerarquía tipográfica y decoración botánica más equilibradas;
+- foco visible para navegación con teclado;
+- versión de estilos en las URL para evitar que GitHub Pages muestre CSS antiguo por caché.

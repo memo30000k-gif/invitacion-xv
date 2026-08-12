@@ -437,3 +437,94 @@ body.preloading { overflow: hidden; }
     margin: 0 auto 2px;
     object-fit: contain;
 }
+
+/* Composicion editorial definitiva de la portada */
+.portada {
+    min-height: 100svh;
+    padding: clamp(24px, 3.4vh, 38px) 20px 18px;
+}
+
+.portada::after {
+    background:
+        radial-gradient(ellipse at 50% 46%, rgba(255,255,255,.72), transparent 43%),
+        linear-gradient(90deg, rgba(122,70,82,.035), transparent 12% 88%, rgba(122,70,82,.035)),
+        linear-gradient(to bottom, rgba(255,255,255,.12), rgba(151,84,101,.055));
+}
+
+.marco {
+    inset: 14px;
+    border-color: rgba(190,143,63,.50);
+    box-shadow: inset 0 0 0 5px rgba(255,255,255,.20);
+    z-index: 8;
+}
+
+.marco::before,
+.marco::after {
+    font-size: 15px;
+    text-shadow: 0 0 12px rgba(211,166,79,.45);
+}
+
+.contenido {
+    width: min(100%, 900px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.corona-svg {
+    width: clamp(64px, 7vw, 92px);
+    filter: drop-shadow(0 7px 8px rgba(113,66,44,.18));
+}
+
+.mis-xv {
+    font-size: clamp(15px, 1.75vw, 22px);
+    letter-spacing: .42em;
+}
+
+.nombre {
+    margin-top: -9px;
+    font-size: clamp(76px, 9vw, 122px);
+    text-shadow:
+        0 2px 0 rgba(255,255,255,.9),
+        0 10px 24px rgba(121,71,75,.16);
+}
+
+.mensaje-superior {
+    margin: 4px 0 clamp(8px, 1.6vh, 17px);
+    font-size: clamp(19px, 2vw, 26px);
+}
+
+.floral-asset {
+    width: clamp(260px, 32vw, 470px);
+    opacity: .88;
+    filter: saturate(.72) contrast(.97) drop-shadow(0 18px 28px rgba(111,72,77,.15));
+}
+
+.floral-asset-superior {
+    top: -82px;
+    left: -66px;
+    transform: rotate(-9deg);
+}
+
+.floral-asset-inferior {
+    right: -75px;
+    bottom: -92px;
+    transform: rotate(171deg) scale(.92);
+    opacity: .80;
+}
+
+.mariposa-asset {
+    opacity: .78;
+    filter: saturate(.78) drop-shadow(0 7px 8px rgba(108,66,72,.18));
+}
+
+.mariposa-asset-1 { top: 18%; right: 12%; }
+.mariposa-asset-2 { top: 44%; left: 7%; }
+.mariposa-asset-3 { right: 9%; bottom: 16%; }
+
+.halo-sobre {
+    bottom: 24px;
+    height: 270px;
+    background: radial-gradient(ellipse, rgba(255,255,255,.82), rgba(255,245,244,.28) 48%, transparent 70%);
+    filter: blur(14px);
+}
