@@ -181,12 +181,12 @@
 
     .escena {
         width: min(92vw, 410px);
-        height: clamp(410px, 56svh, 475px);
-        margin-top: -8px;
+        height: clamp(360px, 48svh, 405px);
+        margin-top: -28px;
     }
 
     .sobre {
-        bottom: 36px;
+        bottom: 22px;
         width: 100%;
         height: clamp(205px, 27svh, 225px);
     }
@@ -198,7 +198,19 @@
     }
 
     .escena.tarjeta-visible .tarjeta {
-        transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-39%);
+    }
+
+    .escena.tarjeta-visible .sobre {
+        translate: 0 30px;
+        filter:
+            drop-shadow(0 17px 20px rgba(99,59,62,.14))
+            drop-shadow(0 0 18px rgba(255,255,255,.38));
+        transition: translate .8s cubic-bezier(.22,.75,.25,1), filter .8s ease;
+    }
+
+    .escena.tarjeta-visible::after {
+        bottom: -2px;
     }
 
     .floral-asset { width: 235px; opacity: .67; }
@@ -215,11 +227,11 @@
     .corona-svg { width: 56px; }
     .nombre { font-size: 68px; }
     .mensaje-superior { font-size: 17px; }
-    .escena { height: 430px; }
-    .sobre { bottom: 34px; height: 205px; }
+    .escena { height: 382px; }
+    .sobre { bottom: 20px; height: 205px; }
     .tarjeta { height: 330px; }
     .escena.tarjeta-visible .tarjeta {
-        transform: translateX(-50%) translateY(-48%);
+        transform: translateX(-50%) translateY(-37%);
     }
 }
 

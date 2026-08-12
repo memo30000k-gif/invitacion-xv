@@ -428,6 +428,13 @@
             animation: none;
         }
 
+.escena.tarjeta-visible .fondo-sobre,
+.escena.tarjeta-visible .frente {
+            opacity: .72;
+            filter: saturate(.82) brightness(1.035);
+            transition: opacity .7s ease, filter .7s ease;
+        }
+
 .fondo-sobre,
         .frente::before,
         .solapa::before {
