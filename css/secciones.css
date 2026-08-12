@@ -864,9 +864,10 @@
 .evento-kicker { font-family: "Montserrat", sans-serif; font-size: 11px; letter-spacing: .34em; text-transform: uppercase; }
 .detalles-evento h2 { margin: 3px 0 13px; color: var(--rosa-oscuro); font-family: "Great Vibes", cursive; font-size: clamp(68px, 9vw, 104px); font-weight: 400; line-height: 1; }
 .evento-tarjeta { position: relative; width: min(630px, 94%); margin: 0 auto; padding: 38px clamp(27px, 5vw, 54px) 32px; border: 1px solid rgba(199,151,73,.62); border-radius: 48% 48% 16px 16px / 12% 12% 16px 16px; background: linear-gradient(rgba(255,253,248,.91), rgba(255,247,241,.88)), url("../assets/fondos/textura-papel.svg"); background-size: auto, 380px; box-shadow: 0 18px 50px rgba(112,67,76,.12), inset 0 0 0 7px rgba(255,255,255,.48); }
-.evento-sello { position: absolute; left: 50%; top: -18px; width: 38px; height: 46px; transform: translateX(-50%); color: var(--dorado); }
-.evento-sello::before { content: ""; position: absolute; inset: 0 4px 10px; border: 1px solid var(--dorado); border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: #fffaf5; }
-.evento-sello span { position: absolute; z-index: 2; left: 50%; top: 12px; width: 7px; height: 7px; border-radius: 50%; background: var(--dorado); transform: translateX(-50%); }
+.evento-sello { position: absolute; left: 50%; top: -18px; width: 38px; height: 48px; transform: translateX(-50%); color: var(--dorado); }
+.evento-sello::before { content: ""; position: absolute; left: 5px; top: 0; width: 28px; height: 28px; border: 1px solid var(--dorado); border-radius: 50%; background: #fffaf5; box-shadow: 0 5px 12px rgba(112,67,76,.10); }
+.evento-sello::after { content: ""; position: absolute; left: 50%; top: 24px; width: 13px; height: 13px; border-right: 1px solid var(--dorado); border-bottom: 1px solid var(--dorado); background: #fffaf5; transform: translateX(-50%) rotate(45deg); }
+.evento-sello span { position: absolute; z-index: 2; left: 50%; top: 10px; width: 7px; height: 7px; border-radius: 50%; background: var(--dorado); transform: translateX(-50%); }
 .evento-fecha { width: min(470px, 100%); margin: 0 auto 14px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; font-family: "Cormorant Garamond", serif; text-transform: uppercase; }
 .evento-fecha span { padding: 8px; border-top: 1px solid rgba(199,151,73,.58); border-bottom: 1px solid rgba(199,151,73,.58); font-size: 14px; letter-spacing: .15em; }
 .evento-fecha strong { padding: 0 18px; color: var(--rosa-oscuro); font-size: 62px; font-weight: 500; line-height: .8; }
@@ -879,11 +880,44 @@
 .evento-tarjeta address { font-family: "Cormorant Garamond", serif; font-size: clamp(16px, 2vw, 19px); font-style: normal; line-height: 1.38; }
 .boton-ubicacion { margin: 19px auto 0; display: inline-flex; align-items: center; gap: 10px; padding: 11px 19px; border: 1px solid rgba(199,151,73,.64); border-radius: 999px; color: var(--vino); background: rgba(255,250,246,.72); text-decoration: none; font-family: "Montserrat", sans-serif; font-size: 10px; letter-spacing: .17em; text-transform: uppercase; transition: transform .3s ease, background .3s ease, color .3s ease; }
 .boton-ubicacion:hover { transform: translateY(-2px); color: white; background: var(--dorado); }
-.ubicacion-pin { position: relative; width: 14px; height: 14px; border: 1px solid currentColor; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); }.ubicacion-pin::after { content: ""; position: absolute; left: 50%; top: 50%; width: 4px; height: 4px; border-radius: 50%; background: currentColor; transform: translate(-50%,-50%); }
+.ubicacion-pin { position: relative; width: 14px; height: 18px; flex: 0 0 14px; }
+.ubicacion-pin::before { content: ""; position: absolute; left: 1px; top: 0; width: 12px; height: 12px; border: 1px solid currentColor; border-radius: 50%; }
+.ubicacion-pin::after { content: ""; position: absolute; left: 50%; top: 10px; width: 6px; height: 6px; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: translateX(-50%) rotate(45deg); }
+.boton-ubicacion .ubicacion-pin { background: radial-gradient(circle at 50% 6px, currentColor 0 2px, transparent 2.5px); }
 .evento-cierre { margin-top: 17px; font-family: "Cormorant Garamond", serif; font-size: clamp(18px, 2vw, 22px); font-style: italic; }
+.ir-dress-code { margin: 10px auto 0; display: inline-flex; flex-direction: column; align-items: center; gap: 4px; padding: 7px 20px 3px; border: 0; color: var(--vino); background: transparent; cursor: pointer; opacity: 0; }
+.ir-dress-code span { font-family: "Cormorant Garamond", serif; font-size: 17px; font-style: italic; }
+.ir-dress-code i { color: var(--dorado); font-size: 22px; font-style: normal; animation: indicarAbajo 1.9s ease-in-out infinite; }
+.ir-dress-code:focus-visible { outline: 1px solid rgba(199,151,73,.72); outline-offset: 4px; border-radius: 999px; }
 .evento-contenido > *, .evento-tarjeta > * { opacity: 0; transform: translateY(16px); }
 .evento-visible .evento-contenido > * { animation: revelarCuenta .72s ease forwards; }.evento-visible .evento-contenido > :nth-child(2){animation-delay:.12s}.evento-visible .evento-contenido > :nth-child(3){animation-delay:.28s}.evento-visible .evento-contenido > :nth-child(4){animation-delay:1.05s}
+.evento-visible .ir-dress-code { animation: revelarCuenta .72s ease 1.2s forwards; }
 .evento-visible .evento-tarjeta > * { animation: revelarCuenta .65s ease forwards; }.evento-visible .evento-tarjeta > :nth-child(1){animation-delay:.40s}.evento-visible .evento-tarjeta > :nth-child(2){animation-delay:.48s}.evento-visible .evento-tarjeta > :nth-child(3){animation-delay:.58s}.evento-visible .evento-tarjeta > :nth-child(4){animation-delay:.66s}.evento-visible .evento-tarjeta > :nth-child(5){animation-delay:.72s}.evento-visible .evento-tarjeta > :nth-child(6){animation-delay:.78s}.evento-visible .evento-tarjeta > :nth-child(7){animation-delay:.84s}.evento-visible .evento-tarjeta > :nth-child(8){animation-delay:.91s}
+
+.evento-contenido,
+.evento-tarjeta { transition: opacity .7s ease, transform .85s cubic-bezier(.2,.78,.2,1), filter .7s ease; }
+.transicion-dress .evento-contenido { opacity: 0; transform: translateY(-30px) scale(.96); filter: blur(4px); }
+.transicion-dress .evento-tarjeta { transform: scale(.82); }
+.transicion-dress::after { content: "✦"; position: absolute; z-index: 8; left: 50%; top: 55%; color: var(--dorado); font-size: 32px; animation: destelloDress 1.05s ease forwards; }
+@keyframes destelloDress { 0% { opacity: 0; transform: translate(-50%,-50%) scale(.3); } 45% { opacity: 1; transform: translate(-50%,-50%) scale(1.55) rotate(28deg); text-shadow: 0 0 26px rgba(211,166,79,.8); } 100% { opacity: 0; transform: translate(-50%,150px) scale(.6) rotate(70deg); } }
+
+/* Código de vestimenta */
+.dress-code { position: relative; isolation: isolate; min-height: 100svh; display: grid; place-items: center; overflow: hidden; padding: clamp(58px, 8vw, 100px) 24px; color: var(--vino); background: linear-gradient(145deg,#fffaf6,#f9e9e8 52%,#fff8f2); }
+.dress-code::before { content: ""; position: absolute; inset: 0; z-index: -4; opacity: .28; background: url("../assets/fondos/textura-papel.svg") center / 480px; mix-blend-mode: multiply; }
+.dress-marco { position: absolute; inset: 16px; border: 1px solid rgba(199,151,73,.54); pointer-events: none; }
+.dress-luz { position: absolute; z-index: -2; left: 13%; top: 50%; width: min(680px,75vw); height: 76vh; transform: translateY(-50%); border-radius: 50%; background: radial-gradient(ellipse,rgba(255,255,255,.94),rgba(249,222,225,.34) 50%,transparent 72%); filter: blur(10px); }
+.dress-baile { position: absolute; z-index: -1; left: clamp(-50px,2vw,45px); bottom: -3%; width: min(58vw,720px); max-height: 94%; object-fit: contain; object-position: left bottom; opacity: .72; filter: saturate(.78) contrast(.94); mix-blend-mode: multiply; transform: translateX(-35px) scale(.96); transition: opacity 1s ease, transform 1.25s cubic-bezier(.2,.78,.2,1); }
+.dress-contenido { width: min(1100px,100%); display: flex; justify-content: flex-end; }
+.dress-texto { width: min(510px,46%); padding: clamp(34px,5vw,58px); text-align: center; border: 1px solid rgba(199,151,73,.58); border-radius: 48% 48% 16px 16px / 12% 12% 16px 16px; background: rgba(255,251,247,.78); box-shadow: 0 20px 50px rgba(112,67,76,.11), inset 0 0 0 7px rgba(255,255,255,.42); backdrop-filter: blur(8px); }
+.dress-kicker { font-family:"Montserrat",sans-serif; font-size:11px; letter-spacing:.32em; text-transform:uppercase; }
+.dress-code h2 { margin: 4px 0; color:var(--rosa-oscuro); font-family:"Great Vibes",cursive; font-size:clamp(78px,9vw,115px); font-weight:400; line-height:1; }
+.dress-ornamento { display:flex; align-items:center; gap:10px; width:72%; margin:5px auto 16px; color:var(--dorado); }.dress-ornamento::before,.dress-ornamento::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(199,151,73,.7));}.dress-ornamento::after{background:linear-gradient(90deg,rgba(199,151,73,.7),transparent);}
+.dress-invitacion { font-family:"Cormorant Garamond",serif; font-size:clamp(19px,2.2vw,24px); font-style:italic; line-height:1.38; }
+.color-reservado { margin:24px auto 17px; display:flex; align-items:center; justify-content:center; gap:15px; padding:15px 17px; border-top:1px solid rgba(199,151,73,.42); border-bottom:1px solid rgba(199,151,73,.42); }
+.muestra-rosa { width:42px; aspect-ratio:1; flex:0 0 42px; border-radius:50%; background:radial-gradient(circle at 35% 28%,#fce5e7,#d7929c 65%,#ad6670); box-shadow:0 0 0 5px rgba(255,255,255,.62),0 7px 16px rgba(112,67,76,.16); }
+.color-reservado div { text-align:left; }.color-reservado small { display:block; font-family:"Montserrat",sans-serif; font-size:9px; letter-spacing:.16em; text-transform:uppercase; }.color-reservado strong { display:block; color:var(--rosa-oscuro); font-family:"Cormorant Garamond",serif; font-size:21px; font-weight:500; }
+.dress-nota { font-family:"Cormorant Garamond",serif; font-size:17px; font-style:italic; line-height:1.35; }
+.dress-texto > * { opacity:0; transform:translateY(18px); }.dress-visible .dress-baile { opacity:.82; transform:none; }.dress-visible .dress-texto > * { animation:revelarCuenta .72s ease forwards; }.dress-visible .dress-texto > :nth-child(2){animation-delay:.15s}.dress-visible .dress-texto > :nth-child(3){animation-delay:.28s}.dress-visible .dress-texto > :nth-child(4){animation-delay:.40s}.dress-visible .dress-texto > :nth-child(5){animation-delay:.58s}.dress-visible .dress-texto > :nth-child(6){animation-delay:.76s}
 
 .cuenta-contenido > *,
 .reloj-editorial .tiempo,
@@ -975,4 +1009,16 @@
     .evento-tarjeta address { font-size: 16px; line-height: 1.28; }
     .boton-ubicacion { margin-top: 13px; }
     .evento-cierre { margin-top: 11px; font-size: 17px; }
+    .ir-dress-code { margin-top:4px; }
+    .dress-code { padding:43px 18px 38px; align-items:start; }
+    .dress-marco { inset:10px; }
+    .dress-baile { left:50%; bottom:-1%; width:112vw; max-height:74%; object-position:center bottom; transform:translateX(-54%) scale(.95); opacity:.38; }
+    .dress-visible .dress-baile { opacity:.46; transform:translateX(-50%); }
+    .dress-contenido { justify-content:center; }
+    .dress-texto { position:relative; z-index:2; width:94%; padding:31px 22px 26px; border-radius:44% 44% 14px 14px / 8% 8% 14px 14px; background:rgba(255,251,247,.80); }
+    .dress-code h2 { font-size:78px; }
+    .dress-invitacion { font-size:19px; }
+    .color-reservado { margin:18px auto 13px; padding:12px 8px; gap:12px; }
+    .muestra-rosa { width:36px; flex-basis:36px; }
+    .color-reservado strong { font-size:18px; }
 }
