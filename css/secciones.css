@@ -700,6 +700,10 @@
 .mensaje-firma { margin-top: 30px; opacity: 0; }
 .mensaje-firma span { display: block; font-family: "Cormorant Garamond", serif; font-size: 17px; font-style: italic; }
 .mensaje-firma strong { display: block; color: var(--rosa-oscuro); font-family: "Great Vibes", cursive; font-size: 48px; font-weight: 400; }
+.ir-familia { margin: 18px auto 0; display: inline-flex; flex-direction: column; align-items: center; gap: 5px; padding: 8px 20px 3px; border: 0; color: var(--vino); background: transparent; cursor: pointer; opacity: 0; }
+.ir-familia span { font-family: "Cormorant Garamond", serif; font-size: 17px; font-style: italic; letter-spacing: .04em; }
+.ir-familia i { color: var(--dorado); font-size: 22px; font-style: normal; animation: indicarAbajo 1.9s ease-in-out infinite; }
+.ir-familia:focus-visible { outline: 1px solid rgba(199,151,73,.72); outline-offset: 4px; border-radius: 999px; }
 .mensaje-visible .mensaje-kicker,
 .mensaje-visible .mensaje-destello { animation: revelarCuenta .7s ease forwards; }
 .mensaje-visible .parte-1 { animation: revelarFrase .8s ease .25s forwards; }
@@ -707,7 +711,46 @@
 .mensaje-visible .parte-3 { animation: revelarFrase .9s ease 1.0s forwards; }
 .mensaje-visible .parte-4 { animation: revelarFrase .9s ease 1.34s forwards; }
 .mensaje-visible .mensaje-firma { animation: revelarCuenta .8s ease 1.75s forwards; }
+.mensaje-visible .ir-familia { animation: revelarCuenta .8s ease 2.05s forwards; }
 @keyframes revelarFrase { to { opacity: 1; transform: none; } }
+
+.mensaje-contenido,
+.mensaje-mariposa { transition: opacity .65s ease, transform .8s cubic-bezier(.2,.78,.2,1), filter .7s ease; }
+.transicion-familia .mensaje-contenido { opacity: 0; transform: translateY(-34px) scale(.96); filter: blur(4px); }
+.transicion-familia .mensaje-mariposa { transform: translate(-42vw, 62vh) rotate(-18deg) scale(1.25); opacity: 0; transition-duration: 1.1s; }
+.transicion-familia::after { content: "♡"; position: absolute; left: 50%; bottom: 9%; color: var(--dorado); font-size: 34px; transform: translateX(-50%); animation: lazoFamilia 1.05s ease forwards; }
+@keyframes lazoFamilia { 0% { opacity: 0; transform: translateX(-50%) scale(.4); } 48% { opacity: 1; transform: translateX(-50%) scale(1.35); text-shadow: 0 0 22px rgba(211,166,79,.7); } 100% { opacity: 0; transform: translateX(-50%) translateY(90px) scale(.7); } }
+
+/* Familia */
+.familia { position: relative; isolation: isolate; min-height: 100svh; display: grid; place-items: center; overflow: hidden; padding: clamp(62px, 8vw, 100px) 24px; color: var(--vino); background: radial-gradient(circle at 50% 45%, rgba(255,255,255,.94), transparent 37%), linear-gradient(150deg, #fff9f5, #f7dfe2 52%, #fff8f3); }
+.familia::before { content: ""; position: absolute; inset: 0; z-index: -3; opacity: .32; background: url("../assets/fondos/textura-papel.svg") center / 480px; mix-blend-mode: multiply; }
+.familia-marco { position: absolute; inset: 16px; border: 1px solid rgba(199,151,73,.52); pointer-events: none; }
+.familia-arco { position: absolute; z-index: -1; width: min(750px, 105vw); height: min(660px, 85vh); border: 1px solid rgba(199,151,73,.30); border-radius: 50% 50% 8px 8px / 42% 42% 8px 8px; box-shadow: inset 0 0 65px rgba(255,255,255,.46), 0 0 0 13px rgba(255,255,255,.18); }
+.familia-floral { position: absolute; z-index: -1; width: clamp(250px, 31vw, 440px); opacity: .34; filter: saturate(.58); }
+.familia-floral-uno { left: -115px; top: -90px; transform: rotate(-9deg); }
+.familia-floral-dos { right: -120px; bottom: -95px; transform: rotate(172deg); }
+.familia-contenido { width: min(820px, 100%); text-align: center; }
+.familia-kicker { font-family: "Montserrat", sans-serif; font-size: 11px; letter-spacing: .34em; text-transform: uppercase; }
+.familia h2 { margin-top: 3px; color: var(--rosa-oscuro); font-family: "Great Vibes", cursive; font-size: clamp(70px, 9vw, 108px); font-weight: 400; line-height: 1; }
+.familia-intro { max-width: 560px; margin: 5px auto 25px; font-family: "Cormorant Garamond", serif; font-size: clamp(18px, 2vw, 22px); font-style: italic; }
+.familia-grupos { display: grid; grid-template-columns: 1.25fr auto 1fr; align-items: center; gap: clamp(25px, 5vw, 60px); }
+.familia-grupo { padding: 22px 10px; }
+.familia-icono { width: 48px; aspect-ratio: 1; margin: 0 auto 10px; display: grid; place-items: center; border: 1px solid rgba(199,151,73,.58); border-radius: 50%; color: var(--dorado); font-size: 24px; background: rgba(255,252,248,.68); box-shadow: 0 8px 20px rgba(112,68,76,.09); }
+.familia-grupo > p { font-family: "Montserrat", sans-serif; font-size: 10px; letter-spacing: .25em; text-transform: uppercase; }
+.familia-grupo h3 { color: var(--rosa-oscuro); font-family: "Cormorant Garamond", serif; font-size: clamp(27px, 3.5vw, 42px); font-weight: 500; line-height: 1.05; }
+.familia-grupo > span { display: block; margin: 4px 0; color: var(--dorado); font-family: "Great Vibes", cursive; font-size: 29px; }
+.familia-separador { width: 1px; height: 190px; background: linear-gradient(transparent, rgba(199,151,73,.65), transparent); display: grid; place-items: center; }
+.familia-separador span { padding: 10px 0; color: var(--dorado); background: #fbeceb; }
+.familia-cierre { margin-top: 24px; font-family: "Cormorant Garamond", serif; font-size: clamp(18px, 2vw, 22px); font-style: italic; }
+.familia-contenido > *, .familia-grupo, .familia-separador { opacity: 0; transform: translateY(18px); }
+.familia-visible .familia-contenido > * { animation: revelarCuenta .72s ease forwards; }
+.familia-visible .familia-contenido > :nth-child(2) { animation-delay: .12s; }
+.familia-visible .familia-contenido > :nth-child(3) { animation-delay: .25s; }
+.familia-visible .familia-contenido > :nth-child(4) { animation-delay: .36s; }
+.familia-visible .familia-contenido > :nth-child(5) { animation-delay: .88s; }
+.familia-visible .familia-papas { animation: revelarCuenta .75s ease .48s forwards; }
+.familia-visible .familia-separador { animation: revelarCuenta .75s ease .62s forwards; }
+.familia-visible .familia-madrina { animation: revelarCuenta .75s ease .72s forwards; }
 
 .cuenta-contenido > *,
 .reloj-editorial .tiempo,
@@ -769,4 +812,17 @@
     .mensaje-mariposa { right: 7%; top: 18%; }
     .frase-parte:nth-child(1), .frase-parte:nth-child(2) { font-size: 26px; }
     .frase-parte:nth-child(3), .frase-parte:nth-child(4) { font-size: 68px; }
+    .familia { padding: 54px 27px 48px; }
+    .familia-marco { inset: 10px; }
+    .familia-arco { width: 92vw; height: 76vh; }
+    .familia h2 { font-size: 75px; }
+    .familia-intro { margin-bottom: 12px; font-size: 18px; }
+    .familia-grupos { grid-template-columns: 1fr; gap: 2px; }
+    .familia-grupo { padding: 9px 5px; }
+    .familia-icono { width: 39px; margin-bottom: 6px; font-size: 19px; }
+    .familia-grupo h3 { font-size: 28px; }
+    .familia-grupo > span { margin: 0; font-size: 23px; }
+    .familia-separador { width: 180px; height: 1px; margin: 2px auto; background: linear-gradient(90deg, transparent, rgba(199,151,73,.65), transparent); }
+    .familia-separador span { padding: 0 9px; }
+    .familia-cierre { margin-top: 12px; font-size: 18px; }
 }
