@@ -4,9 +4,11 @@ const escena = document.getElementById("escena");
 const sobre = document.getElementById("sobre");
 const tarjeta = document.getElementById("tarjeta");
 const invitacion = document.getElementById("invitacion");
+const portada = document.getElementById("portada");
 
 let animacionIniciada = false;
 let tarjetaDisponible = false;
+let transicionIniciada = false;
 
 function abrirSobre() {
     if (animacionIniciada || !escena || !sobre || !tarjeta) return;
@@ -28,12 +30,23 @@ function abrirSobre() {
 
 function continuarInvitacion(evento) {
     evento.stopPropagation();
-    if (!tarjetaDisponible || !invitacion) return;
+    if (!tarjetaDisponible || !invitacion || transicionIniciada) return;
 
-    invitacion.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
+    transicionIniciada = true;
+    tarjeta.setAttribute("aria-disabled", "true");
+    portada?.classList.add("transicionando");
+    invitacion.classList.add("preparando-entrada");
+
+    window.setTimeout(() => {
+        invitacion.scrollIntoView({ behavior: "smooth", block: "start" });
+        invitacion.classList.add("entrada-activa");
+    }, 620);
+
+    window.setTimeout(() => {
+        invitacion.classList.remove("preparando-entrada");
+        portada?.classList.remove("transicionando");
+        tarjeta.removeAttribute("aria-disabled");
+    }, 1550);
 }
 
 if (sobre) {
