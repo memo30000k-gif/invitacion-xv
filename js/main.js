@@ -65,8 +65,11 @@ function escribirTiempo(campo, valor, longitud = 2) {
 
 function actualizarCuentaRegresiva() {
     const ahora = Date.now();
-    const esGranDia = ahora >= inicioGranDia.getTime() && ahora < finGranDia.getTime();
-    const eventoFinalizado = ahora >= finGranDia.getTime();
+    const simulacion = new URLSearchParams(window.location.search).get("simular");
+    const esGranDiaReal = ahora >= inicioGranDia.getTime() && ahora < finGranDia.getTime();
+    const eventoFinalizadoReal = ahora >= finGranDia.getTime();
+    const esGranDia = simulacion === "gran-dia" || (simulacion !== "despues" && esGranDiaReal);
+    const eventoFinalizado = simulacion === "despues" || (simulacion !== "gran-dia" && eventoFinalizadoReal);
     const diferencia = Math.max(0, fechaEvento.getTime() - ahora);
     const dias = Math.floor(diferencia / 86400000);
     const horas = Math.floor((diferencia % 86400000) / 3600000);
