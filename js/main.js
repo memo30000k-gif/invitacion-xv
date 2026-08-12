@@ -99,6 +99,8 @@ window.setInterval(actualizarCuentaRegresiva, 1000);
 const botonIrCuenta = document.getElementById("irCuenta");
 const botonIrMensaje = document.getElementById("irMensaje");
 const seccionMensaje = document.getElementById("mensajeEspecial");
+const botonIrFamilia = document.getElementById("irFamilia");
+const seccionFamilia = document.getElementById("familia");
 
 botonIrCuenta?.addEventListener("click", () => {
     seccionCuenta?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -119,6 +121,23 @@ botonIrMensaje?.addEventListener("click", () => {
         seccionCuenta.classList.remove("tiempo-detenido");
         botonIrMensaje.disabled = false;
     }, 1900);
+});
+
+botonIrFamilia?.addEventListener("click", () => {
+    if (!seccionMensaje || !seccionFamilia) return;
+
+    seccionMensaje.classList.add("transicion-familia");
+    botonIrFamilia.disabled = true;
+
+    window.setTimeout(() => {
+        seccionFamilia.scrollIntoView({ behavior: "smooth", block: "start" });
+        seccionFamilia.classList.add("familia-visible");
+    }, 620);
+
+    window.setTimeout(() => {
+        seccionMensaje.classList.remove("transicion-familia");
+        botonIrFamilia.disabled = false;
+    }, 1750);
 });
 
 if (seccionCuenta && "IntersectionObserver" in window) {
