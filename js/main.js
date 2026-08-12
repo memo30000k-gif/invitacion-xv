@@ -44,6 +44,8 @@ musicaInvitacion?.addEventListener("play", () => actualizarControlMusica(true));
 
 /* Cuenta regresiva: 17 de octubre de 2026, 7:30 p. m., hora de México. */
 const fechaEvento = new Date("2026-10-17T19:30:00-06:00");
+const inicioGranDia = new Date("2026-10-17T00:00:00-06:00");
+const finGranDia = new Date("2026-10-18T00:00:00-06:00");
 const camposCuenta = {
     dias: document.getElementById("dias"),
     horas: document.getElementById("horas"),
@@ -51,6 +53,9 @@ const camposCuenta = {
     segundos: document.getElementById("segundos")
 };
 const mensajeCuenta = document.getElementById("mensajeCuenta");
+const mensajeGranDia = document.getElementById("mensajeGranDia");
+const detalleGranDia = document.getElementById("detalleGranDia");
+const seccionCuenta = document.getElementById("cuentaRegresiva");
 
 function escribirTiempo(campo, valor, longitud = 2) {
     if (camposCuenta[campo]) {
@@ -59,7 +64,10 @@ function escribirTiempo(campo, valor, longitud = 2) {
 }
 
 function actualizarCuentaRegresiva() {
-    const diferencia = Math.max(0, fechaEvento.getTime() - Date.now());
+    const ahora = Date.now();
+    const esGranDia = ahora >= inicioGranDia.getTime() && ahora < finGranDia.getTime();
+    const eventoFinalizado = ahora >= finGranDia.getTime();
+    const diferencia = Math.max(0, fechaEvento.getTime() - ahora);
     const dias = Math.floor(diferencia / 86400000);
     const horas = Math.floor((diferencia % 86400000) / 3600000);
     const minutos = Math.floor((diferencia % 3600000) / 60000);
@@ -70,15 +78,21 @@ function actualizarCuentaRegresiva() {
     escribirTiempo("minutos", minutos);
     escribirTiempo("segundos", segundos);
 
-    if (diferencia === 0 && mensajeCuenta) {
-        mensajeCuenta.textContent = "El gran día ha llegado";
+    seccionCuenta?.classList.toggle("es-gran-dia", esGranDia);
+    seccionCuenta?.classList.toggle("evento-finalizado", eventoFinalizado);
+
+    if (esGranDia) {
+        if (mensajeGranDia) mensajeGranDia.textContent = "Hoy es el gran día";
+        if (detalleGranDia) detalleGranDia.textContent = "Celebremos juntos los XV años de Lizzeth";
+    } else if (eventoFinalizado) {
+        if (mensajeGranDia) mensajeGranDia.textContent = "Gracias por ser parte de este sueño";
+        if (detalleGranDia) detalleGranDia.textContent = "Con cariño, Lizzeth";
     }
 }
 
 actualizarCuentaRegresiva();
 window.setInterval(actualizarCuentaRegresiva, 1000);
 
-const seccionCuenta = document.getElementById("cuentaRegresiva");
 const botonIrCuenta = document.getElementById("irCuenta");
 
 botonIrCuenta?.addEventListener("click", () => {
