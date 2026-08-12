@@ -101,6 +101,8 @@ const botonIrMensaje = document.getElementById("irMensaje");
 const seccionMensaje = document.getElementById("mensajeEspecial");
 const botonIrFamilia = document.getElementById("irFamilia");
 const seccionFamilia = document.getElementById("familia");
+const botonIrEvento = document.getElementById("irEvento");
+const seccionEvento = document.getElementById("detallesEvento");
 
 botonIrCuenta?.addEventListener("click", () => {
     seccionCuenta?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -137,6 +139,23 @@ botonIrFamilia?.addEventListener("click", () => {
     window.setTimeout(() => {
         seccionMensaje.classList.remove("transicion-familia");
         botonIrFamilia.disabled = false;
+    }, 1750);
+});
+
+botonIrEvento?.addEventListener("click", () => {
+    if (!seccionFamilia || !seccionEvento) return;
+
+    seccionFamilia.classList.add("transicion-evento");
+    botonIrEvento.disabled = true;
+
+    window.setTimeout(() => {
+        seccionEvento.scrollIntoView({ behavior: "smooth", block: "start" });
+        seccionEvento.classList.add("evento-visible");
+    }, 650);
+
+    window.setTimeout(() => {
+        seccionFamilia.classList.remove("transicion-evento");
+        botonIrEvento.disabled = false;
     }, 1750);
 });
 
