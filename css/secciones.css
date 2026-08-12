@@ -735,7 +735,76 @@
 .familia-intro { max-width: 560px; margin: 5px auto 25px; font-family: "Cormorant Garamond", serif; font-size: clamp(18px, 2vw, 22px); font-style: italic; }
 .familia-grupos { display: grid; grid-template-columns: 1.25fr auto 1fr; align-items: center; gap: clamp(25px, 5vw, 60px); }
 .familia-grupo { padding: 22px 10px; }
-.familia-icono { width: 48px; aspect-ratio: 1; margin: 0 auto 10px; display: grid; place-items: center; border: 1px solid rgba(199,151,73,.58); border-radius: 50%; color: var(--dorado); font-size: 24px; background: rgba(255,252,248,.68); box-shadow: 0 8px 20px rgba(112,68,76,.09); }
+.familia-medallon {
+    position: relative;
+    width: 104px;
+    height: 58px;
+    margin: 0 auto 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b17b2f;
+}
+.familia-medallon::before,
+.familia-medallon::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(199,151,73,.52);
+    border-radius: 50%;
+}
+.familia-medallon::before { inset: 1px 22px; }
+.familia-medallon::after { inset: 6px 27px; border-color: rgba(199,151,73,.24); }
+.familia-medallon strong {
+    position: relative;
+    z-index: 2;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: .04em;
+    text-shadow: 0 0 12px rgba(211,166,79,.20);
+}
+.familia-medallon strong small { padding: 0 2px; color: var(--dorado); font-size: .65em; }
+.rama {
+    position: absolute;
+    top: 15px;
+    width: 29px;
+    height: 30px;
+    border-top: 1px solid rgba(177,123,47,.65);
+    border-radius: 50%;
+}
+.rama::before,
+.rama::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 4px;
+    border: 1px solid rgba(177,123,47,.52);
+    border-radius: 100% 0 100% 0;
+}
+.rama::before { top: 5px; }
+.rama::after { top: 13px; }
+.rama-izquierda { left: 0; transform: rotate(26deg); }
+.rama-izquierda::before, .rama-izquierda::after { left: 7px; transform: rotate(-24deg); }
+.rama-derecha { right: 0; transform: rotate(-26deg) scaleX(-1); }
+.rama-derecha::before, .rama-derecha::after { left: 7px; transform: rotate(-24deg); }
+.medallon-madrina { width: 84px; }
+.medallon-madrina strong { font-family: "Great Vibes", cursive; font-size: 34px; font-weight: 400; transform: translateY(2px); }
+.flor-grabada {
+    position: absolute;
+    z-index: 2;
+    top: 9px;
+    width: 10px;
+    height: 10px;
+    border: 1px solid rgba(177,123,47,.60);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+}
+.flor-grabada::before,
+.flor-grabada::after { content: ""; position: absolute; width: 8px; height: 8px; border: 1px solid rgba(177,123,47,.45); border-radius: 50%; }
+.flor-grabada::before { left: -6px; top: 3px; }
+.flor-grabada::after { right: -6px; top: 3px; }
+.flor-uno { left: 6px; }
+.flor-dos { right: 6px; transform: rotate(45deg) scaleX(-1); }
 .familia-grupo > p { font-family: "Montserrat", sans-serif; font-size: 10px; letter-spacing: .25em; text-transform: uppercase; }
 .familia-grupo h3 { color: var(--rosa-oscuro); font-family: "Cormorant Garamond", serif; font-size: clamp(27px, 3.5vw, 42px); font-weight: 500; line-height: 1.05; }
 .familia-grupo > span { display: block; margin: 4px 0; color: var(--dorado); font-family: "Great Vibes", cursive; font-size: 29px; }
@@ -751,6 +820,12 @@
 .familia-visible .familia-papas { animation: revelarCuenta .75s ease .48s forwards; }
 .familia-visible .familia-separador { animation: revelarCuenta .75s ease .62s forwards; }
 .familia-visible .familia-madrina { animation: revelarCuenta .75s ease .72s forwards; }
+.familia-visible .familia-medallon { animation: brilloMedallon 1.35s ease 1s both; }
+@keyframes brilloMedallon {
+    0% { filter: brightness(.92); transform: scale(.94); }
+    48% { filter: brightness(1.2) drop-shadow(0 0 10px rgba(211,166,79,.38)); transform: scale(1.04); }
+    100% { filter: none; transform: scale(1); }
+}
 
 .cuenta-contenido > *,
 .reloj-editorial .tiempo,
@@ -819,7 +894,13 @@
     .familia-intro { margin-bottom: 12px; font-size: 18px; }
     .familia-grupos { grid-template-columns: 1fr; gap: 2px; }
     .familia-grupo { padding: 9px 5px; }
-    .familia-icono { width: 39px; margin-bottom: 6px; font-size: 19px; }
+    .familia-medallon { width: 92px; height: 48px; margin-bottom: 5px; }
+    .familia-medallon::before { inset: 0 21px; }
+    .familia-medallon::after { inset: 5px 26px; }
+    .familia-medallon strong { font-size: 22px; }
+    .medallon-madrina { width: 76px; }
+    .medallon-madrina strong { font-size: 31px; }
+    .rama { top: 10px; }
     .familia-grupo h3 { font-size: 28px; }
     .familia-grupo > span { margin: 0; font-size: 23px; }
     .familia-separador { width: 180px; height: 1px; margin: 2px auto; background: linear-gradient(90deg, transparent, rgba(199,151,73,.65), transparent); }
