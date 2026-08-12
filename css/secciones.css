@@ -621,6 +621,94 @@
 .cuenta-fecha-final p { padding-left: 12px; border-left: 1px solid rgba(199,151,73,.55); font-size: 14px; letter-spacing: .18em; }
 .cuenta-cierre { margin-top: 10px; font-family: "Cormorant Garamond", serif; font-size: clamp(18px, 2vw, 22px); font-style: italic; }
 
+.ir-mensaje {
+    margin: 13px auto 0;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 7px 22px 3px;
+    border: 0;
+    color: var(--vino);
+    background: transparent;
+    cursor: pointer;
+}
+.ir-mensaje span { font-family: "Cormorant Garamond", serif; font-size: 17px; font-style: italic; letter-spacing: .04em; }
+.ir-mensaje i { color: var(--dorado); font-size: 22px; font-style: normal; animation: indicarAbajo 1.9s ease-in-out infinite; }
+.ir-mensaje:focus-visible { outline: 1px solid rgba(199,151,73,.72); outline-offset: 4px; border-radius: 999px; }
+
+.reloj-editorial,
+.cuenta-regresiva h2,
+.cuenta-kicker,
+.cuenta-intro,
+.cuenta-fecha-final,
+.cuenta-cierre { transition: opacity .65s ease, transform .75s ease, filter .7s ease; }
+
+.tiempo-detenido .reloj-editorial { opacity: 0; transform: scale(.82); filter: blur(8px) brightness(1.2); }
+.tiempo-detenido h2,
+.tiempo-detenido .cuenta-kicker,
+.tiempo-detenido .cuenta-intro,
+.tiempo-detenido .cuenta-fecha-final,
+.tiempo-detenido .cuenta-cierre { opacity: .08; transform: translateY(-8px); }
+.tiempo-detenido .ir-mensaje { opacity: 0; pointer-events: none; }
+.tiempo-detenido::after {
+    content: "✦";
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    top: 50%;
+    color: var(--dorado);
+    font-size: 34px;
+    transform: translate(-50%, -50%);
+    animation: destelloPuente .95s ease forwards;
+}
+
+@keyframes destelloPuente {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(.35) rotate(0); text-shadow: 0 0 0 transparent; }
+    45% { opacity: 1; transform: translate(-50%, -50%) scale(1.6) rotate(28deg); text-shadow: 0 0 30px rgba(211,166,79,.9); }
+    100% { opacity: 0; transform: translate(-50%, 150px) scale(.55) rotate(65deg); text-shadow: 0 0 18px rgba(211,166,79,.4); }
+}
+
+/* Mensaje especial */
+.mensaje-especial {
+    position: relative;
+    isolation: isolate;
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    padding: clamp(65px, 9vw, 110px) 24px;
+    color: var(--vino);
+    background:
+        radial-gradient(circle at 50% 48%, rgba(255,255,255,.93), transparent 36%),
+        linear-gradient(145deg, #fffaf7, #f9e9e8 52%, #fff8f2);
+}
+.mensaje-especial::before { content: ""; position: absolute; inset: 0; z-index: -3; opacity: .28; background: url("../assets/fondos/textura-papel.svg") center / 480px; mix-blend-mode: multiply; }
+.mensaje-marco { position: absolute; inset: 16px; border: 1px solid rgba(199,151,73,.48); pointer-events: none; }
+.mensaje-bruma { position: absolute; z-index: -2; width: min(780px, 115vw); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(243,211,216,.56), rgba(255,255,255,.18) 52%, transparent 70%); filter: blur(12px); }
+.mensaje-floral { position: absolute; z-index: -1; width: clamp(250px, 31vw, 440px); opacity: .30; filter: saturate(.55); }
+.mensaje-floral-uno { right: -115px; top: -90px; transform: rotate(82deg); }
+.mensaje-floral-dos { left: -120px; bottom: -95px; transform: rotate(-96deg); }
+.mensaje-mariposa { position: absolute; right: 13%; top: 22%; width: clamp(34px, 4vw, 55px); opacity: .62; filter: drop-shadow(0 7px 8px rgba(108,66,72,.15)); animation: vueloMariposa 7s ease-in-out infinite; }
+.mensaje-contenido { width: min(780px, 100%); text-align: center; }
+.mensaje-kicker { font-family: "Montserrat", sans-serif; font-size: 11px; letter-spacing: .34em; text-transform: uppercase; }
+.mensaje-destello { margin: 22px auto; color: var(--dorado); font-size: 22px; text-shadow: 0 0 16px rgba(211,166,79,.5); }
+.mensaje-especial blockquote { margin: 0; font-family: "Cormorant Garamond", serif; font-style: italic; }
+.frase-parte { display: block; opacity: 0; transform: translateY(22px); }
+.frase-parte:nth-child(1), .frase-parte:nth-child(2) { font-size: clamp(25px, 3.5vw, 39px); line-height: 1.25; }
+.frase-parte:nth-child(3), .frase-parte:nth-child(4) { color: var(--rosa-oscuro); font-family: "Great Vibes", cursive; font-size: clamp(62px, 9vw, 108px); line-height: .88; }
+.mensaje-firma { margin-top: 30px; opacity: 0; }
+.mensaje-firma span { display: block; font-family: "Cormorant Garamond", serif; font-size: 17px; font-style: italic; }
+.mensaje-firma strong { display: block; color: var(--rosa-oscuro); font-family: "Great Vibes", cursive; font-size: 48px; font-weight: 400; }
+.mensaje-visible .mensaje-kicker,
+.mensaje-visible .mensaje-destello { animation: revelarCuenta .7s ease forwards; }
+.mensaje-visible .parte-1 { animation: revelarFrase .8s ease .25s forwards; }
+.mensaje-visible .parte-2 { animation: revelarFrase .8s ease .62s forwards; }
+.mensaje-visible .parte-3 { animation: revelarFrase .9s ease 1.0s forwards; }
+.mensaje-visible .parte-4 { animation: revelarFrase .9s ease 1.34s forwards; }
+.mensaje-visible .mensaje-firma { animation: revelarCuenta .8s ease 1.75s forwards; }
+@keyframes revelarFrase { to { opacity: 1; transform: none; } }
+
 .cuenta-contenido > *,
 .reloj-editorial .tiempo,
 .reloj-editorial > i {
@@ -675,4 +763,10 @@
     .cuenta-floral { width: 235px; opacity: .31; }
     .cuenta-floral-uno { left: -115px; top: -65px; }
     .cuenta-floral-dos { right: -118px; bottom: -70px; }
+    .mensaje-especial { padding: 58px 27px 50px; }
+    .mensaje-marco { inset: 10px; }
+    .mensaje-floral { width: 235px; opacity: .24; }
+    .mensaje-mariposa { right: 7%; top: 18%; }
+    .frase-parte:nth-child(1), .frase-parte:nth-child(2) { font-size: 26px; }
+    .frase-parte:nth-child(3), .frase-parte:nth-child(4) { font-size: 68px; }
 }
