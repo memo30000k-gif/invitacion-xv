@@ -252,6 +252,52 @@
     letter-spacing: .06em;
 }
 
+.ir-cuenta {
+    margin: 20px auto 0;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    padding: 8px 22px 4px;
+    border: 0;
+    color: var(--vino);
+    background: transparent;
+    cursor: pointer;
+}
+
+.ir-cuenta span {
+    position: relative;
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    letter-spacing: .21em;
+    text-transform: uppercase;
+}
+
+.ir-cuenta span::after {
+    content: "";
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    bottom: -7px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--dorado), transparent);
+    transform: scaleX(.55);
+    transition: transform .35s ease;
+}
+
+.ir-cuenta i {
+    margin-top: 7px;
+    color: var(--dorado);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 23px;
+    font-style: normal;
+    animation: indicarAbajo 1.9s ease-in-out infinite;
+}
+
+.ir-cuenta:hover span::after,
+.ir-cuenta:focus-visible span::after { transform: scaleX(1); }
+.ir-cuenta:focus-visible { outline: 1px solid rgba(199,151,73,.72); outline-offset: 5px; border-radius: 999px; }
+
 .bienvenida.preparando-entrada .bienvenida-contenido {
     opacity: 0;
     transform: translateY(34px) scale(.96);
@@ -519,6 +565,11 @@
 .cuenta-visible .reloj-editorial > :nth-child(8) { animation-delay: .74s; }
 
 @keyframes revelarCuenta { to { opacity: 1; transform: none; } }
+
+@keyframes indicarAbajo {
+    0%, 100% { transform: translateY(0); opacity: .55; }
+    50% { transform: translateY(6px); opacity: 1; }
+}
 
 @media (max-width: 620px) {
     .cuenta-regresiva { padding: 54px 18px 48px; }
