@@ -1010,15 +1010,46 @@
     .boton-ubicacion { margin-top: 13px; }
     .evento-cierre { margin-top: 11px; font-size: 17px; }
     .ir-dress-code { margin-top:4px; }
-    .dress-code { padding:43px 18px 38px; align-items:start; }
+    .dress-code { padding:42px 13px 36px; align-items:center; }
     .dress-marco { inset:10px; }
-    .dress-baile { left:50%; bottom:-1%; width:112vw; max-height:74%; object-position:center bottom; transform:translateX(-54%) scale(.95); opacity:.38; }
-    .dress-visible .dress-baile { opacity:.46; transform:translateX(-50%); }
-    .dress-contenido { justify-content:center; }
-    .dress-texto { position:relative; z-index:2; width:94%; padding:31px 22px 26px; border-radius:44% 44% 14px 14px / 8% 8% 14px 14px; background:rgba(255,251,247,.80); }
-    .dress-code h2 { font-size:78px; }
-    .dress-invitacion { font-size:19px; }
-    .color-reservado { margin:18px auto 13px; padding:12px 8px; gap:12px; }
-    .muestra-rosa { width:36px; flex-basis:36px; }
-    .color-reservado strong { font-size:18px; }
+    .dress-luz { left:-8%; width:64vw; height:80vh; }
+    .dress-baile {
+        left:-15%;
+        bottom:7%;
+        width:72vw;
+        max-height:88%;
+        object-position:left bottom;
+        transform:translateX(-18px) scale(.96);
+        opacity:.62;
+        mix-blend-mode:multiply;
+    }
+    .dress-visible .dress-baile { opacity:.72; transform:none; }
+    .dress-contenido { justify-content:flex-end; align-items:center; transform:translateY(-62px); }
+    .dress-texto {
+        position:relative;
+        z-index:2;
+        width:65%;
+        margin-right:1px;
+        padding:25px 13px 21px;
+        border-radius:44% 44% 13px 13px / 7% 7% 13px 13px;
+        background:rgba(255,251,247,.91);
+        box-shadow:0 18px 42px rgba(112,67,76,.15),-8px 0 24px rgba(255,255,255,.50),inset 0 0 0 5px rgba(255,255,255,.48);
+        backdrop-filter:blur(7px);
+    }
+    .dress-kicker { font-size:8px; letter-spacing:.24em; }
+    .dress-code h2 { font-size:58px; }
+    .dress-ornamento { margin:2px auto 10px; }
+    .dress-invitacion { font-size:15px; line-height:1.28; }
+    .color-reservado { margin:13px auto 10px; padding:10px 2px; gap:7px; }
+    .muestra-rosa { width:29px; flex-basis:29px; box-shadow:0 0 0 3px rgba(255,255,255,.62),0 5px 12px rgba(112,67,76,.14); }
+    .color-reservado small { font-size:7px; letter-spacing:.11em; }
+    .color-reservado strong { font-size:14px; line-height:1.1; }
+    .dress-nota { font-size:13px; line-height:1.25; }
+}
+
+@media (max-width: 360px) {
+    .dress-baile { left:-18%; width:75vw; }
+    .dress-texto { width:65%; padding-left:10px; padding-right:10px; }
+    .dress-code h2 { font-size:53px; }
+    .dress-invitacion { font-size:14px; }
 }
