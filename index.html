@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="css/base.css?v=2">
     <link rel="stylesheet" href="css/portada.css?v=2">
     <link rel="stylesheet" href="css/sobre.css?v=3">
-    <link rel="stylesheet" href="css/secciones.css?v=10">
+    <link rel="stylesheet" href="css/secciones.css?v=11">
     <link rel="stylesheet" href="css/animaciones.css?v=3">
     <link rel="stylesheet" href="css/responsive.css?v=4">
 
@@ -349,6 +349,53 @@
                 </div>
 
                 <p class="familia-cierre">Gracias por caminar a mi lado y ser parte de este sueño</p>
+                <button class="ir-evento" id="irEvento" type="button" aria-label="Continuar a los detalles del evento">
+                    <span>El lugar donde celebraremos</span>
+                    <i aria-hidden="true">↓</i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Detalles del evento -->
+        <section class="detalles-evento" id="detallesEvento" aria-labelledby="titulo-evento">
+            <div class="evento-marco" aria-hidden="true"></div>
+            <img class="evento-floral evento-floral-uno" src="assets/flores/floral-esquina.svg" alt="">
+            <img class="evento-floral evento-floral-dos" src="assets/flores/floral-esquina.svg" alt="">
+
+            <div class="evento-contenido">
+                <p class="evento-kicker">Acompáñame a celebrar</p>
+                <h2 id="titulo-evento">La gran noche</h2>
+
+                <article class="evento-tarjeta">
+                    <div class="evento-sello" aria-hidden="true">
+                        <span></span>
+                    </div>
+
+                    <div class="evento-fecha">
+                        <span>Sábado</span>
+                        <strong>17</strong>
+                        <span>Octubre</span>
+                        <small>2026</small>
+                    </div>
+
+                    <div class="evento-linea" aria-hidden="true"><span>✦</span></div>
+
+                    <p class="evento-tipo">Recepción</p>
+                    <h3>Salón Palacio Lunara</h3>
+                    <p class="evento-hora"><strong>7:30</strong> p. m.</p>
+                    <address>
+                        Calle Corregidora No. 91<br>
+                        Coacalco Centro, C. P. 55700<br>
+                        San Francisco Coacalco, México
+                    </address>
+
+                    <a class="boton-ubicacion" href="https://www.google.com/maps/search/?api=1&amp;query=Sal%C3%B3n%20Palacio%20Lunara%2C%20Calle%20Corregidora%2091%2C%20Coacalco%2C%20M%C3%A9xico" target="_blank" rel="noopener noreferrer">
+                        <span class="ubicacion-pin" aria-hidden="true"></span>
+                        <span>Abrir ubicación</span>
+                    </a>
+                </article>
+
+                <p class="evento-cierre">Te esperamos para compartir una noche llena de magia</p>
             </div>
         </section>
 
@@ -358,7 +405,7 @@
     <!-- JavaScript del proyecto -->
     <script src="js/preloader.js" defer></script>
     <script src="js/sobre.js?v=2" defer></script>
-    <script src="js/main.js?v=8" defer></script>
+    <script src="js/main.js?v=9" defer></script>
 
 </body>
 </html>
