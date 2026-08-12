@@ -44,4 +44,208 @@
             font-family: "Cormorant Garamond", serif;
             font-size: clamp(21px, 3vw, 30px);
             line-height: 1.45;
-        }
+}
+
+/* Bienvenida editorial */
+.bienvenida {
+    position: relative;
+    isolation: isolate;
+    min-height: 100svh;
+    overflow: hidden;
+    padding: clamp(58px, 8vw, 96px) 22px;
+    background:
+        radial-gradient(circle at 50% 18%, rgba(255,255,255,.94), transparent 30%),
+        radial-gradient(circle at 12% 72%, rgba(239,190,202,.36), transparent 28%),
+        radial-gradient(circle at 88% 78%, rgba(250,220,225,.52), transparent 30%),
+        linear-gradient(145deg, #fffaf7 0%, #fae3e6 48%, #fff8f4 100%);
+}
+
+.bienvenida::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    opacity: .35;
+    background-image: url("../assets/fondos/textura-papel.svg");
+    background-size: 480px;
+    mix-blend-mode: multiply;
+}
+
+.bienvenida::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: min(720px, 120vw);
+    aspect-ratio: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(199,151,73,.22);
+    border-radius: 50%;
+    box-shadow: 0 0 0 50px rgba(255,255,255,.08), 0 0 0 51px rgba(199,151,73,.10);
+}
+
+.bienvenida-marco {
+    position: absolute;
+    inset: 16px;
+    border: 1px solid rgba(199,151,73,.58);
+    pointer-events: none;
+}
+
+.bienvenida-marco::before,
+.bienvenida-marco::after {
+    content: "✦";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 12px;
+    color: var(--dorado);
+    background: #fff7f4;
+}
+
+.bienvenida-marco::before { top: -12px; }
+.bienvenida-marco::after { bottom: -12px; }
+
+.bienvenida-floral {
+    position: absolute;
+    z-index: -1;
+    width: clamp(250px, 33vw, 470px);
+    opacity: .55;
+    filter: saturate(.62) drop-shadow(0 18px 25px rgba(112,69,77,.12));
+    pointer-events: none;
+}
+
+.bienvenida-floral-uno { top: -82px; right: -105px; transform: rotate(82deg); }
+.bienvenida-floral-dos { bottom: -90px; left: -100px; transform: rotate(-96deg); }
+
+.bienvenida-contenido {
+    width: min(760px, 100%);
+    margin: auto;
+    text-align: center;
+}
+
+.bienvenida-etiqueta {
+    font-family: "Montserrat", sans-serif;
+    font-size: clamp(10px, 1.2vw, 12px);
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    color: rgba(117,74,80,.76);
+}
+
+.bienvenida-corona {
+    display: block;
+    width: clamp(58px, 7vw, 82px);
+    margin: 14px auto 4px;
+    filter: drop-shadow(0 7px 8px rgba(113,66,44,.16));
+}
+
+.bienvenida-kicker {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(16px, 2vw, 22px);
+    letter-spacing: .38em;
+    text-transform: uppercase;
+}
+
+.bienvenida h2 {
+    margin-top: -7px;
+    color: var(--rosa-oscuro);
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(84px, 12vw, 134px);
+    font-weight: 400;
+    line-height: .94;
+    text-shadow: 0 2px 0 rgba(255,255,255,.9), 0 13px 28px rgba(121,71,75,.14);
+}
+
+.bienvenida-fecha {
+    width: min(540px, 96%);
+    margin: 17px auto 24px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    color: var(--vino);
+    font-family: "Cormorant Garamond", serif;
+    text-transform: uppercase;
+}
+
+.bienvenida-fecha span {
+    padding: 10px;
+    border-top: 1px solid rgba(199,151,73,.65);
+    border-bottom: 1px solid rgba(199,151,73,.65);
+    font-size: clamp(13px, 2vw, 18px);
+    letter-spacing: .14em;
+}
+
+.bienvenida-fecha strong {
+    padding: 0 23px;
+    color: var(--rosa-oscuro);
+    font-size: clamp(58px, 8vw, 84px);
+    font-weight: 500;
+    line-height: .8;
+}
+
+.bienvenida-fecha small {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+    color: var(--dorado);
+    font-size: clamp(22px, 3vw, 31px);
+    font-weight: 600;
+    letter-spacing: .12em;
+}
+
+.bienvenida blockquote {
+    max-width: 630px;
+    margin: 0 auto;
+    color: #734b50;
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(19px, 2.5vw, 26px);
+    font-style: italic;
+    line-height: 1.48;
+}
+
+.bienvenida-ornamento {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: min(290px, 72%);
+    margin: 22px auto 9px;
+    color: var(--dorado);
+}
+
+.bienvenida-ornamento::before,
+.bienvenida-ornamento::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--dorado)); }
+.bienvenida-ornamento::after { background: linear-gradient(90deg, var(--dorado), transparent); }
+.bienvenida-ornamento span { font-size: 24px; }
+
+.bienvenida-cierre {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(17px, 2vw, 21px);
+    letter-spacing: .06em;
+}
+
+.bienvenida.preparando-entrada .bienvenida-contenido {
+    opacity: 0;
+    transform: translateY(34px) scale(.96);
+}
+
+.bienvenida .bienvenida-contenido {
+    transition: opacity .85s ease, transform 1s cubic-bezier(.2,.78,.2,1);
+}
+
+.bienvenida.entrada-activa .bienvenida-contenido {
+    opacity: 1;
+    transform: none;
+}
+
+@media (max-width: 620px) {
+    .bienvenida { padding: 48px 26px 44px; }
+    .bienvenida-marco { inset: 10px; }
+    .bienvenida-floral { width: 235px; opacity: .38; }
+    .bienvenida-floral-uno { top: -60px; right: -115px; }
+    .bienvenida-floral-dos { bottom: -60px; left: -112px; }
+    .bienvenida-corona { margin-top: 10px; }
+    .bienvenida h2 { font-size: clamp(76px, 24vw, 94px); }
+    .bienvenida-fecha { margin: 13px auto 18px; }
+    .bienvenida-fecha strong { padding: 0 14px; }
+    .bienvenida blockquote { font-size: 19px; line-height: 1.38; }
+    .bienvenida-ornamento { margin-top: 17px; }
+}

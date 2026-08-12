@@ -563,6 +563,33 @@
     outline: 2px solid rgba(157,108,48,.78);
     outline-offset: 8px;
 }
+
+/* Puente cinematografico hacia la bienvenida */
+.portada .contenido,
+.portada .decoracion-premium,
+.portada .marco {
+    transition: opacity .7s ease, filter .7s ease;
+}
+
+.portada.transicionando .tarjeta {
+    z-index: 100;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-52%) scale(1.18);
+    filter: brightness(1.06);
+    transition: transform .85s cubic-bezier(.2,.78,.2,1), opacity .7s ease .18s, filter .7s ease;
+}
+
+.portada.transicionando .sobre > :not(.tarjeta),
+.portada.transicionando .escena::after {
+    opacity: 0;
+    transition: opacity .45s ease;
+}
+
+.portada.transicionando .decoracion-premium,
+.portada.transicionando .marco {
+    opacity: .16;
+    filter: blur(4px);
+}
 .fondo-sobre::after {
     content: "";
     position: absolute;
