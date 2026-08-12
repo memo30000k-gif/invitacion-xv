@@ -103,6 +103,8 @@ const botonIrFamilia = document.getElementById("irFamilia");
 const seccionFamilia = document.getElementById("familia");
 const botonIrEvento = document.getElementById("irEvento");
 const seccionEvento = document.getElementById("detallesEvento");
+const botonIrDressCode = document.getElementById("irDressCode");
+const seccionDressCode = document.getElementById("dressCode");
 
 botonIrCuenta?.addEventListener("click", () => {
     seccionCuenta?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -157,6 +159,23 @@ botonIrEvento?.addEventListener("click", () => {
         seccionFamilia.classList.remove("transicion-evento");
         botonIrEvento.disabled = false;
     }, 1750);
+});
+
+botonIrDressCode?.addEventListener("click", () => {
+    if (!seccionEvento || !seccionDressCode) return;
+
+    seccionEvento.classList.add("transicion-dress");
+    botonIrDressCode.disabled = true;
+
+    window.setTimeout(() => {
+        seccionDressCode.scrollIntoView({ behavior: "smooth", block: "start" });
+        seccionDressCode.classList.add("dress-visible");
+    }, 680);
+
+    window.setTimeout(() => {
+        seccionEvento.classList.remove("transicion-dress");
+        botonIrDressCode.disabled = false;
+    }, 1850);
 });
 
 if (seccionCuenta && "IntersectionObserver" in window) {
