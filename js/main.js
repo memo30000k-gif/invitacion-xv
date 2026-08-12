@@ -79,6 +79,12 @@ actualizarCuentaRegresiva();
 window.setInterval(actualizarCuentaRegresiva, 1000);
 
 const seccionCuenta = document.getElementById("cuentaRegresiva");
+const botonIrCuenta = document.getElementById("irCuenta");
+
+botonIrCuenta?.addEventListener("click", () => {
+    seccionCuenta?.scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
 if (seccionCuenta && "IntersectionObserver" in window) {
     const observadorCuenta = new IntersectionObserver((entradas, observador) => {
         if (entradas.some((entrada) => entrada.isIntersecting)) {
