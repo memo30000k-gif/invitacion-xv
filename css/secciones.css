@@ -1105,6 +1105,32 @@
     .color-reservado { margin-top:10px; }
 }
 
+/* Mesa de regalos Liverpool */
+.ir-regalos { position:absolute; z-index:4; left:50%; bottom:28px; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:3px; color:#9c6d72; border:0; background:transparent; font-family:"Cormorant Garamond",serif; font-size:15px; font-style:italic; cursor:pointer; }
+.ir-regalos i { color:var(--dorado); font-size:18px; font-style:normal; animation:flotarFlecha 1.8s ease-in-out infinite; }
+.mesa-regalos { position:relative; min-height:100svh; overflow:hidden; display:grid; place-items:center; padding:58px 22px; color:#744f57; text-align:center; background:radial-gradient(circle at 50% 34%,rgba(255,255,255,.96),transparent 42%),linear-gradient(155deg,#fff9f6,#f8e2e5 55%,#fdf4ef); }
+.mesa-regalos::before { content:""; position:absolute; inset:0; opacity:.25; background:url("../assets/fondos/textura-papel.svg") center/480px; mix-blend-mode:multiply; }
+.regalos-marco { position:absolute; inset:17px; border:1px solid rgba(199,151,73,.55); pointer-events:none; }
+.regalos-contenido { position:relative; z-index:2; width:min(590px,94%); padding:45px 48px 40px; border:1px solid rgba(199,151,73,.5); border-radius:46% 46% 20px 20px / 9% 9% 20px 20px; background:rgba(255,252,248,.84); box-shadow:0 25px 65px rgba(111,66,75,.13),inset 0 0 0 7px rgba(255,255,255,.44); backdrop-filter:blur(9px); }
+.regalos-kicker { margin:0; font:500 10px/1.2 "Montserrat",sans-serif; letter-spacing:.34em; text-transform:uppercase; }
+.mesa-regalos h2 { margin:5px 0 0; color:var(--rosa-oscuro); font:400 clamp(62px,8vw,92px)/1 "Great Vibes",cursive; }
+.regalos-ornamento { display:flex; align-items:center; gap:10px; width:68%; margin:4px auto 16px; color:var(--dorado); }.regalos-ornamento::before,.regalos-ornamento::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(199,151,73,.72));}.regalos-ornamento::after{background:linear-gradient(90deg,rgba(199,151,73,.72),transparent)}
+.regalos-frase { margin:0 0 8px; font:italic 25px/1.25 "Cormorant Garamond",serif; }
+.regalos-texto { max-width:420px; margin:0 auto 22px; font:17px/1.45 "Cormorant Garamond",serif; }
+.liverpool-tarjeta { position:relative; padding:20px 20px 16px; border:1px solid rgba(179,126,61,.4); border-radius:14px; background:linear-gradient(145deg,rgba(255,255,255,.86),rgba(255,245,239,.72)); box-shadow:0 12px 30px rgba(111,67,74,.09); }
+.liverpool-marca { margin:0 0 7px; color:#b72439; font:600 19px/1 "Montserrat",sans-serif; letter-spacing:.03em; }
+.liverpool-tarjeta small { display:block; font:500 8px/1.2 "Montserrat",sans-serif; letter-spacing:.24em; text-transform:uppercase; }
+.liverpool-tarjeta strong { display:block; margin:4px 0 14px; color:#8e5e66; font:500 34px/1 "Cormorant Garamond",serif; letter-spacing:.12em; }
+.regalos-acciones { display:flex; justify-content:center; gap:9px; flex-wrap:wrap; }.regalos-acciones button,.regalos-acciones a { min-width:145px; padding:11px 16px; border:1px solid rgba(178,123,57,.62); border-radius:999px; font:500 9px/1 "Montserrat",sans-serif; letter-spacing:.12em; text-transform:uppercase; text-decoration:none; cursor:pointer; transition:.3s ease; }.regalos-acciones button{color:#8e6268;background:transparent}.regalos-acciones a{color:#fff;background:linear-gradient(135deg,#bd8b3e,#d7ad63)}.regalos-acciones button:hover,.regalos-acciones a:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(104,63,68,.13)}.regalos-acciones button.copiado{color:#fff;background:#a5747a}
+.copiar-estado { min-height:15px; margin:8px 0 0; font:italic 12px/1.2 "Cormorant Garamond",serif; }
+.regalos-nota { margin:15px 0 0; font:italic 15px/1.3 "Cormorant Garamond",serif; }
+.regalo-caja { position:absolute; z-index:1; left:clamp(18px,7vw,110px); top:50%; width:230px; height:190px; transform:translateY(-50%) rotate(-4deg); border:1px solid rgba(188,137,68,.36); border-radius:8px; background:linear-gradient(145deg,rgba(249,213,218,.38),rgba(255,250,244,.28)); opacity:.7; }.regalo-tapa{position:absolute;left:-12px;right:-12px;top:-18px;height:37px;border:1px solid rgba(188,137,68,.42);border-radius:7px;background:rgba(255,247,241,.55)}.regalo-liston-v{position:absolute;left:50%;top:-18px;bottom:0;width:33px;transform:translateX(-50%);background:linear-gradient(90deg,rgba(198,147,69,.18),rgba(218,179,104,.44),rgba(198,147,69,.18))}.regalo-liston-h{position:absolute;left:0;right:0;top:70px;height:31px;background:linear-gradient(rgba(198,147,69,.18),rgba(218,179,104,.4),rgba(198,147,69,.18))}.regalo-mono{position:absolute;top:-68px;width:78px;height:55px;border:2px solid rgba(188,137,68,.5);border-radius:55% 45% 52% 48%}.regalo-mono-izq{left:48px;transform:rotate(27deg)}.regalo-mono-der{right:48px;transform:rotate(-27deg)}
+.regalo-destello { position:absolute; color:rgba(199,151,73,.62); animation:destelloSuave 2.8s ease-in-out infinite; }.regalo-destello-uno{left:11%;top:18%;font-size:24px}.regalo-destello-dos{right:12%;bottom:17%;font-size:16px;animation-delay:1.1s}
+.regalos-contenido>* { opacity:0; transform:translateY(18px); }.regalos-visible .regalos-contenido>*{animation:revelarCuenta .72s ease forwards}.regalos-visible .regalos-contenido>:nth-child(2){animation-delay:.12s}.regalos-visible .regalos-contenido>:nth-child(3){animation-delay:.22s}.regalos-visible .regalos-contenido>:nth-child(4){animation-delay:.32s}.regalos-visible .regalos-contenido>:nth-child(5){animation-delay:.42s}.regalos-visible .regalos-contenido>:nth-child(6){animation-delay:.55s}.regalos-visible .regalos-contenido>:nth-child(7){animation-delay:.67s}.transicion-regalos .dress-contenido{filter:blur(4px);opacity:.35;transform:scale(.97);transition:.65s ease}
+@keyframes destelloSuave{50%{opacity:.25;transform:scale(.65) rotate(25deg)}}
+
+@media(max-width:620px){.ir-regalos{bottom:22px;font-size:13px}.mesa-regalos{padding:45px 14px}.regalos-contenido{width:92%;padding:35px 18px 29px}.mesa-regalos h2{font-size:58px}.regalos-frase{font-size:21px}.regalos-texto{font-size:15px}.liverpool-tarjeta strong{font-size:29px}.regalo-caja{left:50%;top:76%;width:190px;height:145px;transform:translate(-50%,-50%) rotate(-4deg);opacity:.2}.regalos-acciones button,.regalos-acciones a{min-width:132px;padding:10px 12px;font-size:8px}}
+
 /* Refinación final del atelier en móvil */
 @media (max-width:620px) {
     .dress-code { place-items:center; padding-top:22px; }
