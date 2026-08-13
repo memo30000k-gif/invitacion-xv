@@ -42,6 +42,27 @@ controlMusica?.addEventListener("click", alternarMusica);
 musicaInvitacion?.addEventListener("pause", () => actualizarControlMusica(false));
 musicaInvitacion?.addEventListener("play", () => actualizarControlMusica(true));
 
+window.iniciarMusicaInvitacion = async function () {
+    if (!musicaInvitacion || !musicaInvitacion.paused) return;
+    musicaInvitacion.volume = 0.72;
+    try {
+        await musicaInvitacion.play();
+        actualizarControlMusica(true);
+    } catch {
+        actualizarControlMusica(false);
+    }
+};
+
+const seccionCierre = document.getElementById("cierre");
+if (seccionCierre && musicaInvitacion && "IntersectionObserver" in window) {
+    const observadorCierre = new IntersectionObserver((entradas) => {
+        const visible = entradas.some((entrada) => entrada.isIntersecting);
+        seccionCierre.classList.toggle("cierre-visible", visible);
+        if (!musicaInvitacion.paused) musicaInvitacion.volume = visible ? 0.34 : 0.72;
+    }, { threshold: 0.35 });
+    observadorCierre.observe(seccionCierre);
+}
+
 /* Cuenta regresiva: 17 de octubre de 2026, 7:30 p. m., hora de México. */
 const fechaEvento = new Date("2026-10-17T19:30:00-06:00");
 const inicioGranDia = new Date("2026-10-17T00:00:00-06:00");

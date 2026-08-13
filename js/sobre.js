@@ -33,6 +33,7 @@ function continuarInvitacion(evento) {
     if (!tarjetaDisponible || !invitacion || transicionIniciada) return;
 
     transicionIniciada = true;
+    window.iniciarMusicaInvitacion?.();
     tarjeta.setAttribute("aria-disabled", "true");
     portada?.classList.add("transicionando");
     invitacion.classList.add("preparando-entrada");
