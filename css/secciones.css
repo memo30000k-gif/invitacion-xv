@@ -1165,6 +1165,31 @@
 .ir-cierre{display:flex;align-items:center;gap:8px;margin:20px auto -20px;padding:10px;color:#95646c;border:0;background:transparent;font:italic 15px "Cormorant Garamond",serif;cursor:pointer}.ir-cierre i{color:var(--dorado);font-style:normal}.cierre{position:relative;min-height:100svh;overflow:hidden;display:grid;place-items:center;padding:55px 22px;color:#704e56;text-align:center;background:radial-gradient(circle at 50% 42%,rgba(255,255,255,.98),transparent 35%),linear-gradient(155deg,#f4dce2,#fff9f4 52%,#ecd1da)}.cierre::before{content:"L";position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);color:rgba(199,151,73,.07);font:400 min(72vw,750px)/1 "Great Vibes",cursive}.cierre::after{content:"";position:absolute;inset:0;opacity:.24;background:url("../assets/fondos/textura-papel.svg") center/480px;mix-blend-mode:multiply}.cierre-marco{position:absolute;z-index:2;inset:17px;border:1px solid rgba(199,151,73,.58)}.cierre-contenido{position:relative;z-index:3;width:min(580px,92%);padding:44px 48px}.cierre-corona{color:#c29244;font-size:50px;line-height:1;text-shadow:0 8px 15px rgba(126,81,36,.18)}.cierre-kicker{margin:12px 0 0;font:500 9px "Montserrat",sans-serif;letter-spacing:.34em;text-transform:uppercase}.cierre h2{margin:2px 0;color:var(--rosa-oscuro);font:400 clamp(82px,11vw,125px)/.9 "Great Vibes",cursive}.cierre-mensaje{max-width:500px;margin:16px auto 12px;font:italic 22px/1.45 "Cormorant Garamond",serif}.cierre-firma{margin:3px 0;color:#ad6b77;font:400 70px/1 "Great Vibes",cursive}.cierre-fecha{display:flex;align-items:center;justify-content:center;gap:13px;margin:12px 0;color:#956069;font:500 14px "Montserrat",sans-serif;letter-spacing:.2em}.cierre-fecha i{width:4px;height:4px;border-radius:50%;background:var(--dorado)}.cierre-espera{margin:0;font:italic 15px "Cormorant Garamond",serif}.cierre-acciones{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:24px}.cierre-acciones button{padding:11px 18px;color:#936069;border:1px solid rgba(188,134,60,.54);border-radius:999px;background:rgba(255,255,255,.58);font:500 8px "Montserrat",sans-serif;letter-spacing:.11em;text-transform:uppercase;cursor:pointer}.cierre-acciones button:last-child{color:#fff;background:linear-gradient(135deg,#b8803b,#dab46c)}.cierre-destellos i{position:absolute;z-index:3;color:rgba(199,151,73,.72);font-style:normal;opacity:.2;animation:destelloCierre 3s ease-in-out infinite}.cierre-destellos i:nth-child(1){left:15%;top:20%;font-size:25px}.cierre-destellos i:nth-child(2){right:16%;top:27%;font-size:18px;animation-delay:.8s}.cierre-destellos i:nth-child(3){right:21%;bottom:18%;font-size:22px;animation-delay:1.5s}.cierre-destellos i:nth-child(4){left:22%;bottom:25%;font-size:15px;animation-delay:2.1s}.cierre-contenido>*{opacity:0;transform:translateY(17px)}.cierre-visible .cierre-contenido>*{animation:revelarCuenta .85s ease forwards}.cierre-visible .cierre-contenido>:nth-child(2){animation-delay:.13s}.cierre-visible .cierre-contenido>:nth-child(3){animation-delay:.25s}.cierre-visible .cierre-contenido>:nth-child(4){animation-delay:.38s}.cierre-visible .cierre-contenido>:nth-child(5){animation-delay:.53s}.cierre-visible .cierre-contenido>:nth-child(6){animation-delay:.66s}.cierre-visible .cierre-contenido>:nth-child(7){animation-delay:.78s}.cierre-visible .cierre-contenido>:nth-child(8){animation-delay:.9s}@keyframes destelloCierre{50%{opacity:1;transform:scale(1.3) rotate(25deg)}}
 @media(max-width:620px){.cierre{padding:45px 13px}.cierre-contenido{width:94%;padding:35px 18px}.cierre-corona{font-size:43px}.cierre h2{font-size:88px}.cierre-mensaje{font-size:19px}.cierre-firma{font-size:62px}.cierre-acciones{display:grid}.cierre-acciones button{width:210px}}
 
+/* Control de música siempre accesible sobre las barras del navegador móvil */
+.control-musica {
+    z-index: 2147483647;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateZ(0);
+}
+@media (max-width: 620px) {
+    .control-musica {
+        right: calc(15px + env(safe-area-inset-right));
+        bottom: calc(82px + env(safe-area-inset-bottom));
+        width: 51px;
+        min-width: 51px;
+        height: 51px;
+        min-height: 51px;
+        padding: 6px;
+        justify-content: center;
+        border: 2px solid rgba(195,147,67,.8);
+        background: rgba(255,250,247,.95);
+        box-shadow: 0 10px 28px rgba(102,59,65,.22), 0 0 0 4px rgba(255,255,255,.55);
+    }
+    .control-musica-icono { width: 35px; font-size: 18px; }
+}
+
 /* Refinación final del atelier en móvil */
 @media (max-width:620px) {
     .dress-code { place-items:center; padding-top:22px; }
