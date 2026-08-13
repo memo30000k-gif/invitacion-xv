@@ -1162,3 +1162,42 @@
     .dress-texto { width:59%; margin-right:1px; }
     .dress-code h2 { font-size:47px; }
 }
+
+/* Atelier móvil: figurines completos y separados de la tarjeta */
+@media (max-width:620px) {
+    .atelier-visual {
+        left: 5px;
+        top: 44%;
+        width: 150px;
+        overflow: visible;
+    }
+    .siluetas-gala {
+        width: 273px;
+        height: 350px;
+        margin: -25px 0 0 -61px;
+        gap: 18px;
+        transform: scale(.56);
+        transform-origin: center bottom;
+    }
+    .atelier-linea {
+        width: 132px;
+        margin: -154px auto 0;
+    }
+    .atelier-nota {
+        width: 142px;
+        margin: 24px auto 0;
+        white-space: normal;
+    }
+    .dress-texto {
+        width: 55%;
+        margin-right: 2px;
+    }
+}
+
+@media (max-width:360px) {
+    .atelier-visual { left: 1px; width: 139px; }
+    .siluetas-gala { transform: scale(.52); }
+    .atelier-linea { width: 122px; }
+    .atelier-nota { width: 130px; }
+    .dress-texto { width: 56%; }
+}
