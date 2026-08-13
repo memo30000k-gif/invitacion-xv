@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="css/base.css?v=2">
     <link rel="stylesheet" href="css/portada.css?v=2">
     <link rel="stylesheet" href="css/sobre.css?v=3">
-    <link rel="stylesheet" href="css/secciones.css?v=19">
+    <link rel="stylesheet" href="css/secciones.css?v=20">
     <link rel="stylesheet" href="css/animaciones.css?v=3">
     <link rel="stylesheet" href="css/responsive.css?v=4">
 
@@ -479,6 +479,42 @@
                     <p class="copiar-estado" id="copiarEstado" role="status" aria-live="polite"></p>
                 </article>
                 <p class="regalos-nota">El mejor detalle será compartir esta noche contigo.</p>
+                <button class="ir-accesos" id="irAccesos" type="button"><span>Confirmar mi invitación</span><i aria-hidden="true">↓</i></button>
+            </div>
+        </section>
+
+        <!-- Confirmación y accesos familiares -->
+        <section class="accesos" id="accesos" aria-labelledby="titulo-accesos">
+            <div class="accesos-marco" aria-hidden="true"></div>
+            <div class="accesos-contenido">
+                <p class="accesos-kicker">Tu lugar en esta historia</p>
+                <h2 id="titulo-accesos">Confirma tus accesos</h2>
+                <p class="accesos-intro">Ingresa los datos incluidos en tu invitación familiar.</p>
+
+                <form class="acceso-login" id="accesoLogin">
+                    <label>Código familiar<input id="codigoFamilia" name="codigo" autocomplete="off" maxlength="40" placeholder="Ej. GOMEZ-4827" required></label>
+                    <label>PIN<input id="pinFamilia" name="pin" type="password" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" placeholder="••••" required></label>
+                    <button type="submit">Ver mi invitación</button>
+                    <p class="acceso-estado" id="accesoEstado" role="status" aria-live="polite"></p>
+                </form>
+
+                <div class="panel-familia" id="panelFamilia" hidden>
+                    <p class="familia-saludo">Bienvenida, <strong id="nombreFamilia"></strong></p>
+                    <p class="familia-limite">Esta invitación incluye <strong id="limiteBoletos"></strong> accesos.</p>
+                    <div class="decision-asistencia" id="decisionAsistencia">
+                        <p>¿Podrán acompañarnos?</p>
+                        <button type="button" data-asistencia="si">Sí, asistiremos</button>
+                        <button type="button" data-asistencia="no">No podremos asistir</button>
+                    </div>
+                    <form id="registroInvitados" hidden>
+                        <div class="lista-invitados" id="listaInvitados"></div>
+                        <div class="registro-acciones">
+                            <button type="button" id="agregarInvitado">Agregar asistente</button>
+                            <button type="submit">Guardar confirmación</button>
+                        </div>
+                    </form>
+                    <p class="registro-estado" id="registroEstado" role="status" aria-live="polite"></p>
+                </div>
             </div>
         </section>
 
@@ -489,6 +525,7 @@
     <script src="js/preloader.js" defer></script>
     <script src="js/sobre.js?v=2" defer></script>
     <script src="js/main.js?v=11" defer></script>
+    <script src="js/accesos.js?v=1" defer></script>
 
 </body>
 </html>
