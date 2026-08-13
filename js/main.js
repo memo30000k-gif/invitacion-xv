@@ -105,6 +105,10 @@ const botonIrEvento = document.getElementById("irEvento");
 const seccionEvento = document.getElementById("detallesEvento");
 const botonIrDressCode = document.getElementById("irDressCode");
 const seccionDressCode = document.getElementById("dressCode");
+const botonIrRegalos = document.getElementById("irRegalos");
+const seccionRegalos = document.getElementById("mesaRegalos");
+const botonCopiarMesa = document.getElementById("copiarMesa");
+const copiarEstado = document.getElementById("copiarEstado");
 
 botonIrCuenta?.addEventListener("click", () => {
     seccionCuenta?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -178,6 +182,36 @@ botonIrDressCode?.addEventListener("click", () => {
     }, 1850);
 });
 
+botonIrRegalos?.addEventListener("click", () => {
+    if (!seccionDressCode || !seccionRegalos) return;
+    seccionDressCode.classList.add("transicion-regalos");
+    botonIrRegalos.disabled = true;
+    window.setTimeout(() => {
+        seccionRegalos.scrollIntoView({ behavior: "smooth", block: "start" });
+        seccionRegalos.classList.add("regalos-visible");
+    }, 650);
+    window.setTimeout(() => {
+        seccionDressCode.classList.remove("transicion-regalos");
+        botonIrRegalos.disabled = false;
+    }, 1750);
+});
+
+botonCopiarMesa?.addEventListener("click", async () => {
+    const numero = botonCopiarMesa.dataset.numero || "60019073";
+    try {
+        await navigator.clipboard.writeText(numero);
+        botonCopiarMesa.classList.add("copiado");
+        botonCopiarMesa.querySelector("span").textContent = "Número copiado";
+        if (copiarEstado) copiarEstado.textContent = "El número 60019073 se copió correctamente.";
+    } catch {
+        if (copiarEstado) copiarEstado.textContent = `Número de mesa: ${numero}`;
+    }
+    window.setTimeout(() => {
+        botonCopiarMesa.classList.remove("copiado");
+        botonCopiarMesa.querySelector("span").textContent = "Copiar número";
+    }, 2400);
+});
+
 if (seccionCuenta && "IntersectionObserver" in window) {
     const observadorCuenta = new IntersectionObserver((entradas, observador) => {
         if (entradas.some((entrada) => entrada.isIntersecting)) {
@@ -188,4 +222,16 @@ if (seccionCuenta && "IntersectionObserver" in window) {
     observadorCuenta.observe(seccionCuenta);
 } else {
     seccionCuenta?.classList.add("cuenta-visible");
+}
+
+if (seccionRegalos && "IntersectionObserver" in window) {
+    const observadorRegalos = new IntersectionObserver((entradas, observador) => {
+        if (entradas.some((entrada) => entrada.isIntersecting)) {
+            seccionRegalos.classList.add("regalos-visible");
+            observador.disconnect();
+        }
+    }, { threshold: 0.24 });
+    observadorRegalos.observe(seccionRegalos);
+} else {
+    seccionRegalos?.classList.add("regalos-visible");
 }
