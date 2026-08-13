@@ -1104,3 +1104,61 @@
     .paleta-formal span { width:19px; border-width:2px; }
     .color-reservado { margin-top:10px; }
 }
+
+/* Refinación final del atelier en móvil */
+@media (max-width:620px) {
+    .dress-code { place-items:center; padding-top:22px; }
+    .dress-contenido { transform:translateY(-96px); }
+    .atelier-visual {
+        left:13px;
+        top:43%;
+        width:43%;
+    }
+    .siluetas-gala {
+        width:158%;
+        height:300px;
+        margin-left:-29%;
+        gap:18px;
+        transform:scale(.70);
+    }
+    .atelier-linea {
+        position:relative;
+        width:112%;
+        margin:-62px 0 0 -6%;
+    }
+    .atelier-linea::before,
+    .atelier-linea::after { opacity:.55; }
+    .atelier-linea::after {
+        content:"";
+        position:absolute;
+        left:50%;
+        bottom:-16px;
+        width:128px;
+        height:22px;
+        border:1px solid rgba(168,117,53,.48);
+        border-top-color:rgba(168,117,53,.18);
+        border-radius:50%;
+        background:radial-gradient(ellipse,rgba(211,166,79,.09),transparent 68%);
+        transform:translateX(-50%);
+    }
+    .atelier-nota { margin-top:23px; }
+    .dress-texto {
+        width:58%;
+        margin-right:4px;
+        padding:20px 10px 17px;
+    }
+    .dress-code h2 { font-size:51px; }
+    .dress-invitacion { font-size:13px; }
+    .paleta-formal { margin-top:9px; }
+    .paleta-formal span { width:17px; }
+    .color-reservado { margin:8px auto 7px; padding:8px 1px; }
+    .muestra-rosa { width:27px; flex-basis:27px; }
+    .color-reservado strong { font-size:13px; }
+    .dress-nota { font-size:12px; }
+}
+
+@media (max-width:360px) {
+    .atelier-visual { left:8px; width:44%; }
+    .dress-texto { width:59%; margin-right:1px; }
+    .dress-code h2 { font-size:47px; }
+}
