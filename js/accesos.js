@@ -104,3 +104,4 @@ document.getElementById("descargarBoletos")?.addEventListener("click", () => {
     </style></head><body>${copias}<script>window.onload=()=>setTimeout(()=>window.print(),500)<\/script></body></html>`);
     ventana.document.close();
 });
+document.getElementById("irHospedaje")?.addEventListener("click", () => document.getElementById("hospedaje")?.scrollIntoView({ behavior: "smooth", block: "start" }));
