@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="css/base.css?v=2">
     <link rel="stylesheet" href="css/portada.css?v=2">
     <link rel="stylesheet" href="css/sobre.css?v=3">
-    <link rel="stylesheet" href="css/secciones.css?v=18">
+    <link rel="stylesheet" href="css/secciones.css?v=19">
     <link rel="stylesheet" href="css/animaciones.css?v=3">
     <link rel="stylesheet" href="css/responsive.css?v=4">
 
@@ -446,6 +446,40 @@
                     <p class="dress-nota">Gracias por ayudarnos a hacer de este momento algo aún más especial.</p>
                 </div>
             </div>
+            <button class="ir-regalos" id="irRegalos" type="button" aria-label="Continuar a la mesa de regalos">
+                <span>Un detalle con cariño</span><i aria-hidden="true">↓</i>
+            </button>
+        </section>
+
+        <!-- Mesa de regalos -->
+        <section class="mesa-regalos" id="mesaRegalos" aria-labelledby="titulo-regalos">
+            <div class="regalos-marco" aria-hidden="true"></div>
+            <div class="regalo-destello regalo-destello-uno" aria-hidden="true">✦</div>
+            <div class="regalo-destello regalo-destello-dos" aria-hidden="true">✦</div>
+            <div class="regalo-caja" aria-hidden="true">
+                <span class="regalo-tapa"></span><span class="regalo-liston-v"></span><span class="regalo-liston-h"></span>
+                <span class="regalo-mono regalo-mono-izq"></span><span class="regalo-mono regalo-mono-der"></span>
+            </div>
+
+            <div class="regalos-contenido">
+                <p class="regalos-kicker">Con cariño</p>
+                <h2 id="titulo-regalos">Mesa de regalos</h2>
+                <div class="regalos-ornamento" aria-hidden="true"><span>✦</span></div>
+                <p class="regalos-frase">Tu presencia es nuestro mejor regalo.</p>
+                <p class="regalos-texto">Si deseas tener un detalle conmigo, hemos preparado una mesa de regalos en Liverpool.</p>
+
+                <article class="liverpool-tarjeta">
+                    <p class="liverpool-marca">Liverpool</p>
+                    <small>Número de evento</small>
+                    <strong id="numeroMesa">60019073</strong>
+                    <div class="regalos-acciones">
+                        <button id="copiarMesa" type="button" data-numero="60019073"><span>Copiar número</span></button>
+                        <a href="https://mesaderegalos.liverpool.com.mx/eventodebusqueda" target="_blank" rel="noopener noreferrer">Buscar mi mesa</a>
+                    </div>
+                    <p class="copiar-estado" id="copiarEstado" role="status" aria-live="polite"></p>
+                </article>
+                <p class="regalos-nota">El mejor detalle será compartir esta noche contigo.</p>
+            </div>
         </section>
 
     </main>
@@ -454,7 +488,7 @@
     <!-- JavaScript del proyecto -->
     <script src="js/preloader.js" defer></script>
     <script src="js/sobre.js?v=2" defer></script>
-    <script src="js/main.js?v=10" defer></script>
+    <script src="js/main.js?v=11" defer></script>
 
 </body>
 </html>
