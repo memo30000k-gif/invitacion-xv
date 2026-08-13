@@ -1201,3 +1201,117 @@
     .atelier-nota { width: 130px; }
     .dress-texto { width: 56%; }
 }
+
+/* Muestrario de alta costura */
+.muestrario-gala {
+    width: min(420px, 38vw);
+    min-height: 470px;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    isolation: isolate;
+}
+.monograma-gala {
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+    top: 42%;
+    color: rgba(190,139,62,.13);
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(300px, 34vw, 470px);
+    font-weight: 400;
+    line-height: .65;
+    transform: translate(-50%,-50%);
+    text-shadow: 0 18px 45px rgba(155,103,42,.07);
+}
+.atelier-titulo {
+    margin: 0 0 24px;
+    color: #986a36;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 17px;
+    font-style: italic;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+}
+.muestras-tela {
+    position: relative;
+    width: 290px;
+    height: 245px;
+}
+.tela {
+    position: absolute;
+    width: 142px;
+    height: 185px;
+    border: 5px solid rgba(255,252,247,.9);
+    border-radius: 10px 10px 42px 10px;
+    box-shadow: 0 18px 32px rgba(104,67,57,.16), 0 0 0 1px rgba(184,132,61,.28);
+}
+.tela::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: .5;
+    background: repeating-linear-gradient(115deg,transparent 0 8px,rgba(255,255,255,.13) 9px 10px);
+}
+.tela-negra { left: 2px; top: 25px; background: linear-gradient(140deg,#171519,#4b4349); transform: rotate(-12deg); }
+.tela-champagne { left: 49px; top: 9px; background: linear-gradient(140deg,#eadbbe,#b99b69); transform: rotate(-4deg); }
+.tela-vino { right: 48px; top: 9px; background: linear-gradient(140deg,#8b4a59,#4f2330); transform: rotate(5deg); }
+.tela-noche { right: 1px; top: 27px; background: linear-gradient(140deg,#34435d,#111a2b); transform: rotate(13deg); }
+.etiqueta-gala {
+    position: relative;
+    z-index: 2;
+    margin-top: -48px;
+    padding: 12px 24px;
+    color: #8d6233;
+    border: 1px solid rgba(188,137,68,.62);
+    border-radius: 999px;
+    background: rgba(255,250,244,.93);
+    box-shadow: 0 10px 24px rgba(99,61,56,.12);
+    font-family: "Montserrat", sans-serif;
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+}
+.etiqueta-gala span { color: var(--dorado); margin: 0 6px; }
+.muestrario-gala .atelier-nota {
+    width: auto;
+    margin: 20px 0 0;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 15px;
+    font-style: italic;
+    letter-spacing: .04em;
+    text-transform: none;
+}
+
+@media (max-width:620px) {
+    .dress-contenido {
+        width: 100%;
+        justify-content: center;
+        transform: translateY(-116px);
+    }
+    .dress-texto {
+        width: 88%;
+        margin: 0;
+        padding: 23px 18px 20px;
+    }
+    .muestrario-gala {
+        z-index: -1;
+        left: 50%;
+        top: 68%;
+        width: 310px;
+        min-height: 330px;
+        transform: translate(-50%,-50%);
+    }
+    .dress-visible .muestrario-gala { transform: translate(-50%,-50%); }
+    .monograma-gala { top: 45%; font-size: 300px; }
+    .atelier-titulo { margin-bottom: 10px; font-size: 11px; }
+    .muestras-tela { width: 220px; height: 168px; }
+    .tela { width: 104px; height: 132px; border-width: 4px; }
+    .tela-negra { left: 5px; top: 20px; }
+    .tela-champagne { left: 38px; top: 5px; }
+    .tela-vino { right: 37px; top: 5px; }
+    .tela-noche { right: 4px; top: 20px; }
+    .etiqueta-gala { margin-top: -31px; padding: 9px 16px; font-size: 8px; }
+    .muestrario-gala .atelier-nota { width: auto; margin-top: 13px; font-size: 12px; }
+}
