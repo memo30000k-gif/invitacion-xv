@@ -17,8 +17,26 @@ const registro = document.getElementById("registroInvitados");
 const lista = document.getElementById("listaInvitados");
 const registroEstado = document.getElementById("registroEstado");
 const agregar = document.getElementById("agregarInvitado");
+const boletosPanel = document.getElementById("boletosPanel");
+const boletosImprimibles = document.getElementById("boletosImprimibles");
 let sesionFamilia = null;
 let limiteFamilia = 0;
+
+function mostrarBoletos(familia, invitados) {
+    boletosImprimibles.innerHTML = "";
+    if (!invitados.length) { boletosPanel.hidden = true; return; }
+    invitados.forEach((invitado, indice) => {
+        const boleto = document.createElement("article");
+        boleto.className = "boleto-xv";
+        boleto.innerHTML = `<div class="boleto-marco"></div><p class="boleto-kicker">Mis XV años</p><h3>Lizzeth</h3><p class="boleto-fecha">17 · OCTUBRE · 2026</p><div class="boleto-linea"><span>✦</span></div><p class="boleto-nombre"></p><p class="boleto-familia"></p><div class="boleto-qr" id="qr-${indice}"></div><p class="boleto-folio"></p><p class="boleto-lugar">Salón Palacio Lunara · 7:30 p. m.</p>`;
+        boleto.querySelector(".boleto-nombre").textContent = invitado.nombre;
+        boleto.querySelector(".boleto-familia").textContent = familia;
+        boleto.querySelector(".boleto-folio").textContent = invitado.folio;
+        boletosImprimibles.appendChild(boleto);
+        if (window.QRCode) new QRCode(boleto.querySelector(".boleto-qr"), { text: invitado.folio, width: 116, height: 116, colorDark: "#6f4b53", colorLight: "#fffaf5", correctLevel: QRCode.CorrectLevel.H });
+    });
+    boletosPanel.hidden = false;
+}
 
 function campoInvitado(invitado = {}) {
     const numero = lista.children.length + 1;
@@ -45,6 +63,7 @@ async function cargarInvitacion(token) {
     document.getElementById("nombreFamilia").textContent = datos.familia;
     document.getElementById("limiteBoletos").textContent = datos.boletos_maximos;
     lista.innerHTML = ""; (datos.invitados || []).forEach(campoInvitado);
+    mostrarBoletos(datos.familia, datos.invitados || []);
     panel.hidden = false; login.hidden = true;
     if ((datos.invitados || []).length) registro.hidden = false;
 }
@@ -70,3 +89,8 @@ registro?.addEventListener("submit", async e => {
 });
 document.getElementById("irAccesos")?.addEventListener("click",()=>document.getElementById("accesos")?.scrollIntoView({behavior:"smooth",block:"start"}));
 const sesionGuardada=sessionStorage.getItem("xv_sesion_familia"); if(sesionGuardada)cargarInvitacion(sesionGuardada).catch(()=>sessionStorage.removeItem("xv_sesion_familia"));
+document.getElementById("descargarBoletos")?.addEventListener("click", () => {
+    document.body.classList.add("imprimiendo-boletos");
+    window.print();
+    window.setTimeout(() => document.body.classList.remove("imprimiendo-boletos"), 800);
+});
