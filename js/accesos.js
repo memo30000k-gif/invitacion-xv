@@ -90,7 +90,17 @@ registro?.addEventListener("submit", async e => {
 document.getElementById("irAccesos")?.addEventListener("click",()=>document.getElementById("accesos")?.scrollIntoView({behavior:"smooth",block:"start"}));
 const sesionGuardada=sessionStorage.getItem("xv_sesion_familia"); if(sesionGuardada)cargarInvitacion(sesionGuardada).catch(()=>sessionStorage.removeItem("xv_sesion_familia"));
 document.getElementById("descargarBoletos")?.addEventListener("click", () => {
-    document.body.classList.add("imprimiendo-boletos");
-    window.print();
-    window.setTimeout(() => document.body.classList.remove("imprimiendo-boletos"), 800);
+    const copias = [...boletosImprimibles.querySelectorAll(".boleto-xv")].map(boleto => {
+        const copia = boleto.cloneNode(true);
+        const canvasOriginal = boleto.querySelector(".boleto-qr canvas");
+        const qrCopia = copia.querySelector(".boleto-qr");
+        if (canvasOriginal && qrCopia) qrCopia.innerHTML = `<img src="${canvasOriginal.toDataURL("image/png")}" alt="Código QR">`;
+        return copia.outerHTML;
+    }).join("");
+    const ventana = window.open("", "_blank");
+    if (!ventana) { registroEstado.textContent = "Permite las ventanas emergentes para descargar tus boletos."; return; }
+    ventana.document.write(`<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Boletos XV de Lizzeth</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Great+Vibes&family=Montserrat:wght@400;500&display=swap" rel="stylesheet"><style>
+      *{box-sizing:border-box}html,body{margin:0;background:#fff;color:#704d55}.boleto-xv{position:relative;overflow:hidden;width:170mm;height:86mm;margin:0 auto;padding:10mm 13mm;border:1px solid #c79749;border-radius:5mm;text-align:center;background:radial-gradient(circle at 50% 18%,#fff,#fff8f3 60%,#f4dde1);page-break-after:always;break-after:page}.boleto-xv:last-child{page-break-after:auto;break-after:auto}.boleto-xv:before{content:'L';position:absolute;right:13mm;top:42%;transform:translateY(-50%);color:rgba(199,151,73,.10);font:82mm/1 'Great Vibes',cursive}.boleto-marco{position:absolute;inset:3mm;border:1px solid rgba(199,151,73,.42);border-radius:3mm}.boleto-kicker{position:relative;margin:0;font:italic 5mm 'Cormorant Garamond',serif}.boleto-xv h3{position:relative;margin:-1mm 0 0;color:#a96370;font:400 16mm/1 'Great Vibes',cursive}.boleto-fecha{position:relative;margin:0;font:500 2.4mm 'Montserrat',sans-serif;letter-spacing:.22em}.boleto-linea{position:relative;display:flex;align-items:center;gap:3mm;width:55%;margin:2.5mm auto;color:#c79749}.boleto-linea:before,.boleto-linea:after{content:'';flex:1;height:1px;background:#d8b77e}.boleto-nombre{position:relative;margin:1mm 42mm 0 0;color:#875962;font:600 7mm 'Cormorant Garamond',serif}.boleto-familia{position:relative;margin:0 42mm 2mm 0;font:2.3mm 'Montserrat',sans-serif;letter-spacing:.12em;text-transform:uppercase}.boleto-qr{position:absolute;right:14mm;bottom:13mm;width:31mm;height:31mm;padding:1.5mm;border:1px solid #d3ad6d;background:#fffaf5}.boleto-qr img{display:block;width:28mm;height:28mm}.boleto-folio{position:absolute;right:11mm;bottom:7mm;width:37mm;margin:0;font:600 2.3mm 'Montserrat',sans-serif;letter-spacing:.08em}.boleto-lugar{position:absolute;left:13mm;bottom:9mm;margin:0;font:italic 3.8mm 'Cormorant Garamond',serif}@page{size:A4 landscape;margin:18mm 20mm}@media screen{body{padding:18mm 0}.boleto-xv{margin-bottom:18mm;box-shadow:0 12px 35px rgba(90,55,62,.15)}}@media print{body{padding:0}.boleto-xv{box-shadow:none}}
+    </style></head><body>${copias}<script>window.onload=()=>setTimeout(()=>window.print(),500)<\/script></body></html>`);
+    ventana.document.close();
 });
