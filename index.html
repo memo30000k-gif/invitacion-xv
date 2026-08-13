@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="css/base.css?v=2">
     <link rel="stylesheet" href="css/portada.css?v=2">
     <link rel="stylesheet" href="css/sobre.css?v=3">
-    <link rel="stylesheet" href="css/secciones.css?v=23">
+    <link rel="stylesheet" href="css/secciones.css?v=24">
     <link rel="stylesheet" href="css/animaciones.css?v=3">
     <link rel="stylesheet" href="css/responsive.css?v=4">
 
@@ -521,8 +521,48 @@
                         </div>
                         <div class="boletos-imprimibles" id="boletosImprimibles"></div>
                         <p class="boletos-aviso">Conserva este archivo y presenta el código de cada invitado al ingresar.</p>
+                        <button class="ir-hospedaje" id="irHospedaje" type="button">Ver opciones para descansar <i aria-hidden="true">↓</i></button>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Recomendaciones de hospedaje -->
+        <section class="hospedaje" id="hospedaje" aria-labelledby="titulo-hospedaje">
+            <div class="hospedaje-marco" aria-hidden="true"></div>
+            <div class="hospedaje-contenido">
+                <p class="hospedaje-kicker">Después de celebrar</p>
+                <h2 id="titulo-hospedaje">Un lugar para descansar</h2>
+                <p class="hospedaje-intro">Por su cercanía al salón, compartimos algunas opciones sencillas para pasar la noche.</p>
+
+                <div class="hoteles-lista">
+                    <article class="hotel-card hotel-destacado">
+                        <span class="hotel-numero">01</span><p class="hotel-etiqueta">Reserva anticipada</p>
+                        <h3>Hotel &amp; Villas Urbane</h3>
+                        <p>Puedes reservar con anticipación directamente por teléfono.</p>
+                        <div class="hotel-acciones"><a href="tel:+525514556090">Llamar · 55 1455 6090</a><a href="https://maps.app.goo.gl/VNyBpArvTs4r5RgGA?g_st=ac" target="_blank" rel="noopener noreferrer">Ver ubicación</a></div>
+                    </article>
+                    <article class="hotel-card">
+                        <span class="hotel-numero">02</span><p class="hotel-etiqueta">Reserva el mismo día</p>
+                        <h3>Hotel Miraflores</h3>
+                        <p>La reservación se realiza el mismo día. Solo dispone de habitaciones para dos personas.</p>
+                        <div class="hotel-acciones"><a href="https://maps.app.goo.gl/MGjwPaJXdZC5hGQv5?g_st=ac" target="_blank" rel="noopener noreferrer">Ver ubicación</a></div>
+                    </article>
+                    <article class="hotel-card">
+                        <span class="hotel-numero">03</span><p class="hotel-etiqueta">Reserva por aplicación</p>
+                        <h3>Hotel Coacalco</h3>
+                        <p>Puedes consultar disponibilidad en Booking.com o Expedia, o comunicarte por teléfono.</p>
+                        <div class="hotel-acciones"><a href="tel:+525558652346">Llamar · 55 5865 2346</a><a href="https://maps.app.goo.gl/EusYz7EpBGsxSzGr6?g_st=ac" target="_blank" rel="noopener noreferrer">Ver ubicación</a></div>
+                    </article>
+                    <article class="hotel-card">
+                        <span class="hotel-numero">04</span><p class="hotel-etiqueta">Reserva por Booking.com</p>
+                        <h3>Hotel Paraíso</h3>
+                        <p>Puedes consultar disponibilidad en Booking.com o reservar directamente por teléfono.</p>
+                        <div class="hotel-acciones"><a href="tel:+525558903288">Llamar · 55 5890 3288</a><a href="https://maps.app.goo.gl/t3CfTVZKnsb6iazB6?g_st=ac" target="_blank" rel="noopener noreferrer">Ver ubicación</a></div>
+                    </article>
+                </div>
+
+                <aside class="hospedaje-aviso"><span aria-hidden="true">✦</span><p><strong>Una recomendación de cortesía</strong>Estas opciones se sugieren principalmente por cercanía y para pasar la noche. Si necesitas mayor comodidad, servicios específicos o una estancia especial, te recomendamos buscar una alternativa que se ajuste a tus necesidades. Confirma directamente disponibilidad, tarifas y condiciones antes de reservar.</p></aside>
             </div>
         </section>
 
@@ -534,7 +574,7 @@
     <script src="js/sobre.js?v=2" defer></script>
     <script src="js/main.js?v=11" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" defer></script>
-    <script src="js/accesos.js?v=5" defer></script>
+    <script src="js/accesos.js?v=6" defer></script>
 
 </body>
 </html>
