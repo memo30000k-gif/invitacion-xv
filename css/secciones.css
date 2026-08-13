@@ -1053,3 +1053,54 @@
     .dress-code h2 { font-size:53px; }
     .dress-invitacion { font-size:14px; }
 }
+
+/* Atelier de lujo: reemplaza la ilustración fotográfica */
+.atelier-visual {
+    position: absolute;
+    z-index: -1;
+    left: clamp(35px, 8vw, 130px);
+    top: 50%;
+    width: min(430px, 38vw);
+    transform: translateY(-50%);
+    text-align: center;
+    color: #a87535;
+    opacity: 0;
+    transition: opacity 1s ease, transform 1.2s cubic-bezier(.2,.78,.2,1);
+}
+.dress-visible .atelier-visual { opacity: 1; transform: translateY(-50%); }
+.atelier-visual > p:first-child { font-family:"Cormorant Garamond",serif; font-size:18px; font-style:italic; letter-spacing:.13em; text-transform:uppercase; }
+.siluetas-gala { height:390px; display:flex; align-items:flex-end; justify-content:center; gap:36px; margin:8px auto 2px; filter:drop-shadow(0 13px 18px rgba(105,68,54,.10)); }
+.silueta-vestido,.silueta-traje { position:relative; height:350px; }
+.silueta-vestido { width:180px; }
+.vestido-cabeza,.traje-cabeza { position:absolute; left:50%; top:7px; width:28px; height:32px; border:1.5px solid #b27c38; border-radius:50%; transform:translateX(-50%); }
+.vestido-cuerpo { position:absolute; left:50%; top:41px; width:54px; height:88px; border:1.5px solid #b27c38; border-bottom:0; border-radius:48% 48% 8% 8%; transform:translateX(-50%); }
+.vestido-cuerpo::before,.vestido-cuerpo::after { content:""; position:absolute; top:21px; width:65px; height:1px; background:#b27c38; }
+.vestido-cuerpo::before { right:38px; transform:rotate(-24deg); transform-origin:right; }.vestido-cuerpo::after { left:38px; transform:rotate(24deg); transform-origin:left; }
+.vestido-falda { position:absolute; left:50%; bottom:0; width:176px; height:235px; border:1.5px solid #b27c38; border-top:0; border-radius:8% 8% 48% 48% / 4% 4% 14% 14%; clip-path:polygon(42% 0,58% 0,100% 100%,0 100%); transform:translateX(-50%); background:repeating-linear-gradient(84deg,transparent 0 21px,rgba(199,151,73,.14) 22px 23px); }
+.silueta-traje { width:105px; }
+.traje-torso { position:absolute; left:50%; top:42px; width:82px; height:145px; border:1.5px solid #a87535; transform:translateX(-50%); clip-path:polygon(15% 0,40% 0,50% 18%,60% 0,85% 0,100% 100%,0 100%); }
+.traje-torso::before,.traje-torso::after { content:""; position:absolute; top:13px; width:1px; height:78px; background:#a87535; }.traje-torso::before{left:35%;transform:rotate(-16deg)}.traje-torso::after{right:35%;transform:rotate(16deg)}
+.traje-piernas { position:absolute; left:50%; top:187px; width:67px; height:160px; border-left:1.5px solid #a87535; border-right:1.5px solid #a87535; transform:translateX(-50%); }.traje-piernas::after{content:"";position:absolute;left:50%;top:0;height:100%;width:1px;background:#a87535}
+.atelier-linea { display:flex; align-items:center; gap:10px; color:var(--dorado); }.atelier-linea::before,.atelier-linea::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(199,151,73,.65));}.atelier-linea::after{background:linear-gradient(90deg,rgba(199,151,73,.65),transparent)}
+.atelier-nota { margin-top:7px; font-family:"Montserrat",sans-serif; font-size:9px; letter-spacing:.18em; text-transform:uppercase; }
+.paleta-formal { display:flex; justify-content:center; gap:10px; margin:17px auto 2px; }
+.paleta-formal span { width:25px; aspect-ratio:1; border-radius:50%; border:3px solid rgba(255,255,255,.75); box-shadow:0 0 0 1px rgba(199,151,73,.34),0 5px 11px rgba(92,57,63,.11); }
+.tono-negro{background:#272326}.tono-champagne{background:#d8c29d}.tono-vino{background:#753b48}.tono-azul{background:#26344d}
+.dress-baile { display:none !important; }
+
+@media (max-width:620px) {
+    .dress-code { padding:42px 12px 36px; }
+    .dress-contenido { transform:none; align-items:center; }
+    .atelier-visual { left:7px; top:51%; width:40%; transform:translateY(-50%); }
+    .dress-visible .atelier-visual { transform:translateY(-50%); }
+    .atelier-visual > p:first-child { font-size:10px; letter-spacing:.07em; }
+    .siluetas-gala { height:280px; gap:8px; margin-top:3px; transform:scale(.73); transform-origin:center bottom; width:190%; margin-left:-45%; }
+    .atelier-linea { margin-top:-67px; }
+    .atelier-nota { font-size:6px; letter-spacing:.08em; line-height:1.4; }
+    .dress-texto { width:61%; margin-left:auto; padding:23px 11px 19px; }
+    .dress-code h2 { font-size:55px; }
+    .dress-invitacion { font-size:14px; }
+    .paleta-formal { gap:6px; margin:11px auto 0; }
+    .paleta-formal span { width:19px; border-width:2px; }
+    .color-reservado { margin-top:10px; }
+}
