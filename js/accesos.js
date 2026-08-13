@@ -28,7 +28,7 @@ function campoInvitado(invitado = {}) {
     bloque.innerHTML = `<div class="invitado-encabezado"><strong>Acceso ${numero}</strong><button type="button" class="quitar-invitado" aria-label="Quitar asistente">×</button></div>
         <label>Nombre completo<input class="invitado-nombre" maxlength="120" value="${(invitado.nombre || "").replace(/&/g,"&amp;").replace(/"/g,"&quot;")}" required></label>
         <div class="invitado-opciones"><label>Invitado<select class="invitado-tipo"><option value="adulto" ${invitado.tipo !== "menor" ? "selected" : ""}>Adulto</option><option value="menor" ${invitado.tipo === "menor" ? "selected" : ""}>Menor</option></select></label>
-        <label class="bebida-label">Bebida<select class="invitado-bebida"><option value="">Elegir después</option>${["tequila","whisky","ron","vodka","cerveza","vino","sin_alcohol"].map(v=>`<option value="${v}" ${invitado.bebida===v?"selected":""}>${v==="sin_alcohol"?"Sin alcohol":v[0].toUpperCase()+v.slice(1)}</option>`).join("")}</select></label></div>`;
+        <label class="bebida-label">Bebida<select class="invitado-bebida"><option value="">Elegir después</option>${["vodka","whisky","ron","tequila","brandy","sin_alcohol"].map(v=>`<option value="${v}" ${invitado.bebida===v?"selected":""}>${v==="sin_alcohol"?"Sin alcohol":v[0].toUpperCase()+v.slice(1)}</option>`).join("")}</select></label></div>`;
     lista.appendChild(bloque);
     const tipo = bloque.querySelector(".invitado-tipo");
     const bebidaLabel = bloque.querySelector(".bebida-label");
