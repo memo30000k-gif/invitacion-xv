@@ -21,10 +21,26 @@ const boletosPanel = document.getElementById("boletosPanel");
 const boletosImprimibles = document.getElementById("boletosImprimibles");
 let sesionFamilia = null;
 let limiteFamilia = 0;
+let promesaQRCode = null;
 
-function mostrarBoletos(familia, invitados) {
+function cargarQRCode() {
+    if (window.QRCode) return Promise.resolve();
+    if (promesaQRCode) return promesaQRCode;
+    promesaQRCode = new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = "https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js";
+        script.async = true;
+        script.onload = resolve;
+        script.onerror = () => reject(new Error("No fue posible preparar los códigos QR."));
+        document.head.appendChild(script);
+    });
+    return promesaQRCode;
+}
+
+async function mostrarBoletos(familia, invitados) {
     boletosImprimibles.innerHTML = "";
     if (!invitados.length) { boletosPanel.hidden = true; return; }
+    try { await cargarQRCode(); } catch (error) { registroEstado.textContent = error.message; }
     invitados.forEach((invitado, indice) => {
         const boleto = document.createElement("article");
         boleto.className = "boleto-xv";
