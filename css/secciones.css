@@ -387,6 +387,11 @@
     .control-musica-texto { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 }
 
+/* Enlaces de hoteles táctiles en navegadores iOS */
+.hotel-card::after { pointer-events: none; }
+.hotel-acciones { z-index: 4; }
+.hotel-acciones a { position: relative; z-index: 5; touch-action: manipulation; }
+
 /* Cuenta regresiva: joya editorial, no panel de estadísticas */
 .cuenta-regresiva {
     position: relative;
