@@ -244,3 +244,31 @@
     .sobre { bottom: 20px; height: 220px; }
     .tarjeta { height: 350px; }
 }
+
+/* Controles táctiles cómodos y visibles en teléfono */
+@media (max-width: 620px) {
+    .regalos-acciones button,
+    .regalos-acciones a,
+    .acceso-login > button,
+    .decision-asistencia button,
+    .registro-acciones button,
+    .hotel-acciones a,
+    .recuerdos-acciones a,
+    .cierre-acciones button {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hotel-acciones { gap: 10px; }
+    .hotel-acciones a { padding: 10px 14px; }
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid #b9863d;
+    outline-offset: 3px;
+}
