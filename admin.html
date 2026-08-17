@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Backstage · XV Lizzeth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css?v=1">
+</head>
+<body>
+  <main>
+    <section class="login" id="loginAdmin">
+      <div class="login-card">
+        <span class="monograma">L</span>
+        <p class="kicker">Backstage privado</p>
+        <h1>Panel administrativo</h1>
+        <p>Acceso exclusivo para la organización de los XV de Lizzeth.</p>
+        <form id="formLogin">
+          <label>Correo<input type="email" name="email" autocomplete="username" required></label>
+          <label>Contraseña<input type="password" name="password" autocomplete="current-password" required></label>
+          <button type="submit">Ingresar al panel</button>
+          <p id="loginEstado" class="estado" role="status"></p>
+        </form>
+        <a href="index.html">Volver a la invitación</a>
+      </div>
+    </section>
+
+    <section class="dashboard" id="dashboard" hidden>
+      <header class="barra">
+        <div><p>Mis XV · Lizzeth</p><h1>Panel administrativo</h1></div>
+        <div class="barra-acciones"><button id="actualizarPanel">Actualizar</button><button id="cerrarSesion">Cerrar sesión</button></div>
+      </header>
+
+      <nav class="tabs" aria-label="Secciones del panel">
+        <button class="activo" data-tab="resumen">Resumen</button>
+        <button data-tab="familias">Familias</button>
+        <button data-tab="acceso">Control de acceso</button>
+      </nav>
+
+      <div class="vista activo" id="tab-resumen">
+        <div class="metricas" id="metricas"></div>
+        <section class="panel bebidas-panel"><div class="panel-titulo"><div><p>Planeación de barra</p><h2>Preferencias de bebidas</h2></div></div><div class="bebidas" id="bebidas"></div></section>
+      </div>
+
+      <div class="vista" id="tab-familias" hidden>
+        <section class="panel">
+          <div class="panel-titulo"><div><p>Lista general</p><h2>Familias e invitados</h2></div><button id="exportarCSV">Exportar CSV</button></div>
+          <label class="buscar">Buscar familia, invitado, código o folio<input id="buscarInvitado" type="search" placeholder="Escribe para buscar…"></label>
+          <div class="tabla-wrap"><table><thead><tr><th>Familia</th><th>Estado</th><th>Accesos</th><th>Invitados</th></tr></thead><tbody id="tablaFamilias"></tbody></table></div>
+        </section>
+      </div>
+
+      <div class="vista" id="tab-acceso" hidden>
+        <section class="panel acceso-panel">
+          <div class="panel-titulo"><div><p>Recepción</p><h2>Validar boleto</h2></div></div>
+          <div class="lector-grid">
+            <div><div id="lectorQR" class="lector-qr"><span>◇</span><p>La cámara aparecerá aquí</p></div><button id="iniciarEscaner" class="primario">Escanear código QR</button><button id="detenerEscaner" hidden>Detener cámara</button></div>
+            <form id="formFolio"><label>También puedes escribir el folio<input id="folioManual" placeholder="XVL-XXXXXXXXXXXX" autocomplete="off" required></label><button type="submit">Validar folio</button></form>
+          </div>
+          <article class="resultado-boleto" id="resultadoBoleto" hidden><span id="resultadoIcono">✓</span><h3 id="resultadoTitulo"></h3><p id="resultadoDetalle"></p><button id="registrarEntrada" class="primario" hidden>Registrar entrada</button></article>
+        </section>
+      </div>
+      <p class="estado-global" id="estadoGlobal" role="status"></p>
+    </section>
+  </main>
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js" defer></script>
+  <script src="js/admin.js?v=1" defer></script>
+</body>
+</html>
