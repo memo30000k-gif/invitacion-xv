@@ -2,9 +2,20 @@
 const URL_SB="https://ewvmwgsgwpkwycaqdgir.supabase.co", KEY_SB="sb_publishable_BA4Sts6N3tHG__HL4G02jw_dyiIt8kL", SESION_KEY="xv_admin_session";
 const login=document.getElementById("loginAdmin"),dashboard=document.getElementById("dashboard"),loginEstado=document.getElementById("loginEstado"),estadoGlobal=document.getElementById("estadoGlobal");
 let sesion=null,familias=[],lector=null,folioActual=null;
-async function autenticar(email,password){const r=await fetch(`${URL_SB}/auth/v1/token?grant_type=password`,{method:"POST",headers:{apikey:KEY_SB,"Content-Type":"application/json"},body:JSON.stringify({email,password})});const d=await r.json();if(!r.ok)throw new Error("Correo o contraseña incorrectos.");return d}
+async function autenticar(email,password){
+  const r=await fetch(`${URL_SB}/auth/v1/token?grant_type=password`,{method:"POST",headers:{apikey:KEY_SB,"Content-Type":"application/json"},body:JSON.stringify({email,password})});
+  const d=await r.json().catch(()=>({}));
+  if(!r.ok){
+    const codigo=d.error_code||d.code||"";
+    const detalle=d.msg||d.error_description||d.message||"";
+    if(codigo==="email_not_confirmed"||/confirm/i.test(detalle))throw new Error("Falta confirmar el correo en Supabase Authentication.");
+    if(codigo==="invalid_credentials"||r.status===400)throw new Error("El correo o la contraseña no coinciden.");
+    throw new Error(`No fue posible iniciar sesión (${r.status}). ${detalle}`.trim());
+  }
+  return d;
+}
 async function rpc(nombre,body={}){if(!sesion?.access_token)throw new Error("Sesión no disponible.");const r=await fetch(`${URL_SB}/rest/v1/rpc/${nombre}`,{method:"POST",headers:{apikey:KEY_SB,Authorization:`Bearer ${sesion.access_token}`,"Content-Type":"application/json"},body:JSON.stringify(body)});const d=await r.json();if(!r.ok)throw new Error(d.message||"No fue posible consultar el sistema.");return d}
-async function entrar(s){sesion=s;sessionStorage.setItem(SESION_KEY,JSON.stringify(s));const admin=await rpc("es_administrador");if(!admin)throw new Error("Esta cuenta no está autorizada.");login.hidden=true;dashboard.hidden=false;await cargarPanel()}
+async function entrar(s){sesion=s;const admin=await rpc("es_administrador");if(!admin)throw new Error("La cuenta existe, pero todavía no está autorizada como administradora.");sessionStorage.setItem(SESION_KEY,JSON.stringify(s));login.hidden=true;dashboard.hidden=false;await cargarPanel()}
 document.getElementById("formLogin").addEventListener("submit",async e=>{e.preventDefault();loginEstado.textContent="Verificando acceso…";try{await entrar(await autenticar(e.target.email.value.trim(),e.target.password.value));loginEstado.textContent=""}catch(err){loginEstado.textContent=err.message}});
 async function cargarPanel(){estadoGlobal.textContent="Actualizando información…";try{const [r,f]=await Promise.all([rpc("admin_resumen"),rpc("admin_listar_familias")]);familias=f;renderResumen(r);renderFamilias(f);estadoGlobal.textContent=`Actualizado ${new Date().toLocaleTimeString("es-MX",{hour:"2-digit",minute:"2-digit"})}`}catch(e){estadoGlobal.textContent=e.message}}
 function renderResumen(r){const datos=[["Familias",r.familias_total],["Confirmadas",r.familias_confirmadas],["Pendientes",r.familias_pendientes],["No asistirán",r.familias_no_asisten],["Boletos asignados",r.boletos_asignados],["Invitados",r.invitados_confirmados],["Adultos",r.adultos],["Menores",r.menores],["Entradas registradas",r.boletos_utilizados]];document.getElementById("metricas").innerHTML=datos.map(x=>`<article class="metrica"><span>${x[0]}</span><strong>${x[1]}</strong></article>`).join("");const nombres={sin_alcohol:"Sin alcohol",sin_elegir:"Sin elegir",menor:"Menores"};document.getElementById("bebidas").innerHTML=Object.entries(r.bebidas||{}).map(([k,v])=>`<div class="bebida"><strong>${v}</strong><span>${nombres[k]||k}</span></div>`).join("")||"<p>Sin selecciones registradas.</p>"}
