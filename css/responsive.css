@@ -272,3 +272,11 @@ select:focus-visible {
     outline: 2px solid #b9863d;
     outline-offset: 3px;
 }
+
+/* Evita dibujar de inmediato las secciones que todavía están lejos de la pantalla. */
+@supports (content-visibility: auto) {
+    main > section:not(.portada) {
+        content-visibility: auto;
+        contain-intrinsic-size: auto 100svh;
+    }
+}
