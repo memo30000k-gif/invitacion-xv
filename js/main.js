@@ -1,5 +1,24 @@
 "use strict";
 
+/* El módulo de confirmaciones no compite con la carga de la portada.
+   Se prepara en segundo plano cuando el navegador queda libre. */
+function cargarModuloAccesos() {
+    if (document.querySelector('script[data-modulo="accesos"]')) return;
+    const script = document.createElement("script");
+    script.src = "js/accesos.js?v=10";
+    script.defer = true;
+    script.dataset.modulo = "accesos";
+    document.body.appendChild(script);
+}
+
+window.addEventListener("load", () => {
+    if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(cargarModuloAccesos, { timeout: 1800 });
+    } else {
+        window.setTimeout(cargarModuloAccesos, 700);
+    }
+}, { once: true });
+
 /* Archivo principal. Aquí conectaremos después:
    - música
    - cuenta regresiva
