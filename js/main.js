@@ -11,13 +11,17 @@ function cargarModuloAccesos() {
     document.body.appendChild(script);
 }
 
-window.addEventListener("load", () => {
-    if ("requestIdleCallback" in window) {
-        window.requestIdleCallback(cargarModuloAccesos, { timeout: 1800 });
-    } else {
-        window.setTimeout(cargarModuloAccesos, 700);
-    }
-}, { once: true });
+const seccionAccesos = document.getElementById("accesos");
+if (seccionAccesos && "IntersectionObserver" in window) {
+    const observadorAccesos = new IntersectionObserver((entradas, observador) => {
+        if (!entradas.some((entrada) => entrada.isIntersecting)) return;
+        cargarModuloAccesos();
+        observador.disconnect();
+    }, { rootMargin: "1200px 0px" });
+    observadorAccesos.observe(seccionAccesos);
+} else {
+    window.addEventListener("load", cargarModuloAccesos, { once: true });
+}
 
 /* Archivo principal. Aquí conectaremos después:
    - música
@@ -30,6 +34,14 @@ window.addEventListener("load", () => {
 
 const musicaInvitacion = document.getElementById("musicaInvitacion");
 const controlMusica = document.getElementById("controlMusica");
+
+function prepararMusica() {
+    if (!musicaInvitacion || musicaInvitacion.src) return;
+    const origen = musicaInvitacion.dataset.src;
+    if (!origen) return;
+    musicaInvitacion.src = origen;
+    musicaInvitacion.load();
+}
 
 function actualizarControlMusica(reproduciendo) {
     if (!controlMusica) return;
@@ -46,6 +58,7 @@ async function alternarMusica() {
 
     if (musicaInvitacion.paused) {
         try {
+            prepararMusica();
             await musicaInvitacion.play();
             actualizarControlMusica(true);
         } catch {
@@ -65,6 +78,7 @@ window.iniciarMusicaInvitacion = async function () {
     if (!musicaInvitacion || !musicaInvitacion.paused) return;
     musicaInvitacion.volume = 0.72;
     try {
+        prepararMusica();
         await musicaInvitacion.play();
         actualizarControlMusica(true);
     } catch {
