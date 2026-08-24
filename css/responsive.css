@@ -367,3 +367,52 @@ main > section:not(.portada) {
         padding-inline: 24px !important;
     }
 }
+
+/* Vestimenta móvil: contenido en flujo para que nada se recorte o se encime. */
+@media (max-width: 620px) {
+    .dress-code {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        padding: 52px 14px 42px !important;
+    }
+
+    .dress-contenido {
+        order: 1;
+        width: 100% !important;
+        transform: none !important;
+    }
+
+    .dress-texto {
+        width: min(92%, 520px) !important;
+        margin: 0 auto !important;
+    }
+
+    .muestrario-gala {
+        position: relative !important;
+        z-index: 1 !important;
+        order: 2;
+        left: auto !important;
+        top: auto !important;
+        width: min(310px, 90vw) !important;
+        min-height: 315px !important;
+        margin: 0 auto !important;
+        transform: none !important;
+    }
+
+    .dress-visible .muestrario-gala { transform: none !important; }
+
+    .ir-regalos {
+        position: relative !important;
+        z-index: 4;
+        order: 3;
+        left: auto !important;
+        bottom: auto !important;
+        width: auto;
+        min-height: 48px;
+        margin: -2px auto 0;
+        padding: 7px 24px 3px;
+        transform: none !important;
+    }
+}
