@@ -29,13 +29,13 @@
     <link rel="stylesheet" href="css/secciones.css?v=31" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="css/secciones.css?v=31"></noscript>
     <link rel="stylesheet" href="css/animaciones.css?v=3">
-    <link rel="stylesheet" href="css/responsive.css?v=7">
+    <link rel="stylesheet" href="css/responsive.css?v=8">
 
 </head>
 
 <body class="preloading">
 
-    <audio id="musicaInvitacion" preload="none" loop data-src="assets/audio/love-story-orchestral.mp3"></audio>
+    <audio id="musicaInvitacion" preload="none" loop src="assets/audio/love-story-orchestral-mobile.mp3?v=1"></audio>
 
     <button class="control-musica" id="controlMusica" type="button" aria-label="Reproducir música" aria-pressed="false">
         <span class="control-musica-icono" aria-hidden="true">♪</span>
@@ -217,8 +217,7 @@
 
                 <div class="bienvenida-ornamento entrada-pieza pieza-6" aria-hidden="true"><span>♡</span></div>
                 <p class="bienvenida-cierre entrada-pieza pieza-6">Será un honor contar con tu presencia</p>
-                <button class="ir-cuenta boton-siguiente entrada-pieza pieza-6" id="irCuenta" type="button" aria-label="Ir a la cuenta regresiva">
-                    <small>Toca aquí para continuar</small>
+                <button class="ir-cuenta entrada-pieza pieza-6" id="irCuenta" type="button" aria-label="Ir a la cuenta regresiva">
                     <span>La magia está por comenzar</span>
                     <i aria-hidden="true">↓</i>
                 </button>
@@ -276,8 +275,7 @@
                     <p>Octubre · 2026</p>
                 </div>
                 <p class="cuenta-cierre" id="mensajeCuenta">Para celebrar una noche inolvidable</p>
-                <button class="ir-mensaje boton-siguiente" id="irMensaje" type="button" aria-label="Continuar al mensaje especial">
-                    <small>Toca aquí para continuar</small>
+                <button class="ir-mensaje" id="irMensaje" type="button" aria-label="Continuar al mensaje especial">
                     <span>Mientras llega ese momento…</span>
                     <i aria-hidden="true">↓</i>
                 </button>
@@ -306,8 +304,7 @@
                     <span>Con ilusión,</span>
                     <strong>Lizzeth</strong>
                 </div>
-                <button class="ir-familia boton-siguiente" id="irFamilia" type="button" aria-label="Continuar a la sección de familia">
-                    <small>Toca aquí para continuar</small>
+                <button class="ir-familia" id="irFamilia" type="button" aria-label="Continuar a la sección de familia">
                     <span>Acompañada por quienes más amo</span>
                     <i aria-hidden="true">↓</i>
                 </button>
@@ -353,8 +350,7 @@
                 </div>
 
                 <p class="familia-cierre">Gracias por caminar a mi lado y ser parte de este sueño</p>
-                <button class="ir-evento boton-siguiente" id="irEvento" type="button" aria-label="Continuar a los detalles del evento">
-                    <small>Toca aquí para continuar</small>
+                <button class="ir-evento" id="irEvento" type="button" aria-label="Continuar a los detalles del evento">
                     <span>El lugar donde celebraremos</span>
                     <i aria-hidden="true">↓</i>
                 </button>
@@ -401,8 +397,7 @@
                 </article>
 
                 <p class="evento-cierre">Te esperamos para compartir una noche llena de magia</p>
-                <button class="ir-dress-code boton-siguiente" id="irDressCode" type="button" aria-label="Continuar al código de vestimenta">
-                    <small>Toca aquí para continuar</small>
+                <button class="ir-dress-code" id="irDressCode" type="button" aria-label="Continuar al código de vestimenta">
                     <span>El estilo para nuestra noche</span>
                     <i aria-hidden="true">↓</i>
                 </button>
@@ -416,7 +411,7 @@
 
             <div class="atelier-visual muestrario-gala" aria-hidden="true">
                 <span class="monograma-gala">L</span>
-                <p class="atelier-titulo">Maison Lizzeth</p>
+                <p class="atelier-titulo">Selección de gala</p>
                 <div class="muestras-tela">
                     <span class="tela tela-negra"></span>
                     <span class="tela tela-champagne"></span>
@@ -452,8 +447,7 @@
                     <p class="dress-nota">Gracias por ayudarnos a hacer de este momento algo aún más especial.</p>
                 </div>
             </div>
-            <button class="ir-regalos boton-siguiente" id="irRegalos" type="button" aria-label="Continuar a la mesa de regalos">
-                <small>Toca aquí para continuar</small>
+            <button class="ir-regalos" id="irRegalos" type="button" aria-label="Continuar a la mesa de regalos">
                 <span>Un detalle con cariño</span><i aria-hidden="true">↓</i>
             </button>
         </section>
@@ -486,7 +480,7 @@
                     <p class="copiar-estado" id="copiarEstado" role="status" aria-live="polite"></p>
                 </article>
                 <p class="regalos-nota">El mejor detalle será compartir esta noche contigo.</p>
-                <button class="ir-accesos boton-siguiente" id="irAccesos" type="button"><small>Toca aquí para continuar</small><span>Confirmar mi invitación</span><i aria-hidden="true">↓</i></button>
+                <button class="ir-accesos" id="irAccesos" type="button"><span>Confirmar mi invitación</span><i aria-hidden="true">↓</i></button>
             </div>
         </section>
 
@@ -528,7 +522,7 @@
                         </div>
                         <div class="boletos-imprimibles" id="boletosImprimibles"></div>
                         <p class="boletos-aviso">Conserva este archivo y presenta el código de cada invitado al ingresar.</p>
-                        <button class="ir-hospedaje boton-siguiente" id="irHospedaje" type="button"><small>Toca aquí para continuar</small><span>Ver opciones para descansar</span><i aria-hidden="true">↓</i></button>
+                        <button class="ir-hospedaje" id="irHospedaje" type="button">Ver opciones para descansar <i aria-hidden="true">↓</i></button>
                     </div>
                 </div>
             </div>
@@ -570,7 +564,7 @@
                 </div>
 
                 <aside class="hospedaje-aviso"><span aria-hidden="true">✦</span><p><strong>Una recomendación de cortesía</strong>Estas opciones se sugieren principalmente por cercanía y para pasar la noche. Si necesitas mayor comodidad, servicios específicos o una estancia especial, te recomendamos buscar una alternativa que se ajuste a tus necesidades. Confirma directamente disponibilidad, tarifas y condiciones antes de reservar.</p></aside>
-                <button class="ir-recuerdos boton-siguiente" id="irRecuerdos" type="button"><small>Toca aquí para continuar</small><span>Una noche para recordar</span><i aria-hidden="true">↓</i></button>
+                <button class="ir-recuerdos" id="irRecuerdos" type="button">Una noche para recordar <i aria-hidden="true">↓</i></button>
             </div>
         </section>
 
@@ -593,7 +587,7 @@
                     <a href="https://photos.app.goo.gl/R6RZwhjceY8muPuD9" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">＋</span> Compartir mis fotos</a>
                 </div>
                 <p class="recuerdos-nota">El álbum cobrará vida durante y después de la celebración.</p>
-                <button class="ir-cierre boton-siguiente" id="irCierre" type="button"><small>Toca aquí para continuar</small><span>Hasta que llegue el gran día</span><i aria-hidden="true">↓</i></button>
+                <button class="ir-cierre" id="irCierre" type="button">Hasta que llegue el gran día <i aria-hidden="true">↓</i></button>
             </div>
         </section>
 
