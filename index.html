@@ -18,8 +18,9 @@
 
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap"
-        rel="stylesheet"
+        rel="stylesheet" media="print" onload="this.media='all'"
     >
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"></noscript>
 
     <!-- Estilos del proyecto -->
     <link rel="stylesheet" href="css/variables.css?v=2">
@@ -35,7 +36,7 @@
 
 <body class="preloading">
 
-    <audio id="musicaInvitacion" preload="none" loop src="assets/audio/love-story-orchestral-mobile.mp3?v=1"></audio>
+    <audio id="musicaInvitacion" preload="none" loop src="assets/audio/love-story-orchestral-datos.mp3?v=1"></audio>
 
     <button class="control-musica" id="controlMusica" type="button" aria-label="Reproducir música" aria-pressed="false">
         <span class="control-musica-icono" aria-hidden="true">♪</span>
@@ -616,7 +617,7 @@
     <!-- JavaScript del proyecto -->
     <script src="js/preloader.js?v=2" defer></script>
     <script src="js/sobre.js?v=2" defer></script>
-    <script src="js/main.js?v=14" defer></script>
+    <script src="js/main.js?v=15" defer></script>
 
 </body>
 </html>
