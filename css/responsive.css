@@ -288,6 +288,11 @@ body {
     overscroll-behavior-y: auto;
 }
 
+html { scroll-snap-type: y proximity; }
+main > section { scroll-snap-align: start; }
+
+.preloader { transition-duration: .45s !important; }
+
 .boton-siguiente {
     min-width: min(310px, 88vw) !important;
     min-height: 58px !important;
