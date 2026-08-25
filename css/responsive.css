@@ -282,6 +282,12 @@ select:focus-visible {
 }
 
 /* Navegación clara y secciones seguras para navegadores Android. */
+html,
+body {
+    touch-action: pan-y;
+    overscroll-behavior-y: auto;
+}
+
 .boton-siguiente {
     min-width: min(310px, 88vw) !important;
     min-height: 58px !important;
