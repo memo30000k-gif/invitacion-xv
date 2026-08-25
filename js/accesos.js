@@ -123,7 +123,7 @@ document.getElementById("descargarBoletos")?.addEventListener("click", () => {
 document.getElementById("irHospedaje")?.addEventListener("click", () => document.getElementById("hospedaje")?.scrollIntoView({ behavior: "smooth", block: "start" }));
 document.getElementById("irRecuerdos")?.addEventListener("click", () => document.getElementById("recuerdos")?.scrollIntoView({ behavior: "smooth", block: "start" }));
 document.getElementById("irCierre")?.addEventListener("click", () => document.getElementById("cierre")?.scrollIntoView({ behavior: "smooth", block: "start" }));
-document.getElementById("volverInicio")?.addEventListener("click", () => document.getElementById("portada")?.scrollIntoView({ behavior: "smooth", block: "start" }));
+document.getElementById("volverInicio")?.addEventListener("click", () => window.scrollTo({ top: 0, left: 0, behavior: "smooth" }));
 document.getElementById("volverBoletos")?.addEventListener("click", () => {
     const destino = boletosPanel && !boletosPanel.hidden ? boletosPanel : document.getElementById("accesos");
     destino?.scrollIntoView({ behavior: "smooth", block: "center" });

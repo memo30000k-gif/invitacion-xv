@@ -5,7 +5,7 @@
 function cargarModuloAccesos() {
     if (document.querySelector('script[data-modulo="accesos"]')) return;
     const script = document.createElement("script");
-    script.src = "js/accesos.js?v=10";
+    script.src = "js/accesos.js?v=11";
     script.defer = true;
     script.dataset.modulo = "accesos";
     document.body.appendChild(script);
@@ -200,84 +200,32 @@ botonIrCuenta?.addEventListener("click", () => {
 
 botonIrMensaje?.addEventListener("click", () => {
     if (!seccionCuenta || !seccionMensaje) return;
-
-    seccionCuenta.classList.add("tiempo-detenido");
-    botonIrMensaje.disabled = true;
-
-    window.setTimeout(() => {
-        seccionMensaje.scrollIntoView({ behavior: "smooth", block: "start" });
-        seccionMensaje.classList.add("mensaje-visible");
-    }, 760);
-
-    window.setTimeout(() => {
-        seccionCuenta.classList.remove("tiempo-detenido");
-        botonIrMensaje.disabled = false;
-    }, 1900);
+    seccionMensaje.classList.add("mensaje-visible");
+    seccionMensaje.scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
 botonIrFamilia?.addEventListener("click", () => {
     if (!seccionMensaje || !seccionFamilia) return;
-
-    seccionMensaje.classList.add("transicion-familia");
-    botonIrFamilia.disabled = true;
-
-    window.setTimeout(() => {
-        seccionFamilia.scrollIntoView({ behavior: "smooth", block: "start" });
-        seccionFamilia.classList.add("familia-visible");
-    }, 620);
-
-    window.setTimeout(() => {
-        seccionMensaje.classList.remove("transicion-familia");
-        botonIrFamilia.disabled = false;
-    }, 1750);
+    seccionFamilia.classList.add("familia-visible");
+    seccionFamilia.scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
 botonIrEvento?.addEventListener("click", () => {
     if (!seccionFamilia || !seccionEvento) return;
-
-    seccionFamilia.classList.add("transicion-evento");
-    botonIrEvento.disabled = true;
-
-    window.setTimeout(() => {
-        seccionEvento.scrollIntoView({ behavior: "smooth", block: "start" });
-        seccionEvento.classList.add("evento-visible");
-    }, 650);
-
-    window.setTimeout(() => {
-        seccionFamilia.classList.remove("transicion-evento");
-        botonIrEvento.disabled = false;
-    }, 1750);
+    seccionEvento.classList.add("evento-visible");
+    seccionEvento.scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
 botonIrDressCode?.addEventListener("click", () => {
     if (!seccionEvento || !seccionDressCode) return;
-
-    seccionEvento.classList.add("transicion-dress");
-    botonIrDressCode.disabled = true;
-
-    window.setTimeout(() => {
-        seccionDressCode.scrollIntoView({ behavior: "smooth", block: "start" });
-        seccionDressCode.classList.add("dress-visible");
-    }, 680);
-
-    window.setTimeout(() => {
-        seccionEvento.classList.remove("transicion-dress");
-        botonIrDressCode.disabled = false;
-    }, 1850);
+    seccionDressCode.classList.add("dress-visible");
+    seccionDressCode.scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
 botonIrRegalos?.addEventListener("click", () => {
     if (!seccionDressCode || !seccionRegalos) return;
-    seccionDressCode.classList.add("transicion-regalos");
-    botonIrRegalos.disabled = true;
-    window.setTimeout(() => {
-        seccionRegalos.scrollIntoView({ behavior: "smooth", block: "start" });
-        seccionRegalos.classList.add("regalos-visible");
-    }, 650);
-    window.setTimeout(() => {
-        seccionDressCode.classList.remove("transicion-regalos");
-        botonIrRegalos.disabled = false;
-    }, 1750);
+    seccionRegalos.classList.add("regalos-visible");
+    seccionRegalos.scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
 botonCopiarMesa?.addEventListener("click", async () => {
