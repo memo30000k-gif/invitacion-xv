@@ -164,6 +164,36 @@ const seccionRegalos = document.getElementById("mesaRegalos");
 const botonCopiarMesa = document.getElementById("copiarMesa");
 const copiarEstado = document.getElementById("copiarEstado");
 
+/* Las animaciones también se activan al llegar deslizando con el dedo.
+   Los botones conservan sus transiciones cinematográficas, pero ya no son
+   la única forma de descubrir la siguiente sección. */
+const seccionesRevelables = [
+    [seccionMensaje, "mensaje-visible"],
+    [seccionFamilia, "familia-visible"],
+    [seccionEvento, "evento-visible"],
+    [seccionDressCode, "dress-visible"],
+    [seccionRegalos, "regalos-visible"]
+];
+
+if ("IntersectionObserver" in window) {
+    const observadorSecciones = new IntersectionObserver((entradas) => {
+        entradas.forEach((entrada) => {
+            if (!entrada.isIntersecting) return;
+            const claseVisible = entrada.target.dataset.claseVisible;
+            if (claseVisible) entrada.target.classList.add(claseVisible);
+            observadorSecciones.unobserve(entrada.target);
+        });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+
+    seccionesRevelables.forEach(([seccion, claseVisible]) => {
+        if (!seccion) return;
+        seccion.dataset.claseVisible = claseVisible;
+        observadorSecciones.observe(seccion);
+    });
+} else {
+    seccionesRevelables.forEach(([seccion, claseVisible]) => seccion?.classList.add(claseVisible));
+}
+
 botonIrCuenta?.addEventListener("click", () => {
     seccionCuenta?.scrollIntoView({ behavior: "smooth", block: "start" });
 });
