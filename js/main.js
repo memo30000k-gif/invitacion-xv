@@ -183,7 +183,7 @@ if ("IntersectionObserver" in window) {
             if (claseVisible) entrada.target.classList.add(claseVisible);
             observadorSecciones.unobserve(entrada.target);
         });
-    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    }, { threshold: 0.01, rootMargin: "18% 0px 18% 0px" });
 
     seccionesRevelables.forEach(([seccion, claseVisible]) => {
         if (!seccion) return;
