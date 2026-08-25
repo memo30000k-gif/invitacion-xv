@@ -12,6 +12,15 @@
     <meta name="description" content="Invitación digital a los XV años de Lizzeth · 17 de octubre de 2026.">
     <meta name="theme-color" content="#f7e5e8">
 
+    <!-- Desbloqueo de emergencia: incluso con señal inestable, la portada
+         nunca queda atrapada detrás del preloader. -->
+    <script>
+        window.setTimeout(function () {
+            document.getElementById("preloader")?.classList.add("oculto");
+            document.body?.classList.remove("preloading");
+        }, 1400);
+    </script>
+
     <!-- Tipografías -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +39,7 @@
     <link rel="stylesheet" href="css/secciones.css?v=31" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="css/secciones.css?v=31"></noscript>
     <link rel="stylesheet" href="css/animaciones.css?v=3">
-    <link rel="stylesheet" href="css/responsive.css?v=8">
+    <link rel="stylesheet" href="css/responsive.css?v=9">
 
 </head>
 
@@ -615,9 +624,9 @@
 
 
     <!-- JavaScript del proyecto -->
-    <script src="js/preloader.js?v=2" defer></script>
+    <script src="js/preloader.js?v=3" defer></script>
     <script src="js/sobre.js?v=2" defer></script>
-    <script src="js/main.js?v=15" defer></script>
+    <script src="js/main.js?v=16" defer></script>
 
 </body>
 </html>
