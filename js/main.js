@@ -168,11 +168,11 @@ const copiarEstado = document.getElementById("copiarEstado");
    Los botones conservan sus transiciones cinematográficas, pero ya no son
    la única forma de descubrir la siguiente sección. */
 const seccionesRevelables = [
-    [seccionMensaje, "mensaje-visible"],
-    [seccionFamilia, "familia-visible"],
-    [seccionEvento, "evento-visible"],
-    [seccionDressCode, "dress-visible"],
-    [seccionRegalos, "regalos-visible"]
+    [seccionMensaje, "mensaje-visible", seccionCuenta, "tiempo-detenido"],
+    [seccionFamilia, "familia-visible", seccionMensaje, "transicion-familia"],
+    [seccionEvento, "evento-visible", seccionFamilia, "transicion-evento"],
+    [seccionDressCode, "dress-visible", seccionEvento, "transicion-dress"],
+    [seccionRegalos, "regalos-visible", seccionDressCode, "transicion-regalos"]
 ];
 
 if ("IntersectionObserver" in window) {
@@ -181,13 +181,21 @@ if ("IntersectionObserver" in window) {
             if (!entrada.isIntersecting) return;
             const claseVisible = entrada.target.dataset.claseVisible;
             if (claseVisible) entrada.target.classList.add(claseVisible);
+            const seccionAnterior = entrada.target._seccionAnterior;
+            const claseTransicion = entrada.target.dataset.claseTransicion;
+            if (seccionAnterior && claseTransicion) {
+                seccionAnterior.classList.add(claseTransicion);
+                window.setTimeout(() => seccionAnterior.classList.remove(claseTransicion), 1000);
+            }
             observadorSecciones.unobserve(entrada.target);
         });
     }, { threshold: 0.08, rootMargin: "0px" });
 
-    seccionesRevelables.forEach(([seccion, claseVisible]) => {
+    seccionesRevelables.forEach(([seccion, claseVisible, seccionAnterior, claseTransicion]) => {
         if (!seccion) return;
         seccion.dataset.claseVisible = claseVisible;
+        seccion._seccionAnterior = seccionAnterior;
+        seccion.dataset.claseTransicion = claseTransicion;
         observadorSecciones.observe(seccion);
     });
 } else {
