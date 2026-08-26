@@ -183,7 +183,7 @@ if ("IntersectionObserver" in window) {
             if (claseVisible) entrada.target.classList.add(claseVisible);
             observadorSecciones.unobserve(entrada.target);
         });
-    }, { threshold: 0.01, rootMargin: "18% 0px 18% 0px" });
+    }, { threshold: 0.08, rootMargin: "0px" });
 
     seccionesRevelables.forEach(([seccion, claseVisible]) => {
         if (!seccion) return;
@@ -200,32 +200,37 @@ botonIrCuenta?.addEventListener("click", () => {
 
 botonIrMensaje?.addEventListener("click", () => {
     if (!seccionCuenta || !seccionMensaje) return;
-    seccionMensaje.classList.add("mensaje-visible");
+    seccionCuenta.classList.add("tiempo-detenido");
     seccionMensaje.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.setTimeout(() => seccionCuenta.classList.remove("tiempo-detenido"), 900);
 });
 
 botonIrFamilia?.addEventListener("click", () => {
     if (!seccionMensaje || !seccionFamilia) return;
-    seccionFamilia.classList.add("familia-visible");
+    seccionMensaje.classList.add("transicion-familia");
     seccionFamilia.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.setTimeout(() => seccionMensaje.classList.remove("transicion-familia"), 900);
 });
 
 botonIrEvento?.addEventListener("click", () => {
     if (!seccionFamilia || !seccionEvento) return;
-    seccionEvento.classList.add("evento-visible");
+    seccionFamilia.classList.add("transicion-evento");
     seccionEvento.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.setTimeout(() => seccionFamilia.classList.remove("transicion-evento"), 900);
 });
 
 botonIrDressCode?.addEventListener("click", () => {
     if (!seccionEvento || !seccionDressCode) return;
-    seccionDressCode.classList.add("dress-visible");
+    seccionEvento.classList.add("transicion-dress");
     seccionDressCode.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.setTimeout(() => seccionEvento.classList.remove("transicion-dress"), 900);
 });
 
 botonIrRegalos?.addEventListener("click", () => {
     if (!seccionDressCode || !seccionRegalos) return;
-    seccionRegalos.classList.add("regalos-visible");
+    seccionDressCode.classList.add("transicion-regalos");
     seccionRegalos.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.setTimeout(() => seccionDressCode.classList.remove("transicion-regalos"), 900);
 });
 
 botonCopiarMesa?.addEventListener("click", async () => {
