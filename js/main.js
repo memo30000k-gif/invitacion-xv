@@ -5,7 +5,7 @@
 function cargarModuloAccesos() {
     if (document.querySelector('script[data-modulo="accesos"]')) return;
     const script = document.createElement("script");
-    script.src = "js/accesos.js?v=11";
+    script.src = "js/accesos.js?v=12";
     script.defer = true;
     script.dataset.modulo = "accesos";
     document.body.appendChild(script);
